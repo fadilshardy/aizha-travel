@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::get('/destination', [DestinationController::class, 'index']);
     Route::resource('destination', DestinationController::class);
+    Route::get('/destination/{destination}/image/{image_yid}', [DestinationController::class, 'delete_image']);
 });

@@ -13,7 +13,7 @@
     <body>
         <div class="container mx-auto">
             <div class="pt-5 mt-5 md:mt-0 md:col-span-2">
-                <form action="{{route('destination.update', $destination->id)}}" method="POST">
+                <form action="{{route('destination.update', $destination->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -90,7 +90,8 @@
                                         <div class="flex text-sm text-gray-600">
                                             <label for="file-upload" class="relative font-medium text-indigo-600 bg-white rounded-md cursor-pointer hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                 <span>Upload a file</span>
-                                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                                <input id="file-upload" name="images[]" type="file" class="sr-only" multiple="multiple">
+
                                             </label>
                                             <p class="pl-1">or drag and drop</p>
                                         </div>
@@ -108,19 +109,26 @@
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-        </div>
 
-        @if ($errors->any())
-        <div class="">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li class="w-64 p-2 mt-2 bg-red-400 rounded shadow-lg">{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+                <div class="flex gap-4 p-4">
+                    @foreach($destination->getMedia() as $image)
+                    <div class="bg-gray-100 rounded-lg">
+                        <p class="text-lg font-bold ">{{$image->name}}</p>
+                        <a href="{{$image->id}}"><img src="{{$image->getFullUrl()}}" alt=""></a>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+
+            @if ($errors->any())
+            <div class="">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li class="w-64 p-2 mt-2 bg-red-400 rounded shadow-lg">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
 
     </body>
     </html>

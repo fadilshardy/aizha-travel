@@ -13,6 +13,9 @@
     <body>
 
         <div class="container mx-auto">
+            <div class="py-4">
+                <a href="{{route('destination.create')}}" class="text-lg font-bold text-green-400 uppercase">Add</a>
+            </div>
             <table class="table-fixed">
                 <thead>
                     <tr>

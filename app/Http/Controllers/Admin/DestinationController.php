@@ -8,8 +8,7 @@ use App\Http\Requests\UpdateDestinationRequest;
 
 use App\Models\Destination;
 use Illuminate\Http\Request;
-
-
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class DestinationController extends Controller
 {
@@ -20,6 +19,7 @@ class DestinationController extends Controller
      */
     public function index()
     {
+
         $destination = Destination::all();
 
         return view('destinations.index', [
@@ -34,6 +34,7 @@ class DestinationController extends Controller
      */
     public function create()
     {
+
         return view('destinations.create');
     }
 
@@ -47,8 +48,17 @@ class DestinationController extends Controller
     {
         $validated = $request->validated();
 
-        Destination::create($validated);
-        return route('destination.create');
+        $destination = Destination::create($validated);
+
+        if ($request->hasFile('images')) {
+            $destination
+                ->addMultipleMediaFromRequest(['images'])
+                ->each(function ($image) {
+                    $image->toMediaCollection();
+                });
+        }
+
+        return redirect(route('destination.index'));
     }
 
     /**
@@ -59,6 +69,9 @@ class DestinationController extends Controller
      */
     public function show(Destination $destination)
     {
+
+        // $destination->deleteMedia(15);
+
         return view('destinations.show', compact('destination'));
     }
 
@@ -83,9 +96,18 @@ class DestinationController extends Controller
     public function update(UpdateDestinationRequest $request, Destination $destination)
     {
         $validated = $request->validated();
+
         $destination->update(array_filter($validated));
 
-        return view('destinations.edit', compact('destination'));
+        if ($request->hasFile('images')) {
+            $destination
+                ->addMultipleMediaFromRequest(['images'])
+                ->each(function ($image) {
+                    $image->toMediaCollection();
+                });
+        }
+
+        return redirect(route('destination.show', $destination->id));
     }
 
     /**
@@ -96,9 +118,15 @@ class DestinationController extends Controller
      */
     public function destroy(Destination $destination)
     {
-
         $destination->delete();
 
         return view('destinations.index');
+    }
+
+    public function delete_image(Destination $destination, $image_id)
+    {
+        $destination->deleteMedia($image_id);
+
+        return view('destinations.show', compact('destination'));
     }
 }

@@ -27,7 +27,14 @@
                 <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">{{$destination->duration}} /days</span>
             </div>
         </div>
+        <a href="{{route('destination.edit', $destination->id)}}" class="p-4 font-bold text-white bg-green-300 rounded-full shadow">Edit</a>
+
     </div>
+
+    @foreach($destination->getMedia() as $image)
+    <a href="{{$image->id}}"><img src="{{$image->getFullUrl()}}" alt=""></a>
+
+    @endforeach
 
 </body>
 </html>
