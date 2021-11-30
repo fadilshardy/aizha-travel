@@ -7,16 +7,19 @@ use App\Http\Requests\StoreDestinationRequest;
 use App\Http\Requests\UpdateDestinationRequest;
 
 use App\Models\Destination;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class DestinationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    protected $imageService;
+
+    public function __construct(imageService $imageService)
+    {
+        $this->imageService = $imageService;
+    }
+
     public function index()
     {
 
@@ -27,23 +30,11 @@ class DestinationController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-
         return view('destinations.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreDestinationRequest $request)
     {
         $validated = $request->validated();
@@ -51,48 +42,23 @@ class DestinationController extends Controller
         $destination = Destination::create($validated);
 
         if ($request->hasFile('images')) {
-            $destination
-                ->addMultipleMediaFromRequest(['images'])
-                ->each(function ($image) {
-                    $image->toMediaCollection();
-                });
+            $this->imageService->upload($request->images, $destination);
         }
 
         return redirect(route('destination.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Destination  $destination
-     * @return \Illuminate\Http\Response
-     */
     public function show(Destination $destination)
     {
-
-        // $destination->deleteMedia(15);
 
         return view('destinations.show', compact('destination'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Destination  $destination
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Destination $destination)
     {
         return view('destinations.edit', compact('destination'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Destination  $destination
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateDestinationRequest $request, Destination $destination)
     {
         $validated = $request->validated();
@@ -100,22 +66,12 @@ class DestinationController extends Controller
         $destination->update(array_filter($validated));
 
         if ($request->hasFile('images')) {
-            $destination
-                ->addMultipleMediaFromRequest(['images'])
-                ->each(function ($image) {
-                    $image->toMediaCollection();
-                });
+            $this->imageService->upload($request->images, $destination);
         }
 
         return redirect(route('destination.show', $destination->id));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Destination  $destination
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Destination $destination)
     {
         $destination->delete();

@@ -9,6 +9,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>tesssa</h1>
+    <h1 class="text-2xl"><a href="{{route('destination.index')}}">Admin Destination</a></h1>
 </body>
 </html>

@@ -24,7 +24,6 @@ class StoreDestinationRequest extends FormRequest
      */
     public function rules()
     {
-        // dd($this->input('images'));
         return [
             'name' => 'required|max:255',
             'slug' => 'required|unique:destinations|max:255',
