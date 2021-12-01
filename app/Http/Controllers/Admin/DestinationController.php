@@ -7,7 +7,9 @@ use App\Http\Requests\StoreDestinationRequest;
 use App\Http\Requests\UpdateDestinationRequest;
 
 use App\Models\Destination;
-use App\Services\ImageService;
+use App\Services\imageService;
+use App\Services\TagService;
+
 use Illuminate\Http\Request;
 
 class DestinationController extends Controller
@@ -15,9 +17,10 @@ class DestinationController extends Controller
 
     protected $imageService;
 
-    public function __construct(imageService $imageService)
+    public function __construct(imageService $imageService, TagService $tagService)
     {
         $this->imageService = $imageService;
+        $this->tagService = $tagService;
     }
 
     public function index()
@@ -37,9 +40,11 @@ class DestinationController extends Controller
 
     public function store(StoreDestinationRequest $request)
     {
-        $validated = $request->validated();
+        $validated = $request->safe();
 
-        $destination = Destination::create($validated);
+        $destination = Destination::create($validated->except(['tags', 'images']));
+
+        $this->tagService->store($request->tags, $destination->id);
 
         if ($request->hasFile('images')) {
             $this->imageService->upload($request->images, $destination);
@@ -50,7 +55,6 @@ class DestinationController extends Controller
 
     public function show(Destination $destination)
     {
-
         return view('destinations.show', compact('destination'));
     }
 
@@ -61,9 +65,12 @@ class DestinationController extends Controller
 
     public function update(UpdateDestinationRequest $request, Destination $destination)
     {
-        $validated = $request->validated();
+        $validated = $request->safe();
 
-        $destination->update(array_filter($validated));
+        $destination->update(array_filter($validated->except(['tags', 'images'])));
+
+        $this->tagService->store($request->tags, $destination->id);
+
 
         if ($request->hasFile('images')) {
             $this->imageService->upload($request->images, $destination);

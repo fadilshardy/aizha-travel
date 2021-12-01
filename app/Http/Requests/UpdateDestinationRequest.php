@@ -29,7 +29,10 @@ class UpdateDestinationRequest extends FormRequest
             'description' => 'required',
             'slug' => 'sometimes|unique:destinations|max:255',
             'price' => 'required',
-            'duration' => 'required'
+            'location' => 'required',
+            'duration' => 'required',
+            'tags' => 'required',
+            'images' => 'nullable'
         ];
     }
 }
