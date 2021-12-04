@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Models\Destination;
 use App\Models\Tag;
 
-class tagService
+class TagService
 {
     public function store($tags, $destination_id)
     {

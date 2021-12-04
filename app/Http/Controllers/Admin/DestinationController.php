@@ -7,7 +7,7 @@ use App\Http\Requests\StoreDestinationRequest;
 use App\Http\Requests\UpdateDestinationRequest;
 
 use App\Models\Destination;
-use App\Services\imageService;
+use App\Services\ImageService;
 use App\Services\TagService;
 
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class DestinationController extends Controller
 
     protected $imageService;
 
-    public function __construct(imageService $imageService, TagService $tagService)
+    public function __construct(ImageService $imageService, TagService $tagService)
     {
         $this->imageService = $imageService;
         $this->tagService = $tagService;

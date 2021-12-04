@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class imageService
+class ImageService
 {
     public function upload($request, $destination)
     {
