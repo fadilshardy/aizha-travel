@@ -1,18 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Tailwind CSS -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
-    <title>Tailwind CSS CDN</title>
-</head>
-<body>
-
+@extends('layouts.app')
+@extends('layouts.header')
+@section('content')
+<div class="container h-full pt-20 mx-auto">
     <div class="p-10">
         <!--Card 1-->
         <div class="max-w-sm overflow-hidden rounded shadow-lg">
@@ -30,11 +19,9 @@
         <a href="{{route('destination.edit', $destination->id)}}" class="p-4 font-bold text-white bg-green-300 rounded-full shadow">Edit</a>
 
     </div>
-
     @foreach($destination->getMedia() as $image)
     <a href="{{$image->id}}"><img src="{{$image->getFullUrl()}}" alt=""></a>
 
     @endforeach
-
-</body>
-</html>
+</div>
+@endsection
