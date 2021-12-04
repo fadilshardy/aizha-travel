@@ -2,6 +2,7 @@
 @extends('layouts.header')
 @section('content')
 <div class="container h-full pt-20 mx-auto">
+    <a href="{{route('destination.index')}}" class="p-4 text-white bg-yellow-500 rounded ">Back</a>
     <div class="p-10">
         <!--Card 1-->
         <div class="max-w-sm overflow-hidden rounded shadow-lg">

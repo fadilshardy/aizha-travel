@@ -8,7 +8,7 @@
 
     <title>Aizha Travel</title>
 </head>
-<body class="bg-gray-50">
+<body class="antialiased text-gray-900 bg-gray-50">
     @yield('content')
 </body>
 </html>

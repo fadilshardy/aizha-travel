@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="container h-full pt-20 mx-auto">
+    <a href="{{route('destination.index')}}" class="p-4 text-white bg-yellow-500 rounded ">Back</a>
+
     <div class="pt-5 mt-5 md:mt-0 md:col-span-2">
         <form action="{{route('destination.store')}}" method="POST" enctype="multipart/form-data">
             @csrf

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DestinationController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
+
 
 Route::prefix('admin')->group(function () {
     Route::resource('destination', DestinationController::class);
-    Route::get('/destination/{destination}/image/{image_yid}', [DestinationController::class, 'delete_image']);
+    Route::get('/destination/{destination}/image/{image_id}', [DestinationController::class, 'delete_image']);
 });
