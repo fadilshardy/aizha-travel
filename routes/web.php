@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Admin\DestinationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +18,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('destination', DestinationController::class);
     Route::get('/destination/{destination}/image/{image_id}', [DestinationController::class, 'delete_image']);
 });
+
+Route::post('/destination/checkout', [OrderController::class, 'checkout'])->name('destination.checkout');
+Route::post('/destination/order', [OrderController::class, 'order'])->name('destination.order');
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/users', function () {
+        // Matches The "/admin/users" URL
+    });
+});
+
+require __DIR__ . '/auth.php';

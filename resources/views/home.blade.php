@@ -49,7 +49,8 @@
         @foreach($destinations as $destination)
         <div class="w-1/3 h-full">
             <div class="relative overflow-hidden rounded-lg shadow-md pb-3/4">
-                <a href="{{route('destination.show', $destination->id)}}"><img src="{{$destination->getMedia()[0]->getUrl()}}" ;}}" alt="" class="absolute bottom-0 object-cover w-full h-full"></a>
+                <a href="{{route('destination.show', $destination->id)}}">
+                    <img src="{{$destination->getMedia()[0]->getUrl()}}" ;}}" alt="" class="absolute bottom-0 object-cover w-full h-full"></a>
             </div>
             <div class="relative px-4 -mt-16">
                 <div class="p-6 bg-white rounded-lg shadow-lg">

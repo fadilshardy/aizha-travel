@@ -42,6 +42,7 @@ class DestinationController extends Controller
     {
         $validated = $request->safe();
 
+
         $destination = Destination::create($validated->except(['tags', 'images']));
 
         $this->tagService->store($request->tags, $destination->id);
