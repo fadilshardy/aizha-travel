@@ -20,7 +20,6 @@ class CreateDestinationsTable extends Migration
             $table->text('description');
             $table->string('location');
             $table->integer('price');
-            $table->integer('duration');
             $table->timestamps();
         });
     }

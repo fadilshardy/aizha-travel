@@ -29,7 +29,6 @@ class StoreDestinationRequest extends FormRequest
             'slug' => 'required|unique:destinations|max:255',
             'description' => 'required',
             'price' => 'required',
-            'duration' => 'required',
             'location' => 'required',
             'tags' => 'required',
             'images' => 'nullable'

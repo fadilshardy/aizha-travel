@@ -24,7 +24,14 @@ class StoreOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'required|exists:users,id',
+            'destination_id' => 'required|exists:destinations,id',
+            'quantity' => 'required',
+            'start_date' => 'required|date|after:today',
+            'end_date' => 'required|date|after:today',
+            'total_amount' => 'required',
+            'total_days' => 'required',
+            'notes' => 'nullable',
         ];
     }
 }

@@ -69,19 +69,6 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class=" sm:col-span-2">
-                            <label for="company-website" class="block text-sm font-medium text-gray-700">
-                                duration
-                            </label>
-                            <div class="flex mt-1 rounded-md shadow-sm">
-                                <input class="w-full h-12 px-4 mb-2 text-lg text-gray-700 placeholder-gray-400 border rounded-lg focus:shadow-outline" type="text" placeholder="Large input" name="duration" />
-                            </div>
-                        </div>
-                    </div>
-
-
-
                     <div>
                         <label for="about" class="block text-sm font-medium text-gray-700">
                             Description

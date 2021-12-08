@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $destination = Destination::all();
+        $destination = Destination::paginate(6);
 
         return view('home', [
             'destinations' => $destination

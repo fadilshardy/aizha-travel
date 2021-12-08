@@ -26,7 +26,7 @@
         <hr class="p-2">
 
         <h2 class="flex justify-center p-2 text-3xl font-bold"> <span class="pr-1 text-amber-400">Interested?</span> Book Your Journey Now</h2>
-        <form action="{{route('destination.checkout')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <form action="{{route('order.redirect')}}" method="POST" enctype="multipart/form-data" autocomplete="off">
             @csrf
             <input name="destination_id" type="hidden" value="{{$destination->id}}">
             <div class="flex flex-col justify-center w-full gap-2 p-4 bg-gray-100 rounded-lg">

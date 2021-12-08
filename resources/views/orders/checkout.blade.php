@@ -6,7 +6,7 @@
     <hr>
     <h1 class="flex justify-center pt-10 text-4xl font-bold text-gray-600">Order Summary</h1>
     <hr class="my-3" />
-    <form action="{{route('destination.order')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('destination.order')}}" method="POST">
         @csrf
         <input type="hidden" name="destination_id" value="{{$destination->id}}">
         <input type="hidden" name="user_id" value="{{$user->id}}">
@@ -110,5 +110,13 @@
             </div>
         </div>
     </form>
-
+    @if ($errors->any())
+    <div class="">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li class="w-64 p-2 mt-2 bg-red-400 rounded shadow-lg">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     @endsection

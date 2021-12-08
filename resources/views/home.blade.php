@@ -39,15 +39,15 @@
 
     </div>
 </div>
-<div class="container h-full mx-auto ">
+<div class="container w-full h-full mx-auto ">
     <div class="flex flex-col items-center pt-4">
         <h1 class="text-4xl font-semibold">Destinations</h1>
         <span class="font-light ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, quis.</span>
     </div>
 
-    <div class="flex items-center gap-4 pt-4 ">
+    <div class="flex flex-wrap justify-center gap-10 pt-4 pb-20">
         @foreach($destinations as $destination)
-        <div class="w-1/3 h-full">
+        <div class="w-96">
             <div class="relative overflow-hidden rounded-lg shadow-md pb-3/4">
                 <a href="{{route('destination.show', $destination->id)}}">
                     <img src="{{$destination->getMedia()[0]->getUrl()}}" ;}}" alt="" class="absolute bottom-0 object-cover w-full h-full"></a>
@@ -55,12 +55,10 @@
             <div class="relative px-4 -mt-16">
                 <div class="p-6 bg-white rounded-lg shadow-lg">
                     <div class="flex items-baseline gap-2 text-sm text-gray-600">
-                        <span> <i class="fas fa-map-marker-alt"></i> <a href="#" class="hover:text-amber-400">{{$destination->location}}</a> </span>
+                        <span class="truncate"> <i class="fas fa-map-marker-alt"></i> <a href="#" class="hover:text-amber-400">{{$destination->location}}</a> </span>
                         <span class="inline-block px-2 text-xs font-semibold tracking-wide uppercase rounded-full text-amber-700 bg-amber-200">New</span>
-
                     </div>
-                    <span class=""></span>
-                    <a class="mt-1 overflow-hidden text-lg font-semibold leading-tight truncate hover:text-amber-400" href="{{route('destination.show', $destination->id)}}">{{$destination->name}}</a>
+                    <p class="truncate"> <a class="mt-1 text-lg font-semibold leading-tight truncate hover:text-amber-400" href="{{route('destination.show', $destination->id)}}">{{$destination->name}}</a></p>
                     <div class="mt-1">
                         <span class=""> ${{$destination->price}}
                         </span>
@@ -69,7 +67,6 @@
 
                     <div class="mt-2">
                         <div class="hidden">{{$rating =  rand(3,5);}}</div>
-
                         @for ($i = 1; $i <= 5; $i++) <i class="fas fa-star {{ ($i <= $rating ) ? "text-amber-400" : 'text-gray-400';}}"></i> @endfor
                             <span class="ml-2 text-sm text-gray-600">(Based on {{rand(5, 1000);}} reviews)</span>
                     </div>
@@ -77,10 +74,7 @@
             </div>
         </div>
         @endforeach
-
     </div>
-
-
 </div>
 
 

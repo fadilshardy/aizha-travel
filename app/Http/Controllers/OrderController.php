@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreOrderRequest;
 use App\Models\Destination;
 use App\Models\Order;
 use App\Services\DateService;
@@ -15,6 +16,16 @@ class OrderController extends Controller
     {
         $this->dateService = $dateService;
         $this->orderService = $orderService;
+    }
+
+    public function redirectToCheckout(Request $request)
+    {
+        $destination_id = $request->destination_id;
+        $start = $request->start;
+        $end = $request->end;
+        $quantity = $request->quantity;
+
+        return redirect()->route('destination.checkout', compact('destination_id', 'start', 'end', 'quantity'));
     }
 
     public function checkout(Request $request)
@@ -35,10 +46,13 @@ class OrderController extends Controller
         return view('orders.checkout', compact('user', 'destination', 'data', 'request'));
     }
 
-    public function order(Request $request)
+    public function order(StoreOrderRequest $request)
     {
+
         $validated = $request->except('start_date', 'end_date');
 
         $this->orderService->store($validated, $request->start_date, $request->end_date);
+
+        return redirect()->route('home');
     }
 }
