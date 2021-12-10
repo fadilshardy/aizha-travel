@@ -20,7 +20,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('destination', DestinationController::class);
-    Route::get('/destination/{destination}/image/{image_id}', [DestinationController::class, 'delete_image']);
+    Route::get('/destination/{destination}/image/{image_id}', [DestinationController::class, 'deleteImage']);
+    Route::post('/destination/{destination}/comment', [DestinationController::class, 'storeComment'])->name('destination.storeComment');
 });
 Route::post('/destination/redirect', [OrderController::class, 'redirectToCheckout'])->name('order.redirect');
 

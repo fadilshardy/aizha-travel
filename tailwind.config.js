@@ -2,12 +2,11 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
     mode: "jit",
-    purge: [
+    content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
-    darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
             spacing: {
@@ -46,21 +45,20 @@ module.exports = {
             current: "currentColor",
             black: "#000",
             white: "#fff",
-            bluegray: colors.blueGray,
-            coolgray: colors.coolGray,
+            bluegray: colors.slate,
             gray: colors.gray,
-            truegray: colors.trueGray,
-            warmgray: colors.warmGray,
+            truegray: colors.neutral,
+            warmgray: colors.stone,
             red: colors.red,
             orange: colors.orange,
             amber: colors.amber,
-            yellow: colors.yellow,
+            yellow: colors.amber,
             lime: colors.lime,
             green: colors.green,
             emerald: colors.emerald,
             teal: colors.teal,
             cyan: colors.cyan,
-            lightblue: colors.lightBlue,
+            lightblue: colors.sky,
             blue: colors.blue,
             indigo: colors.indigo,
             violet: colors.violet,

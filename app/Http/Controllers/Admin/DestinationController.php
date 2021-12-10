@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\StoreDestinationRequest;
 use App\Http\Requests\UpdateDestinationRequest;
 
 use App\Models\Destination;
+use App\Models\Comment;
 use App\Services\ImageService;
 use App\Services\TagService;
 
@@ -87,10 +89,18 @@ class DestinationController extends Controller
         return view('destinations.index');
     }
 
-    public function delete_image(Destination $destination, $image_id)
+    public function deleteImage(Destination $destination, $image_id)
     {
         $destination->deleteMedia($image_id);
 
         return view('destinations.show', compact('destination'));
+    }
+
+    public function storeComment(StoreCommentRequest $request, Destination $destination)
+    {
+        $validated = $request->validated();
+        Comment::create($validated);
+
+        return redirect()->route('destination.show', $destination->id);
     }
 }

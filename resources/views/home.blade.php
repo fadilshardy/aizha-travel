@@ -60,9 +60,9 @@
                     </div>
                     <p class="truncate"> <a class="mt-1 text-lg font-semibold leading-tight truncate hover:text-amber-400" href="{{route('destination.show', $destination->id)}}">{{$destination->name}}</a></p>
                     <div class="mt-1">
-                        <span class=""> ${{$destination->price}}
+                        <span class="font-semibold tracking-wide text-amber-500"> ${{$destination->price}}
                         </span>
-                        <span class="text-sm text-gray-600">/ Person</span>
+                        <span class="text-xs text-gray-600">/ Person</span>
                     </div>
 
                     <div class="mt-2">
