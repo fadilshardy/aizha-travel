@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
 use App\Models\Tag;
-use App\Models\Comment;
+use App\Models\Review;
 use App\Models\User;
 
 
@@ -24,9 +24,9 @@ class Destination extends Model implements HasMedia
         return $this->belongsToMany(Tag::class, 'destination_tag', 'destination_id', 'tag_id');
     }
 
-    public function comments()
+    public function reviews()
     {
-        return $this->hasMany(Comment::class, 'destination_id');
+        return $this->hasMany(Review::class, 'destination_id');
     }
 
     public function UserComment()

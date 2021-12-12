@@ -3253,8 +3253,6 @@ class YearsView extends _View_js__WEBPACK_IMPORTED_MODULE_3__["default"] {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _themesberg_tailwind_datepicker_DateRangePicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @themesberg/tailwind-datepicker/DateRangePicker */ "./node_modules/@themesberg/tailwind-datepicker/js/DateRangePicker.js");
 
-new _themesberg_tailwind_datepicker_DateRangePicker__WEBPACK_IMPORTED_MODULE_0__["default"](dateRangePickerEl, {// options
-});
 
 /***/ }),
 

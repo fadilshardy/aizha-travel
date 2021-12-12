@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCommentRequest;
+use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\StoreDestinationRequest;
 use App\Http\Requests\UpdateDestinationRequest;
 
 use App\Models\Destination;
 use App\Models\Comment;
+use App\Models\Review;
 use App\Services\ImageService;
 use App\Services\TagService;
 
-use Illuminate\Http\Request;
 
 class DestinationController extends Controller
 {
@@ -96,10 +96,11 @@ class DestinationController extends Controller
         return view('destinations.show', compact('destination'));
     }
 
-    public function storeComment(StoreCommentRequest $request, Destination $destination)
+    public function storeComment(StoreReviewRequest $request, Destination $destination)
     {
+
         $validated = $request->validated();
-        Comment::create($validated);
+        Review::create($validated);
 
         return redirect()->route('destination.show', $destination->id);
     }

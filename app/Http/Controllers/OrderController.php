@@ -41,9 +41,18 @@ class OrderController extends Controller
             'total_days' => $this->dateService->getTotalDays($request->start, $request->end),
         ];
 
+        $data2 =  [
+            'start_date' => $this->dateService->getDayMonthString($request->start),
+            'end_date' => $this->dateService->getDayMonthString($request->end),
+            'quantity' => $request->quantity,
+            'total_days' => $this->dateService->getTotalDays($request->start, $request->end),
+        ];
+
+
+
         $data->total_amount = $destination->price * $data->quantity * $data->total_days;
 
-        return view('orders.checkout', compact('user', 'destination', 'data', 'request'));
+        return view('orders.checkout', compact('user', 'destination', 'data', 'request', 'data2'));
     }
 
     public function order(StoreOrderRequest $request)

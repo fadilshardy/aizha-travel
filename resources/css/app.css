@@ -23,3 +23,10 @@ html {
 html::-webkit-scrollbar-track {
     background: #F59E0B;
 }
+
+@layer components {
+    .btn {
+      @apply px-4 py-2 text-white uppercase rounded;
+    }
+  }
+

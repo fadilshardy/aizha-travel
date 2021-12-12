@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="flex flex-col w-full ml-0 lg:ml-12 lg:w-2/5">
-                <div class="pt-12 md:pt-0 2xl:ps-4">
+                <div class="pt-12 md:pt-0 2xl:-mt-5 2xl:-ml-8">
                     <div class="flex items-center gap-4 pt-4 ">
                         <div class="h-full">
                             <div class="relative overflow-hidden rounded-lg shadow-md pb-3/5">
@@ -82,6 +82,8 @@
                         <div class="flex justify-between">
                             <span class="text-sm font-light tracking-wider uppercase ">End Date</span>
                             <span class="font-bold">{{$data->end_date}}</span>
+                            <span class="font-bold">{{$data2[2]}}</span>
+
                         </div>
                     </div>
 

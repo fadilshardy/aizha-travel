@@ -59,13 +59,11 @@
                         <span class="inline-block px-2 text-xs font-semibold tracking-wide uppercase rounded-full text-amber-700 bg-amber-200">New</span>
                     </div>
                     <p class="truncate"> <a class="mt-1 text-lg font-semibold leading-tight truncate hover:text-amber-400" href="{{route('destination.show', $destination->id)}}">{{$destination->name}}</a></p>
-                    <div class="mt-1">
-                        <span class="font-semibold tracking-wide text-amber-500"> ${{$destination->price}}
-                        </span>
-                        <span class="text-xs text-gray-600">/ Person</span>
+                    <div class="flex items-center gap-1 mt-1">
+                        <span class="tracking-wide text-amber-500"> ${{$destination->price}} </span>
+                        <span class="text-xs text-gray-600">per person</span>
                     </div>
-
-                    <div class="mt-2">
+                    <div class="mt-1">
                         <div class="hidden">{{$rating =  rand(3,5);}}</div>
                         @for ($i = 1; $i <= 5; $i++) <i class="fas fa-star {{ ($i <= $rating ) ? "text-amber-400" : 'text-gray-400';}}"></i> @endfor
                             <span class="ml-2 text-sm text-gray-600">(Based on {{rand(5, 1000);}} reviews)</span>
