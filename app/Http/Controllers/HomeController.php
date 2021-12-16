@@ -4,16 +4,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destination;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
     public function index()
     {
-
-        $destination = Destination::paginate(6);
+        $destination = Destination::latest()->take(9)->get();
 
         return view('home', [
-            'destinations' => $destination
+            'destinations' => $destination,
         ]);
     }
 }

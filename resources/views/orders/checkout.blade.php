@@ -82,7 +82,7 @@
                         <div class="flex justify-between">
                             <span class="text-sm font-light tracking-wider uppercase ">End Date</span>
                             <span class="font-bold">{{$data->end_date}}</span>
-                            <span class="font-bold">{{$data2[2]}}</span>
+                            <span class="font-bold">{{$data2['']}}</span>
 
                         </div>
                     </div>

@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Destination;
+use App\Models\Review;
+use App\Models\User;
+use Database\Factories\ReviewFactory;
 use Illuminate\Database\Seeder;
 
 class DestinationsSeeder extends Seeder
@@ -14,6 +17,19 @@ class DestinationsSeeder extends Seeder
      */
     public function run()
     {
-        Destination::factory()->times(10)->create();
+        $destinations =  Destination::factory()->times(10)->create();
+
+        $users = User::all();
+
+        foreach ($destinations as $destination) {
+            for ($i = 0; $i < rand(5, $users->count()); $i++) {
+                $user = $users->random();
+                if (Review::where([['user_id', $user->id], ['destination_id', $destination->id]])->exists()) {
+                    continue;
+                }
+
+                Review::factory()->create(['destination_id' => $destination->id, 'user_id' => $user->id]);
+            }
+        }
     }
 }

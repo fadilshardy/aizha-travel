@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@extends('layouts.header')
+@include('layouts.header')
 @section('content')
 <div class="container h-full pt-20 mx-auto">
     <div class="py-4">
@@ -38,6 +38,6 @@
     </table>
 
 </div>
-@endsection
+@include('layouts.footer')
 
-@extends('layouts.footer')
+@endsection

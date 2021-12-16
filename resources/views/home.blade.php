@@ -11,7 +11,7 @@
         <div class="mt-2 text-2xl text-white ">Travel has helped us to understand the meaning of life and it has helped us become better people. each time we travel, we see the world with new eyes</div>
         <button class="p-4 mt-5 font-semibold tracking-wider text-white rounded-full bg-amber-500 hover:bg-amber-400">Explore More</button>
     </div>
-    <img src="images/header.jpg" alt="" class="object-cover w-full max-h-screen">
+    <img src="{{ asset('images/header.jpg')}}" alt="" class="object-cover w-full max-h-screen">
     <div class="absolute bottom-0 left-0 w-full">
         <form action="" class="">
             <div class="flex gap-12 p-4 m-12 bg-gray-200 rounded-lg shadow-lg">
@@ -50,7 +50,9 @@
         <div class="w-96">
             <div class="relative overflow-hidden rounded-lg shadow-md pb-3/4">
                 <a href="{{route('destination.show', $destination->id)}}">
-                    <img src="{{$destination->getMedia()[0]->getUrl()}}" ;}}" alt="" class="absolute bottom-0 object-cover w-full h-full"></a>
+                    {{-- <img src="https://sales.kencanaindonesia.co.id/wp-content/uploads/2021/04/placeholder-3.png" alt="" class="absolute bottom-0 object-cover w-full h-full"></a> --}}
+
+                    <img src="{{$destination->getMedia()[0]->getUrl()}}" alt="" class="absolute bottom-0 object-cover w-full h-full"></a>
             </div>
             <div class="relative px-4 -mt-16">
                 <div class="p-6 bg-white rounded-lg shadow-lg">
@@ -64,9 +66,8 @@
                         <span class="text-xs text-gray-600">per person</span>
                     </div>
                     <div class="mt-1">
-                        <div class="hidden">{{$rating =  rand(3,5);}}</div>
-                        @for ($i = 1; $i <= 5; $i++) <i class="fas fa-star {{ ($i <= $rating ) ? "text-amber-400" : 'text-gray-400';}}"></i> @endfor
-                            <span class="ml-2 text-sm text-gray-600">(Based on {{rand(5, 1000);}} reviews)</span>
+                        @for ($i = 1; $i <= 5; $i++) <i class="fas fa-star {{ ($i <= round($destination->getAvgRating()) ) ? "text-amber-400" : 'text-gray-400';}}"></i> @endfor
+                            <span class="ml-2 text-sm text-gray-600">(Based on {{$destination->getTotalReviews()}} reviews)</span>
                     </div>
                 </div>
             </div>

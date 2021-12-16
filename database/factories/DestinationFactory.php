@@ -18,19 +18,21 @@ class DestinationFactory extends Factory
 
     public function definition()
     {
+        $name = $this->faker->sentences(rand(1, 2), true);
         return [
-            'name' => $this->faker->address('city'),
-            'slug' => $this->faker->unique()->address(),
-            'description' => $this->faker->text('200'),
-            'price' => $this->faker->randomNumber(2),
-            'location' => $this->faker->unique()->address(),
+            'name' => $name,
+            'slug' => Str::slug($name, '-'),
+            'description' => $this->faker->paragraphs(rand(5, 8), true),
+            'price' => $this->faker->numberBetween(15, 100),
+            'location' => $this->faker->unique()->country(),
         ];
     }
 
     public function configure()
     {
         return $this->afterCreating(function (Destination $destination) {
-            $url = 'https://source.unsplash.com/random/1200x800';
+            $url = 'https://source.unsplash.com/1080x1920/?travel?' . $this->faker->numberBetween();
+
             $destination
                 ->addMediaFromUrl($url)
                 ->toMediaCollection();

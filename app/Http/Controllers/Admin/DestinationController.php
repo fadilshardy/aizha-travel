@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateDestinationRequest;
 use App\Models\Destination;
 use App\Models\Comment;
 use App\Models\Review;
+use App\Models\User;
 use App\Services\ImageService;
 use App\Services\TagService;
 
@@ -44,7 +45,6 @@ class DestinationController extends Controller
     {
         $validated = $request->safe();
 
-
         $destination = Destination::create($validated->except(['tags', 'images']));
 
         $this->tagService->store($request->tags, $destination->id);
@@ -58,6 +58,9 @@ class DestinationController extends Controller
 
     public function show(Destination $destination)
     {
+
+        // dd($destination->reviews[0]->user->getMedia());
+
         return view('destinations.show', compact('destination'));
     }
 
@@ -86,7 +89,7 @@ class DestinationController extends Controller
     {
         $destination->delete();
 
-        return view('destinations.index');
+        return redirect(route('destination.index'));
     }
 
     public function deleteImage(Destination $destination, $image_id)
@@ -96,7 +99,7 @@ class DestinationController extends Controller
         return view('destinations.show', compact('destination'));
     }
 
-    public function storeComment(StoreReviewRequest $request, Destination $destination)
+    public function storeReview(StoreReviewRequest $request, Destination $destination)
     {
 
         $validated = $request->validated();

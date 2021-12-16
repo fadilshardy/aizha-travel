@@ -2,8 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class UserFactory extends Factory
 {
@@ -14,6 +17,9 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+
+
+
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
@@ -28,6 +34,18 @@ class UserFactory extends Factory
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
+
+
+    public function configure()
+    {
+        return $this->afterCreating(function (User $user) {
+            $url = 'https://source.unsplash.com/1080x1920/?face?' . $this->faker->numberBetween();
+            $user
+                ->addMediaFromUrl($url)
+                ->toMediaCollection('avatar');
+        });
+    }
+
     public function unverified()
     {
         return $this->state(function (array $attributes) {

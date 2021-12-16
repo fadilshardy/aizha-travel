@@ -28,7 +28,6 @@ class StoreReviewRequest extends FormRequest
             'destination_id' => 'required|exists:destinations,id',
             'rating' => 'required|integer|between:1,5',
             'review' => 'required|string|min:10|max:64',
-
         ];
     }
 }

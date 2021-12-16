@@ -33,4 +33,14 @@ class Destination extends Model implements HasMedia
     {
         return $this->hasOneThrough(User::class, Comment::class);
     }
+
+    public function getAvgRating()
+    {
+        return $this->reviews()->avg('rating');
+    }
+
+    public function getTotalReviews()
+    {
+        return $this->reviews()->count();
+    }
 }

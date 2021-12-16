@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+
 use App\Http\Controllers\Admin\DestinationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
-/*
+
+/*Das
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -17,11 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->group(function () {
     Route::resource('destination', DestinationController::class);
     Route::get('/destination/{destination}/image/{image_id}', [DestinationController::class, 'deleteImage']);
-    Route::post('/destination/{destination}/comment', [DestinationController::class, 'storeComment'])->name('destination.storeComment');
+    Route::post('/destination/{destination}/review', [DestinationController::class, 'storeReview'])->name('destination.storeReview');
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });
 Route::post('/destination/redirect', [OrderController::class, 'redirectToCheckout'])->name('order.redirect');
 
