@@ -30,18 +30,12 @@ class OrderController extends Controller
 
     public function checkout(Request $request)
     {
+
         $destination = Destination::findOrFail($request->destination_id);
 
         $user = Auth::user();
 
-        $data = (object) [
-            'start_date' => $this->dateService->getDayMonthString($request->start),
-            'end_date' => $this->dateService->getDayMonthString($request->end),
-            'quantity' => $request->quantity,
-            'total_days' => $this->dateService->getTotalDays($request->start, $request->end),
-        ];
-
-        $data2 =  [
+        $data =  [
             'start_date' => $this->dateService->getDayMonthString($request->start),
             'end_date' => $this->dateService->getDayMonthString($request->end),
             'quantity' => $request->quantity,
@@ -50,9 +44,9 @@ class OrderController extends Controller
 
 
 
-        $data->total_amount = $destination->price * $data->quantity * $data->total_days;
+        $data['total_amount'] = $destination->price * $data['quantity'] * $data['total_days'];
 
-        return view('orders.checkout', compact('user', 'destination', 'data', 'request', 'data2'));
+        return view('orders.checkout', compact('user', 'destination', 'data', 'request'));
     }
 
     public function order(StoreOrderRequest $request)

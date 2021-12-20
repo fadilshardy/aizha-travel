@@ -43,4 +43,9 @@ class Destination extends Model implements HasMedia
     {
         return $this->reviews()->count();
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

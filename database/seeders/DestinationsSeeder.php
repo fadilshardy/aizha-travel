@@ -19,7 +19,7 @@ class DestinationsSeeder extends Seeder
     {
         $destinations =  Destination::factory()->times(10)->create();
 
-        $users = User::all();
+        $users = User::where('is_admin', false)->get();
 
         foreach ($destinations as $destination) {
             for ($i = 0; $i < rand(5, $users->count()); $i++) {

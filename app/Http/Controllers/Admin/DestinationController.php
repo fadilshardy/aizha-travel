@@ -38,11 +38,15 @@ class DestinationController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Destination::class);
+
         return view('destinations.create');
     }
 
     public function store(StoreDestinationRequest $request)
     {
+        $this->authorize('store', Destination::class);
+
         $validated = $request->safe();
 
         $destination = Destination::create($validated->except(['tags', 'images']));
@@ -58,14 +62,14 @@ class DestinationController extends Controller
 
     public function show(Destination $destination)
     {
-
-        // dd($destination->reviews[0]->user->getMedia());
-
         return view('destinations.show', compact('destination'));
     }
 
     public function edit(Destination $destination)
     {
+        $this->authorize('edit', Destination::class);
+
+
         return view('destinations.edit', compact('destination'));
     }
 
@@ -82,7 +86,7 @@ class DestinationController extends Controller
             $this->imageService->upload($request->images, $destination);
         }
 
-        return redirect(route('destination.show', $destination->id));
+        return redirect(route('destination.show', $destination->slug));
     }
 
     public function destroy(Destination $destination)
@@ -105,6 +109,6 @@ class DestinationController extends Controller
         $validated = $request->validated();
         Review::create($validated);
 
-        return redirect()->route('destination.show', $destination->id);
+        return redirect()->route('destination.show', $destination->slug);
     }
 }

@@ -49,7 +49,7 @@
         @foreach($destinations as $destination)
         <div class="w-96">
             <div class="relative overflow-hidden rounded-lg shadow-md pb-3/4">
-                <a href="{{route('destination.show', $destination->id)}}">
+                <a href="{{route('destination.show', $destination->slug)}}">
                     {{-- <img src="https://sales.kencanaindonesia.co.id/wp-content/uploads/2021/04/placeholder-3.png" alt="" class="absolute bottom-0 object-cover w-full h-full"></a> --}}
 
                     <img src="{{$destination->getMedia()[0]->getUrl()}}" alt="" class="absolute bottom-0 object-cover w-full h-full"></a>
@@ -60,7 +60,7 @@
                         <span class="truncate"> <i class="fas fa-map-marker-alt"></i> <a href="#" class="hover:text-amber-400">{{$destination->location}}</a> </span>
                         <span class="inline-block px-2 text-xs font-semibold tracking-wide uppercase rounded-full text-amber-700 bg-amber-200">New</span>
                     </div>
-                    <p class="truncate"> <a class="mt-1 text-lg font-semibold leading-tight truncate hover:text-amber-400" href="{{route('destination.show', $destination->id)}}">{{$destination->name}}</a></p>
+                    <p class="truncate"> <a class="mt-1 text-lg font-semibold leading-tight truncate hover:text-amber-400" href="{{route('destination.show', $destination->slug)}}">{{$destination->name}}</a></p>
                     <div class="flex items-center gap-1 mt-1">
                         <span class="tracking-wide text-amber-500"> ${{$destination->price}} </span>
                         <span class="text-xs text-gray-600">per person</span>

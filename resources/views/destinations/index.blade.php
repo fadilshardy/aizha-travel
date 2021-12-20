@@ -18,11 +18,11 @@
         <tbody>
             @foreach ($destinations as $destination)
             <tr>
-                <td><a href="{{route('destination.show', $destination->id)}}">{{$destination->name}}</a></td>
+                <td><a href="{{route('destination.show', $destination->slug)}}">{{$destination->name}}</a></td>
                 <td>{{$destination->price}}</td>
                 <td>{{$destination->slug}}</td>
                 <td>
-                    <form class="d-inline-block" action="{{route('destination.destroy', $destination->id)}}" method="POST">
+                    <form class="d-inline-block" action="{{route('destination.destroy', $destination->slug)}}" method="POST">
                         @csrf
                         @method('DELETE')
 

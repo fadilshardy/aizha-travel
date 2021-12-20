@@ -13,8 +13,8 @@
         <input type="hidden" name="start_date" value="{{$request->start}}">
         <input type="hidden" name="end_date" value="{{$request->end}}">
         <input type="hidden" name="quantity" value="{{$request->quantity}}">
-        <input type="hidden" name="total_days" value="{{$data->total_days}}">
-        <input type="hidden" name="total_amount" value="{{$data->total_amount}}">
+        <input type="hidden" name="total_days" value="{{$data['total_days']}}">
+        <input type="hidden" name="total_amount" value="{{$data['total_amount']}}">
 
 
         <div class="flex flex-col w-full px-0 mx-auto md:flex-row">
@@ -77,13 +77,11 @@
                         </div>
                         <div class="flex justify-between">
                             <span class="text-sm font-light tracking-wider uppercase ">Start Date</span>
-                            <span class="font-bold">{{$data->start_date}}</span>
+                            <span class="font-bold">{{$data['start_date']}}</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-sm font-light tracking-wider uppercase ">End Date</span>
-                            <span class="font-bold">{{$data->end_date}}</span>
-                            <span class="font-bold">{{$data2['']}}</span>
-
+                            <span class="font-bold">{{$data['end_date']}}</span>
                         </div>
                     </div>
 
@@ -94,17 +92,17 @@
                         </div>
                         <div class="flex justify-between">
                             <span class="text-sm font-light tracking-wider uppercase ">Number of Guest</span>
-                            <span class="font-bold">{{$data->quantity}}</span>
+                            <span class="font-bold">{{$data['quantity']}}</span>
                         </div>
 
                         <div class="flex justify-between">
                             <span class="text-sm font-light tracking-wider uppercase ">Total Days</span>
-                            <span class="font-bold">{{$data->total_days}}</span>
+                            <span class="font-bold">{{$data['total_days']}}</span>
                         </div>
                         <hr>
                         <div class="flex justify-between">
                             <span class="text-sm font-light tracking-wider uppercase ">Total Checkout</span>
-                            <span class="font-bold">${{$data->total_amount}}</span>
+                            <span class="font-bold">${{$data['total_amount']}}</span>
                         </div>
                     </div>
                 </div>

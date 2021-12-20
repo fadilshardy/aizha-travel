@@ -3,7 +3,7 @@
         <div class="relative flex flex-col w-full mb-6 bg-white rounded-lg shadow-lg">
             <div class="flex-auto p-5">
                 <h4 class="flex justify-center mb-4 text-2xl font-semibold text-black">Rate your experience with us?</h4>
-                <form action="{{route('destination.storeReview', $destination->id)}}" method="POST">
+                <form action="{{route('destination.storeReview', $destination->slug)}}" method="POST">
                     @csrf
                     <input type="hidden" name="destination_id" value="{{$destination->id}}">
                     <input type="hidden" name="user_id" value="{{Auth::id()}}">

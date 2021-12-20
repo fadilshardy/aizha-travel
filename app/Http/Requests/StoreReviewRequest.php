@@ -24,6 +24,7 @@ class StoreReviewRequest extends FormRequest
     public function rules()
     {
         return [
+            'title' => 'required|string',
             'user_id' => 'required|exists:users,id',
             'destination_id' => 'required|exists:destinations,id',
             'rating' => 'required|integer|between:1,5',
