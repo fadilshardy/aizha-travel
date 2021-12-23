@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" />
 
 </head>
-<body class="antialiased text-gray-900 bg-gray-50">
+<body class="antialiased text-gray-900 ">
     @yield('content')
 
     @stack('scripts')

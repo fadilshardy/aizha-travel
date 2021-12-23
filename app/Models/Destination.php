@@ -36,7 +36,9 @@ class Destination extends Model implements HasMedia
 
     public function getAvgRating()
     {
-        return $this->reviews()->avg('rating');
+        $rating = round($this->reviews()->avg('rating'), 1);
+
+        return $rating;
     }
 
     public function getTotalReviews()
@@ -47,5 +49,16 @@ class Destination extends Model implements HasMedia
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function getImageUrl()
+    {
+        if ($this->getMedia()->isEmpty()) {
+            $imageUrl = "http://127.0.0.1:3000/storage/16/1080x1920.jpeg";
+        } else {
+            $imageUrl = $this->getMedia()[0]->getUrl();
+        }
+
+        return $imageUrl;
     }
 }

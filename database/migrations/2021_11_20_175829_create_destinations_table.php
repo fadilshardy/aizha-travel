@@ -18,8 +18,10 @@ class CreateDestinationsTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->longText('description');
+            $table->text('summary');
             $table->string('location');
             $table->integer('price');
+            $table->integer('total_days');
             $table->timestamps();
         });
     }

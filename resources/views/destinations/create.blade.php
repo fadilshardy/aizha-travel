@@ -23,17 +23,6 @@
 
                     <div class="grid grid-cols-3 gap-6">
                         <div class=" sm:col-span-2">
-                            <label for="company-website" class="block text-sm font-medium text-gray-700">
-                                slug
-                            </label>
-                            <div class="flex mt-1 rounded-md shadow-sm">
-                                <input class="w-full h-12 px-4 mb-2 text-lg text-gray-700 placeholder-gray-400 border rounded-lg focus:shadow-outline" type="text" placeholder="Large input" name="slug" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class=" sm:col-span-2">
 
                             <label for="company-website" class="block text-sm font-medium text-gray-700">
                                 tags
@@ -61,6 +50,17 @@
                     <div class="grid grid-cols-3 gap-6">
                         <div class=" sm:col-span-2">
                             <label for="company-website" class="block text-sm font-medium text-gray-700">
+                                Total Days
+                            </label>
+                            <div class="flex mt-1 rounded-md shadow-sm">
+                                <input class="w-full h-12 px-4 mb-2 text-lg text-gray-700 placeholder-gray-400 border rounded-lg focus:shadow-outline" type="text" placeholder="Large input" name="total_days" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class=" sm:col-span-2">
+                            <label for="company-website" class="block text-sm font-medium text-gray-700">
                                 price
                             </label>
                             <div class="flex mt-1 rounded-md shadow-sm">
@@ -80,6 +80,19 @@
                             Brief description for your profile. URLs are hyperlinked.
                         </p>
                     </div>
+
+                    <div>
+                        <label for="about" class="block text-sm font-medium text-gray-700">
+                            Summary
+                        </label>
+                        <div class="mt-1">
+                            <textarea id="about" name="summary" rows="3" class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Summary"></textarea>
+                        </div>
+                        <p class="mt-2 text-sm text-gray-500">
+                            Summary
+                        </p>
+                    </div>
+
 
 
                     <div>

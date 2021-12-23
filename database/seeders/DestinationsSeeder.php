@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Destination;
 use App\Models\Review;
 use App\Models\User;
-use Database\Factories\ReviewFactory;
 use Illuminate\Database\Seeder;
 
 class DestinationsSeeder extends Seeder
@@ -17,7 +16,7 @@ class DestinationsSeeder extends Seeder
      */
     public function run()
     {
-        $destinations =  Destination::factory()->times(10)->create();
+        $destinations =  Destination::factory()->times(12)->create();
 
         $users = User::where('is_admin', false)->get();
 

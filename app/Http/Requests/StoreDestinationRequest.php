@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class StoreDestinationRequest extends FormRequest
 {
@@ -25,13 +26,22 @@ class StoreDestinationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'slug' => 'required|unique:destinations|max:255',
+            'name' => 'required|max:80',
+            'slug' => 'required|unique:destinations|max:80',
             'description' => 'required',
+            'summary' => 'required',
             'price' => 'required',
             'location' => 'required',
             'tags' => 'required',
+            'total_days' => 'required|between:1,100',
             'images' => 'nullable'
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'slug' => Str::slug($this->name),
+        ]);
     }
 }

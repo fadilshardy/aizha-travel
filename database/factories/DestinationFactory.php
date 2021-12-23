@@ -18,12 +18,14 @@ class DestinationFactory extends Factory
 
     public function definition()
     {
-        $name = $this->faker->sentences(rand(1, 2), true);
+        $name = $this->faker->sentence(rand(4, 6));
         return [
             'name' => $name,
             'slug' => Str::slug($name, '-'),
             'description' => $this->faker->paragraphs(rand(5, 8), true),
+            'summary' => $this->faker->paragraphs(1, true),
             'price' => $this->faker->numberBetween(15, 100),
+            'total_days' => $this->faker->numberBetween(5, 25),
             'location' => $this->faker->unique()->country(),
         ];
     }

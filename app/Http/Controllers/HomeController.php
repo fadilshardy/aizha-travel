@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $destination = Destination::latest()->take(9)->get();
+        $destination = Destination::latest()->take(6)->get();
 
         return view('home', [
             'destinations' => $destination,
