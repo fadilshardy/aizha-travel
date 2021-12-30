@@ -45,17 +45,59 @@
 
 <div class="container w-full h-full mx-auto ">
     <div class="flex flex-col items-center pt-4">
-        <h1 class="text-4xl font-semibold">Destinations</h1>
+        <div class="flex justify-center w-full gap-32 p">
+            <h1 class="text-4xl font-semibold">Destinations</h1>
+            <a href="#" class="p-2 text-gray-200 bg-gray-700 rounded">Views All</a>
+        </div>
         <span class="font-light ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, quis.</span>
+        <div>
+
+            {{-- Tour location google map
+
+
+            Tour Highlight
+
+            Tour plan
+            day 1
+            day 2
+            day 3
+
+            what to except
+
+
+            Gallery
+
+
+            TOP DESTINATIONS (CARD)
+
+
+            GET A QUESTION? (SIDEBAR)
+
+            ORDER (SIDEBAR)
+
+            WHY CHOOSE US? (HOMEPAGE) --}}
+        </div>
     </div>
 
-    <section class="container p-10 px-5 mx-auto md:py-20 md:p-10 md:px-0">
-        <section class="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3">
+
+    <section class="p-10 px-5 mx-auto md:py-20 md:p-10 md:px-0">
+        <section class="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
             @foreach($destinations as $destination)
             @include('home.partials.destinations')
             @endforeach
         </section>
+
+        {{-- <div class="flex justify-end">
+
+            <a href="#" class="flex items-center gap-1 px-6 py-5 font-bold text-white bg-teal-400 rounded hover:bg-teal-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+                Check More</a>
+        </div> --}}
     </section>
+
+
     <div class="bg-white">
         <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div class="grid gap-10 lg:grid-cols-2">

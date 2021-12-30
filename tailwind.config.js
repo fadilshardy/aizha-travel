@@ -1,6 +1,9 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
+    corePlugins: {
+        preflight: false,
+    },
     mode: "jit",
     content: [
         "./resources/**/*.blade.php",
@@ -71,5 +74,11 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [require("@themesberg/flowbite/plugin")],
+    plugins: [
+        require("@tailwindcss/typography"),
+
+        require("@themesberg/flowbite/plugin"),
+
+        require("@tailwindcss/line-clamp"),
+    ],
 };

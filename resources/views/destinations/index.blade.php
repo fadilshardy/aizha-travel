@@ -36,8 +36,8 @@
             @endforeach
         </tbody>
     </table>
+    @include('layouts.footer')
 
 </div>
-@include('layouts.footer')
 
 @endsection

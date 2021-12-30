@@ -39,7 +39,7 @@ class UserFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (User $user) {
-            $url = 'https://source.unsplash.com/1080x1920/?face?' . $this->faker->numberBetween();
+            $url = 'https://source.unsplash.com/1280x720/?face?' . $this->faker->numberBetween();
             $user
                 ->addMediaFromUrl($url)
                 ->toMediaCollection('avatar');

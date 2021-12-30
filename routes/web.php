@@ -29,20 +29,35 @@ Route::prefix('destination')->group(function () {
         Route::get('checkout', [OrderController::class, 'checkout'])->name('destination.checkout');
         Route::post('redirect', [OrderController::class, 'redirectToCheckout'])->name('order.redirect');
         Route::post('order', [OrderController::class, 'order'])->name('destination.order');
+        Route::post('order', [OrderController::class, 'order'])->name('destination.order');
+
         Route::post('{destination}/review', [DestinationController::class, 'storeReview'])->name('destination.storeReview');
     });
 });
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
     Route::get('destination/{destination}/image/{image_id}', [DestinationController::class, 'deleteImage']);
+    Route::post('image_upload', [DestinationController::class, 'uploadImage'])->name('destination.uploadImage');
     Route::get('dashboard', [DashboardController::class, 'index']);
     Route::resource('destination', DestinationController::class)->except('show');
 });
 
+// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+//     vendor\UniSharp\LaravelFilemanager\Lfm::routes();
+// });
 
 
+// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+//     vendor\UniSharp\LaravelFilemanager\Lfm::routes();
+// });
 
+// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+//    \UniSharp\LaravelFilemanager\Lfm::routes();
+// });
 
-
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    Route::get('laravel-filemanager/', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
+    Route::post('laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
+});
 
 require __DIR__ . '/auth.php';

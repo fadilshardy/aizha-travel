@@ -16,24 +16,39 @@ class DestinationFactory extends Factory
 
     protected $model = Destination::class;
 
+    public function randImage($keyword)
+    {
+        $url = 'https://source.unsplash.com/1280x720/?' . $keyword . '?' . $this->faker->numberBetween();
+
+        return $url;
+    }
+
     public function definition()
     {
         $name = $this->faker->sentence(rand(4, 6));
+        $paragraphs = $this->faker->paragraphs(rand(7, 15));
+        $location = $this->faker->country();
+        $description = '';
+
+        foreach ($paragraphs as $para) {
+            $description .= "<p>{$para}</p>";
+        }
+
         return [
             'name' => $name,
             'slug' => Str::slug($name, '-'),
-            'description' => $this->faker->paragraphs(rand(5, 8), true),
+            'description' => $description,
             'summary' => $this->faker->paragraphs(1, true),
             'price' => $this->faker->numberBetween(15, 100),
             'total_days' => $this->faker->numberBetween(5, 25),
-            'location' => $this->faker->unique()->country(),
+            'location' => $location,
         ];
     }
 
     public function configure()
     {
         return $this->afterCreating(function (Destination $destination) {
-            $url = 'https://source.unsplash.com/1080x1920/?travel?' . $this->faker->numberBetween();
+            $url = 'https://source.unsplash.com/collection/3813068/1280x720/?' . $this->faker->numberBetween();
 
             $destination
                 ->addMediaFromUrl($url)

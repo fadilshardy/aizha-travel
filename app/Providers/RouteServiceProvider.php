@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -38,6 +39,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
+
+            Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+                \UniSharp\LaravelFilemanager\Lfm::routes();
+            });
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)

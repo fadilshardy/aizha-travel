@@ -26,7 +26,7 @@ class Destination extends Model implements HasMedia
 
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'destination_id');
+        return $this->hasMany(Review::class, 'destination_id')->latest();
     }
 
     public function UserComment()
@@ -60,5 +60,11 @@ class Destination extends Model implements HasMedia
         }
 
         return $imageUrl;
+    }
+
+
+    public function similiar_destinations()
+    {
+        return $this->inRandomOrder()->limit(3)->get();
     }
 }

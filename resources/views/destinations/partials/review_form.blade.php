@@ -1,5 +1,5 @@
 <div class="flex flex-wrap justify-center">
-    <div class="w-full px-4">
+    <div class="w-full">
         <div class="relative flex flex-col w-full mb-6 bg-white rounded-lg shadow-lg">
             <div class="flex-auto p-5">
                 <h4 class="flex justify-center mb-4 text-2xl font-semibold text-black">Rate your experience with us?</h4>
