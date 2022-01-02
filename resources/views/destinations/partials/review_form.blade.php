@@ -17,11 +17,11 @@
 
             <div class="relative w-full mb-3">
                 <label class="block mb-2 text-xs font-bold text-gray-700 uppercase">Title</label>
-                <input type="input" name="title" class="w-full px-3 py-3 text-sm text-gray-800 bg-gray-300 border-0 rounded shadow outline-none focus:bg-gray-100" required />
+                <input type="input" value="{{ old('title')}}" name="title" class="w-full px-3 py-3 text-sm text-gray-800 bg-gray-300 border-0 rounded shadow outline-none focus:bg-gray-100" required />
             </div>
             <div class="relative w-full mb-3">
                 <label class="block mb-2 text-xs font-bold text-gray-700 uppercase">Review</label>
-                <textarea maxlength="300" name="review" rows="4" cols="80" class="w-full px-3 py-3 text-sm text-gray-800 bg-gray-300 border-0 rounded shadow focus:outline-none focus:bg-gray-100" required></textarea>
+                <textarea maxlength="300" name="review" value="{{ old('review')}}" rows="4" cols="80" class="w-full px-3 py-3 text-sm text-gray-800 bg-gray-300 border-0 rounded shadow focus:outline-none focus:bg-gray-100" required></textarea>
             </div>
             <div class="mt-6 text-center">
                 <button class="btn bg-amber-500 hover:bg-amber-400" type="submit">Submit

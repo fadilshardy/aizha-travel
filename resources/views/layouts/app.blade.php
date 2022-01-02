@@ -9,14 +9,14 @@
 
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
 <body class="antialiased text-gray-900 ">
+    @include('sweetalert::alert')
     @yield('content')
 
     @stack('scripts')

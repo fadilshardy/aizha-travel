@@ -1,7 +1,5 @@
-<article class="flex flex-col w-full max-w-md m-2 mx-auto overflow-hidden duration-500 transform bg-white shadow-2xl rounded-b-2xl hover:-translate-y-1 group">
-    <div class="overflow-hidden">
-        <img class="object-cover object-bottom duration-300 transform group-hover:scale-110" src="{{$destination->getImageUrl()}}" alt="" />
-    </div>
+<article class="flex flex-col w-full max-w-md mx-auto overflow-hidden transform bg-white rounded-lg hover:shadow-lg hover:-translate-y-1 group">
+    <img class="object-cover object-bottom rounded-t" src="{{$destination->getImageUrl()}}" alt="" />
 
     <div class="mx-4 mt-3 ">
         <div class="flex items-start flex-1 gap-1 sm:justify-between">
@@ -44,5 +42,12 @@
 
 
     <p class="flex-1 m-2 text-sm leading-loose text-gray-800 sm:mt-4 line-clamp-2">{{$destination->summary}}</p>
-    <a href="{{route('destination.show', $destination->slug)}}"><button class="w-full p-2 text-xl font-bold text-white duration-300 transform bg-teal-500 hover:bg-teal-400">Book Now</button></a>
+
+    <div class="mx-4 mb-4">
+        <a href="{{route('destination.show', $destination->slug)}}">
+            <button class="invisible w-full p-2 mr-5 text-xl font-bold text-center text-white transition bg-teal-500 rounded duration-7000 hover:bg-teal-400 group-hover:visible">Book now</button>
+        </a>
+    </div>
 </article>
+
+{{-- <a class="w-full" href="{{route('destination.show', $destination->slug)}}"><button class="w-full p-2 mx-4 text-xl font-bold text-white ease-in-out transform bg-teal-500 duration-600 hover:bg-teal-400 group-hover:visible transform-300">Book Now</button></a> --}}

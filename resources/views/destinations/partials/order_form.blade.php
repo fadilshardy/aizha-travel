@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
+
 
 <div class="relative flex items-center justify-center h-16 text-xl font-bold text-white bg-gray-600 rounded-t-xl">
     Order Now
@@ -15,13 +16,13 @@
     <input name="destination_id" type="hidden" value="{{$destination->id}}">
     <div class="flex flex-col justify-center w-full gap-4 p-4 bg-white">
 
-        <div date-rangepicker class="flex items-center px-4" id="dateRangePickerId">
+        <div class="flex items-center px-4">
             <div class="relative w-full">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg> </div>
-                <input name="start" type="text" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full pl-12  p-2.5  dark:bg-gray-700 dark:border-gray-600 " placeholder="Pick Your Date">
+                <input name="start" type="text" id="datePicker" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full pl-12  p-2.5  dark:bg-gray-700 dark:border-gray-600 " placeholder="Pick Your Date">
             </div>
         </div>
 
@@ -36,7 +37,6 @@
         </div>
 
 
-        <hr>
 
         <button type="submit" class="h-12 px-4 mx-6 my-2 text-lg font-bold capitalize bg-teal-700 btn hover:bg-teal-500 ">
             Book Now
@@ -44,8 +44,29 @@
     </div>
 </form>
 
+@if ($errors->any())
+<div class="">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li class="w-64 p-2 mt-2 bg-red-400 rounded shadow-lg">{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 @push('scripts')
-<script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/datepicker.bundle.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+    flatpickr("#datePicker", {
+        enableTime: false
+        , altInput: true
+        , altFormat: "F j, Y"
+        , dateFormat: "d F Y"
+        , minDate: "today"
+        , theme: "airbnb"
+    });
+
+</script>
 
 @endpush

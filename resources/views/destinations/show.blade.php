@@ -6,7 +6,7 @@
     <div class="relative w-full shadow">
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black opacity-60"></div>
         <div class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full ">
-            <div class="text-6xl font-bold tracking-wide text-white capitalize">
+            <div class="text-4xl font-bold tracking-wide text-center text-white capitalize lg:text-6xl md:text-5xl">
                 {{$destination->name}}
             </div>
             <div class="flex items-center gap-2 pt-3 text-lg tracking-wide text-white capitalize">
@@ -17,8 +17,8 @@
                 {{$destination->location}}
             </div>
         </div>
-        <div class="w-screen  h-[30em]">
-            <img src=" {{$destination->getImageUrl()}}" class="object-cover w-full h-full rounded shadow-lg object-fit ">
+        <div class="w-auto h-[30rem] bg-red-600">
+            <img src="{{$destination->getImageUrl()}}" class="object-cover object-top w-full h-full rounded shadow-lg">
         </div>
     </div>
 
@@ -31,10 +31,9 @@
             <div class="overflow-hidden bg-white rounded-lg shadow-sm">
 
                 <div class="p-4 pb-5">
-                    <h2 class="block text-3xl font-black tracking-wide text-gray-700 capitalize ">
+                    <h2 class="block text-4xl font-black tracking-wide text-gray-700 capitalize md:break-all">
                         {{$destination->name}}
                     </h2>
-                    <hr class="my-4">
 
                     <div class="flex flex-col mt-4 text-sm font-bold tracking-wide text-gray-600 uppercase gap-y-2">
                         <div class="flex justify-between">
@@ -62,10 +61,10 @@
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                                 </svg>
-                                {{$destination->getAvgRating()}} (10 reviews)
+                                {{$destination->getAvgRating()}} ({{$destination->getTotalReviews()}} reviews)
                             </div>
                         </div>
                     </div>
@@ -127,15 +126,7 @@
 
     </div>
 </main>
-@if ($errors->any())
-<div class="">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li class="w-64 p-2 mt-2 bg-red-400 rounded shadow-lg">{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+
 @include('layouts.footer')
 
 @endsection

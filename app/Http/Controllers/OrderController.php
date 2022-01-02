@@ -36,15 +36,13 @@ class OrderController extends Controller
         $user = Auth::user();
 
         $data =  [
-            'start_date' => $this->dateService->getDayMonthString($request->start),
-            'end_date' => $this->dateService->getDayMonthString($request->end),
+            'date' => $this->dateService->getDayMonthString($request->start),
             'quantity' => $request->quantity,
-            'total_days' => $this->dateService->getTotalDays($request->start, $request->end),
         ];
 
 
 
-        $data['total_amount'] = $destination->price * $data['quantity'] * $data['total_days'];
+        $data['total_amount'] = $destination->price * $data['quantity'];
 
         return view('orders.checkout', compact('user', 'destination', 'data', 'request'));
     }

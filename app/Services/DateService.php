@@ -11,16 +11,6 @@ class DateService
         return Carbon::Parse($date);
     }
 
-    public function getTotalDays($start, $end)
-    {
-        $count = $this->parse($start)->diffInDays($this->parse($end));
-        if ($count === 0) {
-            $count++;
-        };
-        return $count;
-    }
-
-
     public function getDayMonthString($date)
     {
         return $this->parse($date)->format('d F Y');

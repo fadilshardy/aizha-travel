@@ -9,6 +9,8 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
 * {
 font-family: 'Poppins', sans-serif;
 
@@ -25,11 +27,6 @@ html::-webkit-scrollbar-track {
     background: #F59E0B;
 }
 
-@layer components {
-    .btn {
-      @apply px-4 py-2 text-white uppercase rounded;
-    }
-  }
 
   @layer utilities {
     /* Chrome, Safari and Opera */
@@ -44,44 +41,9 @@ html::-webkit-scrollbar-track {
 }
 
 
- 
-.ck-content > blockquote,
-.ck-content > dl,
-.ck-content > dd,
-.ck-content > h1,
-.ck-content > h2,
-.ck-content > h3,
-.ck-content > h4,
-.ck-content > h5,
-.ck-content > h6,
-.ck-content > hr,
-.ck-content > figure,
-.ck-content > p,
-.ck-content > pre {
-  margin: revert;
+@layer components {
+  .btn {
+    @apply px-4 py-2 text-white uppercase rounded;
+  }
 }
 
-.ck-content > ol,
-.ck-content > ul {
-  list-style: revert;
-  margin: revert;
-  padding: revert;
-}
-
-.ck-content > table {
-  border-collapse: revert;
-}
-
-.ck-content > h1,
-.ck-content > h2,
-.ck-content > h3,
-.ck-content > h4,
-.ck-content > h5,
-.ck-content > h6 {
-  font-size: revert;
-  font-weight: revert;
-}
-
-.ck-content {
-  @apply prose;
-}

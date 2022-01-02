@@ -14,7 +14,7 @@ use App\Models\User;
 use App\Services\ImageService;
 use App\Services\TagService;
 use Illuminate\Http\Request;
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DestinationController extends Controller
 {
@@ -87,7 +87,7 @@ class DestinationController extends Controller
             $this->imageService->upload($request->images, $destination);
         }
 
-        return redirect(route('destination.show', $destination->slug));
+        return redirect(route('destination.show', $destination->slug))->with('success', 'Created successfully!');
     }
 
     public function destroy(Destination $destination)
@@ -107,6 +107,16 @@ class DestinationController extends Controller
     public function storeReview(StoreReviewRequest $request, Destination $destination)
     {
         $validated = $request->validated();
+
+        if (Review::where('user_id', $request->user_id)->where('destination_id', $destination->id)->exists()) {
+            toast('Error', 'You already posted a review for this destination');
+            return back();
+
+            // return redirect()->back()
+            //     ->with('error', 'Error during the creation!');
+        }
+
+
         Review::create($validated);
 
         return redirect()->route('destination.show', $destination->slug);
