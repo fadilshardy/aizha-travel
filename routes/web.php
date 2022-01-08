@@ -23,16 +23,16 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::prefix('destination')->group(function () {
-    Route::get('/{destination}', [DestinationController::class, 'show'])->name('destination.show');
 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('checkout', [OrderController::class, 'checkout'])->name('destination.checkout');
+
         Route::post('redirect', [OrderController::class, 'redirectToCheckout'])->name('order.redirect');
-        Route::post('order', [OrderController::class, 'order'])->name('destination.order');
         Route::post('order', [OrderController::class, 'order'])->name('destination.order');
 
         Route::post('{destination}/review', [DestinationController::class, 'storeReview'])->name('destination.storeReview');
     });
+    Route::get('/{destination}', [DestinationController::class, 'show'])->name('destination.show');
 });
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {

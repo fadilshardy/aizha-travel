@@ -1,6 +1,6 @@
-        <h3 class="mb-4 text-2xl font-bold text-center text-gray-900">Reviews From Our Costumers</h3>
-        <div class="space-y-6">
-            @foreach($destination->reviews as $review)
+        <h3 class="mb-4 text-2xl font-bold text-center text-gray-900" id="reviews">Reviews From Our Costumers</h3>
+        <div class="space-y-8">
+            @foreach($destination->reviews_paginated as $review)
             <div class="flex">
                 <div class="w-full leading-relaxed rounded-lg shadow sm:px-6 sm:py-4">
                     <div class="flex flex-row items-center mb-2 gap-x-4">
@@ -26,4 +26,11 @@
                 </div>
             </div>
             @endforeach
+            <div class="row">
+                <div class="flex items-center justify-center gap-5">
+                    {{ $destination->reviews_paginated->links() }}
+
+                </div>
+            </div>
+
         </div>

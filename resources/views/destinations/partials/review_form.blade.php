@@ -1,4 +1,4 @@
-<div class="flex flex-wrap justify-center">
+<div class="flex flex-wrap justify-center" id="review">
     <div class="w-full">
         <div class="relative flex flex-col w-full mb-6 bg-white rounded-lg shadow-lg">
             <div class="flex-auto p-5">
@@ -7,21 +7,30 @@
                     @csrf
                     <input type="hidden" name="destination_id" value="{{$destination->id}}">
                     <input type="hidden" name="user_id" value="{{Auth::id()}}">
-                    <div class="flex flex-wrap justify-center mt-10 space-x-3">
-                        @for($i = 1; $i <= 5; $i++) <div>
-                            <input type='radio' value='{{$i}}' name='rating' id='radio{{$i}}' class="hidden" />
-                            <label for='radio{{$i}}' onclick="addActiveClass(this)" class="flex items-center justify-center w-10 h-10 font-bold text-gray-600 bg-gray-100 rounded-full cursor-pointer rating hover:bg-amber-500 hover:text-amber-50">{{$i}}</label>
+                    <div class="flex flex-col items-center justify-center">
+                        <div class="flex flex-wrap mt-10 space-x-3">
+                            @for($i = 1; $i <= 5; $i++) <div>
+                                <input type='radio' value='{{$i}}' name='rating' id='radio{{$i}}' class="hidden" />
+                                <label for='radio{{$i}}' onclick="addActiveClass(this)" class="flex items-center justify-center w-10 h-10 font-bold text-gray-600 bg-gray-100 rounded-full cursor-pointer rating hover:bg-amber-500 hover:text-amber-50">{{$i}}</label>
+                        </div>
+                        @endfor
                     </div>
-                    @endfor
+                    @error('rating') <p class="pt-6 text-sm text-red-500">{{ $message }}</p> @enderror
+
+
             </div>
 
             <div class="relative w-full mb-3">
                 <label class="block mb-2 text-xs font-bold text-gray-700 uppercase">Title</label>
-                <input type="input" value="{{ old('title')}}" name="title" class="w-full px-3 py-3 text-sm text-gray-800 bg-gray-300 border-0 rounded shadow outline-none focus:bg-gray-100" required />
+                <input type="input" value="{{ old('title')}}" name="title" class="w-full px-3 py-3 text-sm text-gray-800 bg-gray-300 border @error('title') border-red-500 @enderror  rounded shadow outline-none focus:bg-gray-100 " required />
+                @error('title') <p class="pt-2 text-sm text-red-500">{{ $message }}</p> @enderror
+
             </div>
             <div class="relative w-full mb-3">
                 <label class="block mb-2 text-xs font-bold text-gray-700 uppercase">Review</label>
-                <textarea maxlength="300" name="review" value="{{ old('review')}}" rows="4" cols="80" class="w-full px-3 py-3 text-sm text-gray-800 bg-gray-300 border-0 rounded shadow focus:outline-none focus:bg-gray-100" required></textarea>
+                <textarea maxlength="300" name="review" value="{{ old('review')}}" rows="4" cols="80" class="w-full px-3 py-3 text-sm text-gray-800 border  @error('review') border-red-500 @enderror bg-gray-300 rounded shadow focus:outline-none focus:bg-gray-100" required>{{ old('review')}}</textarea>
+                @error('review') <p class="pt-2 text-sm text-red-500">{{ $message }}</p> @enderror
+
             </div>
             <div class="mt-6 text-center">
                 <button class="btn bg-amber-500 hover:bg-amber-400" type="submit">Submit

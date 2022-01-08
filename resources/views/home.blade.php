@@ -85,7 +85,12 @@
             @foreach($destinations as $destination)
             @include('home.partials.destinations')
             @endforeach
+
         </section>
+        <div class="flex items-center justify-center gap-5">
+            {{ $destinations->links() }}
+
+        </div>
 
         {{-- <div class="flex justify-end">
 
@@ -143,7 +148,6 @@
     </div>
 
     @include('home.partials.steps')
-
 
     @include('home.partials.teams')
 

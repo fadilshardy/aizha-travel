@@ -21,8 +21,9 @@
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg> </div>
-                <input name="start" type="text" id="datePicker" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full pl-12  p-2.5  dark:bg-gray-700 dark:border-gray-600 " placeholder="Pick Your Date">
+                    </svg>
+                </div>
+                <input name="date" type="text" id="datePicker" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full pl-12  p-2.5  dark:bg-gray-700 dark:border-gray-600 " placeholder="Pick Your Date">
             </div>
         </div>
 
@@ -31,8 +32,9 @@
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg> </div>
-                <input name="start" type="text" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full pl-12  p-2.5  dark:bg-gray-700 dark:border-gray-600 " placeholder="How Many Person?">
+                    </svg>
+                </div>
+                <input name="quantity" min="1" class="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full pl-12  p-2.5  dark:bg-gray-700 dark:border-gray-600 " type="number" placeholder="How Many Person?">
             </div>
         </div>
 

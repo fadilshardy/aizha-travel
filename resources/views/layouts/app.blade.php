@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
-<body class="antialiased text-gray-900 ">
+<body class="antialiased text-gray-900">
     @include('sweetalert::alert')
     @yield('content')
 

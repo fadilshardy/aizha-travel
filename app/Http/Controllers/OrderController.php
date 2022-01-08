@@ -15,28 +15,29 @@ class OrderController extends Controller
     public function __construct(DateService $dateService, OrderService $orderService)
     {
         $this->dateService = $dateService;
+
         $this->orderService = $orderService;
     }
 
     public function redirectToCheckout(Request $request)
     {
         $destination_id = $request->destination_id;
-        $start = $request->start;
-        $end = $request->end;
+
+        $date = $request->date;
+
         $quantity = $request->quantity;
 
-        return redirect()->route('destination.checkout', compact('destination_id', 'start', 'end', 'quantity'));
+        return redirect()->route('destination.checkout', compact('destination_id', 'date', 'quantity'));
     }
 
     public function checkout(Request $request)
     {
-
-        $destination = Destination::findOrFail($request->destination_id);
+        $destination = Destination::find($request->destination_id);
 
         $user = Auth::user();
 
         $data =  [
-            'date' => $this->dateService->getDayMonthString($request->start),
+            'date' => $request->date,
             'quantity' => $request->quantity,
         ];
 

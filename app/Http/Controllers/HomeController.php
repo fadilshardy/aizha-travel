@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $destination = Destination::latest()->take(6)->get();
+        $destination = Destination::simplePaginate(6);
 
         return view('home', [
             'destinations' => $destination,

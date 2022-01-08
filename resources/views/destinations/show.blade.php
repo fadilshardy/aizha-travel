@@ -84,7 +84,9 @@
 
 
             <div class="mt-8">
+                @if($destination->userReview->isEmpty())
                 @include('destinations.partials.review_form')
+                @endif
             </div>
 
             <!-- reviews -->

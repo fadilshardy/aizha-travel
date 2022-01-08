@@ -9,7 +9,7 @@ use Spatie\MediaLibrary\HasMedia;
 use App\Models\Tag;
 use App\Models\Review;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class Destination extends Model implements HasMedia
@@ -26,8 +26,17 @@ class Destination extends Model implements HasMedia
 
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'destination_id')->latest();
+        return $this->hasMany(Review::class, 'destination_id');
     }
+
+    public function userReview()
+    {
+        $user_id = Auth::id();
+
+        return $this->reviews()->where('user_id', $user_id);
+    }
+
+
 
     public function UserComment()
     {
@@ -66,5 +75,10 @@ class Destination extends Model implements HasMedia
     public function similiar_destinations()
     {
         return $this->inRandomOrder()->limit(3)->get();
+    }
+
+    public function getReviewsPaginatedAttribute()
+    {
+        return $this->reviews()->simplePaginate(3);
     }
 }

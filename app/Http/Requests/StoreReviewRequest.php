@@ -4,13 +4,20 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Contracts\Validation\Validator;
+
+
+
 class StoreReviewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
+     * 
      */
+
+
     public function authorize()
     {
         return true;
@@ -30,5 +37,10 @@ class StoreReviewRequest extends FormRequest
             'rating' => 'required|integer|between:1,5',
             'review' => 'required|string|min:10|max:64',
         ];
+    }
+
+    protected function getRedirectUrl()
+    {
+        return parent::getRedirectUrl() . '#review';
     }
 }

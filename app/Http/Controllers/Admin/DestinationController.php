@@ -18,7 +18,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class DestinationController extends Controller
 {
-
     protected $imageService;
 
     public function __construct(ImageService $imageService, TagService $tagService)
@@ -63,6 +62,7 @@ class DestinationController extends Controller
 
     public function show(Destination $destination)
     {
+
         return view('destinations.show', compact('destination'));
     }
 
@@ -109,8 +109,11 @@ class DestinationController extends Controller
         $validated = $request->validated();
 
         if (Review::where('user_id', $request->user_id)->where('destination_id', $destination->id)->exists()) {
-            toast('Error', 'You already posted a review for this destination');
-            return back();
+
+            toast('You already have a review for this destination', 'error');
+
+            return redirect()->route('destination.show', $destination->slug . '#reviews');
+
 
             // return redirect()->back()
             //     ->with('error', 'Error during the creation!');
@@ -119,7 +122,7 @@ class DestinationController extends Controller
 
         Review::create($validated);
 
-        return redirect()->route('destination.show', $destination->slug);
+        return redirect()->route('destination.show', $destination->slug . '#reviews');
     }
 
     public function uploadImage(Request $request)
