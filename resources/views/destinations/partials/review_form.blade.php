@@ -11,7 +11,7 @@
                         <div class="flex flex-wrap mt-10 space-x-3">
                             @for($i = 1; $i <= 5; $i++) <div>
                                 <input type='radio' value='{{$i}}' name='rating' id='radio{{$i}}' class="hidden" />
-                                <label for='radio{{$i}}' onclick="addActiveClass(this)" class="flex items-center justify-center w-10 h-10 font-bold text-gray-600 bg-gray-100 rounded-full cursor-pointer rating hover:bg-amber-500 hover:text-amber-50">{{$i}}</label>
+                                <label for='radio{{$i}}' onclick="addActiveClass(this)" class="flex items-center justify-center w-10 h-10 font-bold text-gray-600 bg-gray-100 rounded-full cursor-pointer rating hover:bg-teal-500 hover:text-teal-50">{{$i}}</label>
                         </div>
                         @endfor
                     </div>
@@ -33,7 +33,7 @@
 
             </div>
             <div class="mt-6 text-center">
-                <button class="btn bg-amber-500 hover:bg-amber-400" type="submit">Submit
+                <button class="px-4 py-2 font-bold text-white capitalize bg-teal-700 rounded hover:bg-teal-600" type="submit">Submit
                 </button>
             </div>
             </form>
@@ -46,11 +46,11 @@
     function addActiveClass(elem, i) {
         var opt = document.getElementsByClassName('rating');
         for (i = 0; i < opt.length; i++) {
-            opt[i].classList.remove('bg-amber-500');
+            opt[i].classList.remove('bg-teal-500');
             opt[i].classList.add('bg-gray-100');
             opt[i].classList.add('text-gray-600');
         }
-        elem.classList.add('bg-amber-500');
+        elem.classList.add('bg-teal-500');
         elem.classList.remove('bg-gray-100');
         elem.classList.remove('text-gray-600');
         elem.classList.add('text-white');

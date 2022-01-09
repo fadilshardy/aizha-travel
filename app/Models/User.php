@@ -44,6 +44,18 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
     ];
 
+    public function getAvatarUrl()
+    {
+        if ($this->getMedia()->isEmpty()) {
+            $imageUrl = "http://127.0.0.1:3000/storage/16/1080x1920.jpeg";
+        } else {
+            $imageUrl = $this->getMedia('avatar')[0]->getUrl();
+        }
+
+        return $imageUrl;
+    }
+
+
     public function registerMediaCollections(): void
     {
         $this

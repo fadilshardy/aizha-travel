@@ -1,4 +1,23 @@
-        <h3 class="mb-4 text-2xl font-bold text-center text-gray-900" id="reviews">Reviews From Our Costumers</h3>
+        <div class="flex flex-col items-center justify-center" id="reviews">
+            <h2 class="text-xl font-bold sm:text-2xl">Customer Reviews</h2>
+
+            <div class="flex items-center mt-4">
+                <p class="text-3xl font-medium">
+                    {{$destination->getAvgRating()}}
+                    <span class="sr-only"> Average review score </span>
+                </p>
+
+                <div class="ml-4">
+                    <div class="flex -ml-1">
+                        @for ($i = 1; $i <= 5; $i++) <i class="fas fa-star {{ ($i <= $destination->getAvgRating() ) ? "text-yellow-400" : 'text-gray-400';}}"></i> @endfor
+
+                    </div>
+
+                    <p class="mt-0.5 text-xs text-gray-500">Based on {{$destination->getTotalReviews()}} reviews</p>
+                </div>
+            </div>
+        </div>
+
         <div class="space-y-8">
             @foreach($destination->reviews_paginated as $review)
             <div class="flex">
@@ -9,8 +28,7 @@
                             <div class="flex items-baseline gap-2 text-sm">
                                 <strong>{{$review->user->name}}</strong>
                                 <div class="flex items-center mt-1 mb-1">
-                                    @for ($i = 1; $i <= 5; $i++) <i class="fas fa-star {{ ($i <= $review->rating ) ? "text-amber-500" : 'text-gray-400';}}"></i> @endfor
-                                        <span class="ml-2 text-sm text-gray-600"></span>
+                                    @for ($i = 1; $i <= 5; $i++) <i class="fas fa-star {{ ($i <= $review->rating ) ? "text-yellow-400" : 'text-gray-400';}}"></i> @endfor
                                 </div>
                             </div>
                             <span class="text-xs text-gray-400">{{$review->updated_at->diffForHumans();}}</span>
