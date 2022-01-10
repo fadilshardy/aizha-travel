@@ -39,6 +39,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
     Route::get('destination/{destination}/image/{image_id}', [DestinationController::class, 'deleteImage']);
     Route::post('image_upload', [DestinationController::class, 'uploadImage'])->name('destination.uploadImage');
     Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::get('dashboard/destination', [DashboardController::class, 'destination']);
+
     Route::resource('destination', DestinationController::class)->except('show');
 });
 

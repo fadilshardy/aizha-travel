@@ -2,19 +2,53 @@
 @include('layouts.header')
 @section('content')
 
-<main class="pb-12 bg-gray-50 pt-18">
-    <div class="relative w-full shadow">
+
+<main class="pb-12 bg-indigo-50 pt-18">
+    <div class="relative w-full shadow-sm ">
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black opacity-60"></div>
         <div class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full ">
             <div class="text-4xl font-bold tracking-wide text-center text-white capitalize lg:text-6xl md:text-5xl">
                 {{$destination->name}}
             </div>
+
             <div class="flex items-center gap-2 pt-3 text-lg tracking-wide text-white capitalize">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <nav class="text-sm">
+                    <ol class="flex items-center">
+                        <li class="inline-flex items-center">
+                            <a href="" class="underline">
+                                Home
+                            </a>
+
+
+
+                            <span class="px-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </li>
+
+
+                        <li class="hidden sm:inline-flex sm:items-center">
+                            <a href="/" class="underline">destinations</a>
+
+                            <span class="px-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </li>
+
+                        <li>
+                            Current Page
+                        </li>
+                    </ol>
+                </nav>
+                {{-- <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                {{$destination->location}}
+                {{$destination->location}} --}}
             </div>
         </div>
         <div class="w-auto h-[30rem] bg-red-600">

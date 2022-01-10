@@ -1,156 +1,468 @@
- @extends('layouts.app')
+ @extends('dashboard.partials.layout')
 
- @section('content')
+ @section('main')
 
- <div class="w-56 h-screen text-lg bg-gray-900 no-scrollbar">
-     <div class="flex items-center justify-end px-6 pt-4">
-         <button class="flex items-center justify-center text-xl text-gray-100 focus:outline-none focus:ring-amber-400">
-             <i class="fas fa-bars"></i>
-         </button>
+ <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+     Dashboard
+ </h2>
+ <!-- CTA -->
+ <a class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-teal-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple" href="https://github.com/estevanmaito/windmill-dashboard">
+     <div class="flex items-center">
+         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+         </svg>
+         <span>Star this project on GitHub</span>
      </div>
-     <div class="px-2">
-         <div class="flex items-center justify-center py-4 pl-6 pr-4 ">
-             <div class="flex items-center">
-                 <div class="relative w-12 h-12 rounded-full b">
-                     <img class="rounded-full" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="" />
-                 </div>
-                 <div class="pl-3 text-sm text-white ">
-                     Jane Doeson
-                 </div>
-             </div>
+     <span>View more &RightArrow;</span>
+ </a>
+ <!-- Cards -->
+ <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+     <!-- Card -->
+     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+         <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+             </svg>
+         </div>
+         <div>
+             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                 Total clients
+             </p>
+             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                 6389
+             </p>
+         </div>
+     </div>
+     <!-- Card -->
+     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+         <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
+             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                 <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+             </svg>
+         </div>
+         <div>
+             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                 Account balance
+             </p>
+             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                 $ 46,760.89
+             </p>
+         </div>
+     </div>
+     <!-- Card -->
+     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+         <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                 <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+             </svg>
+         </div>
+         <div>
+             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                 New sales
+             </p>
+             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                 376
+             </p>
+         </div>
+     </div>
+     <!-- Card -->
+     <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+         <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
+             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                 <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"></path>
+             </svg>
+         </div>
+         <div>
+             <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                 Pending contacts
+             </p>
+             <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                 35
+             </p>
+         </div>
+     </div>
+ </div>
 
-         </div>
-         <div class="px-6">
-             <hr class="border-gray-700" />
-         </div>
-         <div class="px-6 pt-4">
-             <ul class="flex flex-col space-y-2">
-                 <li class="relative text-white hover:text-white focus-within:text-white">
-                     <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                         <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 6.75C4.75 5.64543 5.64543 4.75 6.75 4.75H17.25C18.3546 4.75 19.25 5.64543 19.25 6.75V17.25C19.25 18.3546 18.3546 19.25 17.25 19.25H6.75C5.64543 19.25 4.75 18.3546 4.75 17.25V6.75Z"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 8.75V19"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8.25H19"></path>
-                         </svg>
-                     </div>
-                     <a href="#" class="inline-block w-full py-2 pl-8 pr-4 text-sm tracking-tight rounded hover:bg-amber-500 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-amber-500 ">Dashboard</a>
-                 </li>
-                 <li class="">
-                     <div class="relative flex justify-between text-white hover:text-white focus-within:text-white">
-                         <div class="flex items-center w-full">
-                             <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                                 <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.75 19.25H16.25C17.3546 19.25 18.25 18.3546 18.25 17.25V9L14 4.75H7.75C6.64543 4.75 5.75 5.64543 5.75 6.75V17.25C5.75 18.3546 6.64543 19.25 7.75 19.25Z"></path>
-                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 9.25H13.75V5"></path>
-                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 15.25H14.25"></path>
-                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 12.25H14.25"></path>
-                                 </svg>
+ <!-- New Table -->
+ <div class="w-full overflow-hidden rounded-lg shadow-xs">
+     <div class="w-full overflow-x-auto">
+         <table class="w-full whitespace-no-wrap">
+             <thead>
+                 <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                     <th class="px-4 py-3">Client</th>
+                     <th class="px-4 py-3">Amount</th>
+                     <th class="px-4 py-3">Status</th>
+                     <th class="px-4 py-3">Date</th>
+                 </tr>
+             </thead>
+             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                 <tr class="text-gray-700 dark:text-gray-400">
+                     <td class="px-4 py-3">
+                         <div class="flex items-center text-sm">
+                             <!-- Avatar with inset shadow -->
+                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                 <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy" />
+                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                              </div>
-                             <a href="#" class="inline-block w-full py-2 pl-8 pr-4 text-sm rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Content</a>
+                             <div>
+                                 <p class="font-semibold">Hans Burger</p>
+                                 <p class="text-xs text-gray-600 dark:text-gray-400">
+                                     10x Developer
+                                 </p>
+                             </div>
                          </div>
-                         <button class="absolute right-0 flex items-center p-1" tabindex="-1">
-                             <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.25 10.75L12 14.25L8.75 10.75"></path>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         $ 863.45
+                     </td>
+                     <td class="px-4 py-3 text-xs">
+                         <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                             Approved
+                         </span>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         6/10/2020
+                     </td>
+                 </tr>
+
+                 <tr class="text-gray-700 dark:text-gray-400">
+                     <td class="px-4 py-3">
+                         <div class="flex items-center text-sm">
+                             <!-- Avatar with inset shadow -->
+                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                 <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6" alt="" loading="lazy" />
+                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                             </div>
+                             <div>
+                                 <p class="font-semibold">Jolina Angelie</p>
+                                 <p class="text-xs text-gray-600 dark:text-gray-400">
+                                     Unemployed
+                                 </p>
+                             </div>
+                         </div>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         $ 369.95
+                     </td>
+                     <td class="px-4 py-3 text-xs">
+                         <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
+                             Pending
+                         </span>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         6/10/2020
+                     </td>
+                 </tr>
+
+                 <tr class="text-gray-700 dark:text-gray-400">
+                     <td class="px-4 py-3">
+                         <div class="flex items-center text-sm">
+                             <!-- Avatar with inset shadow -->
+                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                 <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy" />
+                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                             </div>
+                             <div>
+                                 <p class="font-semibold">Sarah Curry</p>
+                                 <p class="text-xs text-gray-600 dark:text-gray-400">
+                                     Designer
+                                 </p>
+                             </div>
+                         </div>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         $ 86.00
+                     </td>
+                     <td class="px-4 py-3 text-xs">
+                         <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+                             Denied
+                         </span>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         6/10/2020
+                     </td>
+                 </tr>
+
+                 <tr class="text-gray-700 dark:text-gray-400">
+                     <td class="px-4 py-3">
+                         <div class="flex items-center text-sm">
+                             <!-- Avatar with inset shadow -->
+                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                 <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/photo-1551006917-3b4c078c47c9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy" />
+                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                             </div>
+                             <div>
+                                 <p class="font-semibold">Rulia Joberts</p>
+                                 <p class="text-xs text-gray-600 dark:text-gray-400">
+                                     Actress
+                                 </p>
+                             </div>
+                         </div>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         $ 1276.45
+                     </td>
+                     <td class="px-4 py-3 text-xs">
+                         <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                             Approved
+                         </span>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         6/10/2020
+                     </td>
+                 </tr>
+
+                 <tr class="text-gray-700 dark:text-gray-400">
+                     <td class="px-4 py-3">
+                         <div class="flex items-center text-sm">
+                             <!-- Avatar with inset shadow -->
+                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                 <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/photo-1546456073-6712f79251bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy" />
+                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                             </div>
+                             <div>
+                                 <p class="font-semibold">Wenzel Dashington</p>
+                                 <p class="text-xs text-gray-600 dark:text-gray-400">
+                                     Actor
+                                 </p>
+                             </div>
+                         </div>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         $ 863.45
+                     </td>
+                     <td class="px-4 py-3 text-xs">
+                         <span class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700">
+                             Expired
+                         </span>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         6/10/2020
+                     </td>
+                 </tr>
+
+                 <tr class="text-gray-700 dark:text-gray-400">
+                     <td class="px-4 py-3">
+                         <div class="flex items-center text-sm">
+                             <!-- Avatar with inset shadow -->
+                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                 <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/photo-1502720705749-871143f0e671?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=b8377ca9f985d80264279f277f3a67f5" alt="" loading="lazy" />
+                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                             </div>
+                             <div>
+                                 <p class="font-semibold">Dave Li</p>
+                                 <p class="text-xs text-gray-600 dark:text-gray-400">
+                                     Influencer
+                                 </p>
+                             </div>
+                         </div>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         $ 863.45
+                     </td>
+                     <td class="px-4 py-3 text-xs">
+                         <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                             Approved
+                         </span>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         6/10/2020
+                     </td>
+                 </tr>
+
+                 <tr class="text-gray-700 dark:text-gray-400">
+                     <td class="px-4 py-3">
+                         <div class="flex items-center text-sm">
+                             <!-- Avatar with inset shadow -->
+                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                 <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy" />
+                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                             </div>
+                             <div>
+                                 <p class="font-semibold">Maria Ramovic</p>
+                                 <p class="text-xs text-gray-600 dark:text-gray-400">
+                                     Runner
+                                 </p>
+                             </div>
+                         </div>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         $ 863.45
+                     </td>
+                     <td class="px-4 py-3 text-xs">
+                         <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                             Approved
+                         </span>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         6/10/2020
+                     </td>
+                 </tr>
+
+                 <tr class="text-gray-700 dark:text-gray-400">
+                     <td class="px-4 py-3">
+                         <div class="flex items-center text-sm">
+                             <!-- Avatar with inset shadow -->
+                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                 <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/photo-1566411520896-01e7ca4726af?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy" />
+                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                             </div>
+                             <div>
+                                 <p class="font-semibold">Hitney Wouston</p>
+                                 <p class="text-xs text-gray-600 dark:text-gray-400">
+                                     Singer
+                                 </p>
+                             </div>
+                         </div>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         $ 863.45
+                     </td>
+                     <td class="px-4 py-3 text-xs">
+                         <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                             Approved
+                         </span>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         6/10/2020
+                     </td>
+                 </tr>
+
+                 <tr class="text-gray-700 dark:text-gray-400">
+                     <td class="px-4 py-3">
+                         <div class="flex items-center text-sm">
+                             <!-- Avatar with inset shadow -->
+                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                 <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy" />
+                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                             </div>
+                             <div>
+                                 <p class="font-semibold">Hans Burger</p>
+                                 <p class="text-xs text-gray-600 dark:text-gray-400">
+                                     10x Developer
+                                 </p>
+                             </div>
+                         </div>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         $ 863.45
+                     </td>
+                     <td class="px-4 py-3 text-xs">
+                         <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                             Approved
+                         </span>
+                     </td>
+                     <td class="px-4 py-3 text-sm">
+                         6/10/2020
+                     </td>
+                 </tr>
+             </tbody>
+         </table>
+     </div>
+     <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+         <span class="flex items-center col-span-3">
+             Showing 21-30 of 100
+         </span>
+         <span class="col-span-2"></span>
+         <!-- Pagination -->
+         <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+             <nav aria-label="Table navigation">
+                 <ul class="inline-flex items-center">
+                     <li>
+                         <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple" aria-label="Previous">
+                             <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                 <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
                              </svg>
                          </button>
-                     </div>
-                     <div class="pt-2 pl-4">
-                         <ul class="flex flex-col pl-2 text-white border-l border-gray-700">
-                             <li>
-                                 <a href="#" class="inline-block w-full px-4 py-2 text-sm rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white">Courses</a>
-                             </li>
-                             <li>
-                                 <a href="#" class="inline-block w-full px-4 py-2 text-sm rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white">Categories</a>
-                             </li>
-                             <li>
-                                 <a href="#" class="inline-block w-full px-4 py-2 text-sm rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white">Instructors</a>
-                             </li>
-                             <li>
-                                 <a href="#" class="inline-block w-full px-4 py-2 text-sm rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white">Video Library</a>
-                             </li>
-                         </ul>
-                     </div>
-                 </li>
-                 <li class="relative text-white hover:text-white focus-within:text-white">
-                     <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                         <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                             <path d="M12 4.75L19.25 9L12 13.25L4.75 9L12 4.75Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                             <path d="M9.25 12L4.75 15L12 19.25L19.25 15L14.6722 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                         </svg>
-                     </div>
-                     <a href="#" class="inline-block w-full py-2 pl-8 pr-4 text-sm rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Design</a>
-                 </li>
-                 <li class="relative text-white hover:text-white focus-within:text-white">
-                     <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                         <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                             <circle cx="15" cy="9" r="1" fill="currentColor"></circle>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.75H19.25V12L12.5535 18.6708C11.7544 19.4668 10.4556 19.445 9.68369 18.6226L5.28993 13.941C4.54041 13.1424 4.57265 11.8895 5.36226 11.1305L12 4.75Z"></path>
-                         </svg>
-                     </div>
-                     <a href="#" class="inline-block w-full py-2 pl-8 pr-4 text-sm rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Market & sell</a>
-                 </li>
-                 <li class="relative text-white hover:text-white focus-within:text-white">
-                     <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                         <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.75 19.2502H6.25C6.80229 19.2502 7.25 18.8025 7.25 18.2502V15.75C7.25 15.1977 6.80229 14.75 6.25 14.75H5.75C5.19772 14.75 4.75 15.1977 4.75 15.75V18.2502C4.75 18.8025 5.19772 19.2502 5.75 19.2502Z"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.75 19.2502H12.25C12.8023 19.2502 13.25 18.8025 13.25 18.2502V12.75C13.25 12.1977 12.8023 11.75 12.25 11.75H11.75C11.1977 11.75 10.75 12.1977 10.75 12.75V18.2502C10.75 18.8025 11.1977 19.2502 11.75 19.2502Z"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.75 19.2502H18.25C18.8023 19.2502 19.25 18.8025 19.25 18.2502V5.75C19.25 5.19772 18.8023 4.75 18.25 4.75H17.75C17.1977 4.75 16.75 5.19772 16.75 5.75V18.2502C16.75 18.8025 17.1977 19.2502 17.75 19.2502Z"></path>
-                         </svg>
-                     </div>
-                     <a href="#" class="inline-block w-full py-2 pl-8 pr-4 text-sm rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Reporting</a>
-                 </li>
-                 <li class="relative text-white hover:text-white focus-within:text-white">
-                     <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                         <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                             <circle cx="12" cy="12" r="7.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></circle>
-                             <circle cx="12" cy="12" r="3.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></circle>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17L9.5 14.5"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 17L14.5 14.5"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.5 9.5L7 7"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.5 9.5L17 7"></path>
-                         </svg>
-                     </div>
-                     <a href="#" class="inline-block w-full py-2 pl-8 pr-4 text-sm rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Support</a>
-                 </li>
-             </ul>
-         </div>
-         <div class="px-6 pt-8">
-             <hr class="border-gray-700" />
-         </div>
-         <div class="px-6 pt-4 pb-8">
-             <ul>
-                 <li class="relative text-white hover:text-white focus-within:text-white">
-                     <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                         <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.1191 5.61336C13.0508 5.11856 12.6279 4.75 12.1285 4.75H11.8715C11.3721 4.75 10.9492 5.11856 10.8809 5.61336L10.7938 6.24511C10.7382 6.64815 10.4403 6.96897 10.0622 7.11922C10.006 7.14156 9.95021 7.16484 9.89497 7.18905C9.52217 7.3524 9.08438 7.3384 8.75876 7.09419L8.45119 6.86351C8.05307 6.56492 7.49597 6.60451 7.14408 6.9564L6.95641 7.14408C6.60452 7.49597 6.56492 8.05306 6.86351 8.45118L7.09419 8.75876C7.33841 9.08437 7.3524 9.52216 7.18905 9.89497C7.16484 9.95021 7.14156 10.006 7.11922 10.0622C6.96897 10.4403 6.64815 10.7382 6.24511 10.7938L5.61336 10.8809C5.11856 10.9492 4.75 11.372 4.75 11.8715V12.1285C4.75 12.6279 5.11856 13.0508 5.61336 13.1191L6.24511 13.2062C6.64815 13.2618 6.96897 13.5597 7.11922 13.9378C7.14156 13.994 7.16484 14.0498 7.18905 14.105C7.3524 14.4778 7.3384 14.9156 7.09419 15.2412L6.86351 15.5488C6.56492 15.9469 6.60451 16.504 6.9564 16.8559L7.14408 17.0436C7.49597 17.3955 8.05306 17.4351 8.45118 17.1365L8.75876 16.9058C9.08437 16.6616 9.52216 16.6476 9.89496 16.811C9.95021 16.8352 10.006 16.8584 10.0622 16.8808C10.4403 17.031 10.7382 17.3519 10.7938 17.7549L10.8809 18.3866C10.9492 18.8814 11.3721 19.25 11.8715 19.25H12.1285C12.6279 19.25 13.0508 18.8814 13.1191 18.3866L13.2062 17.7549C13.2618 17.3519 13.5597 17.031 13.9378 16.8808C13.994 16.8584 14.0498 16.8352 14.105 16.8109C14.4778 16.6476 14.9156 16.6616 15.2412 16.9058L15.5488 17.1365C15.9469 17.4351 16.504 17.3955 16.8559 17.0436L17.0436 16.8559C17.3955 16.504 17.4351 15.9469 17.1365 15.5488L16.9058 15.2412C16.6616 14.9156 16.6476 14.4778 16.811 14.105C16.8352 14.0498 16.8584 13.994 16.8808 13.9378C17.031 13.5597 17.3519 13.2618 17.7549 13.2062L18.3866 13.1191C18.8814 13.0508 19.25 12.6279 19.25 12.1285V11.8715C19.25 11.3721 18.8814 10.9492 18.3866 10.8809L17.7549 10.7938C17.3519 10.7382 17.031 10.4403 16.8808 10.0622C16.8584 10.006 16.8352 9.95021 16.8109 9.89496C16.6476 9.52216 16.6616 9.08437 16.9058 8.75875L17.1365 8.4512C17.4351 8.05308 17.3955 7.49599 17.0436 7.1441L16.8559 6.95642C16.504 6.60453 15.9469 6.56494 15.5488 6.86353L15.2412 7.09419C14.9156 7.33841 14.4778 7.3524 14.105 7.18905C14.0498 7.16484 13.994 7.14156 13.9378 7.11922C13.5597 6.96897 13.2618 6.64815 13.2062 6.24511L13.1191 5.61336Z"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.25 12C13.25 12.6904 12.6904 13.25 12 13.25C11.3096 13.25 10.75 12.6904 10.75 12C10.75 11.3096 11.3096 10.75 12 10.75C12.6904 10.75 13.25 11.3096 13.25 12Z"></path>
-                         </svg>
-                     </div>
-                     <a href="#" class="inline-block w-full py-2 pl-8 pr-4 text-sm rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Settings</a>
-                 </li>
-                 <li class="relative text-white hover:text-white focus-within:text-white">
-                     <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                         <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 12V10C17.25 7.1005 14.8995 4.75 12 4.75C9.10051 4.75 6.75 7.10051 6.75 10V12L4.75 16.25H19.25L17.25 12Z"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 16.75C9 16.75 9 19.25 12 19.25C15 19.25 15 16.75 15 16.75"></path>
-                         </svg>
-                     </div>
-                     <a href="#" class="inline-block w-full py-2 pl-8 pr-4 text-sm rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Notifications</a>
-                 </li>
-                 <li class="relative text-white hover:text-white focus-within:text-white">
-                     <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                         <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 5.75C4.75 5.19772 5.19772 4.75 5.75 4.75H9.25C9.80228 4.75 10.25 5.19772 10.25 5.75V9.25C10.25 9.80228 9.80228 10.25 9.25 10.25H5.75C5.19772 10.25 4.75 9.80228 4.75 9.25V5.75Z"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 14.75C4.75 14.1977 5.19772 13.75 5.75 13.75H9.25C9.80228 13.75 10.25 14.1977 10.25 14.75V18.25C10.25 18.8023 9.80228 19.25 9.25 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V14.75Z"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.75 5.75C13.75 5.19772 14.1977 4.75 14.75 4.75H18.25C18.8023 4.75 19.25 5.19772 19.25 5.75V9.25C19.25 9.80228 18.8023 10.25 18.25 10.25H14.75C14.1977 10.25 13.75 9.80228 13.75 9.25V5.75Z"></path>
-                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.75 14.75C13.75 14.1977 14.1977 13.75 14.75 13.75H18.25C18.8023 13.75 19.25 14.1977 19.25 14.75V18.25C19.25 18.8023 18.8023 19.25 18.25 19.25H14.75C14.1977 19.25 13.75 18.8023 13.75 18.25V14.75Z"></path>
-                         </svg>
-                     </div>
-                     <a href="#" class="inline-block w-full py-2 pl-8 pr-4 text-sm rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Apps</a>
-                 </li>
-             </ul>
-         </div>
+                     </li>
+                     <li>
+                         <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                             1
+                         </button>
+                     </li>
+                     <li>
+                         <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                             2
+                         </button>
+                     </li>
+                     <li>
+                         <button class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">
+                             3
+                         </button>
+                     </li>
+                     <li>
+                         <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                             4
+                         </button>
+                     </li>
+                     <li>
+                         <span class="px-3 py-1">...</span>
+                     </li>
+                     <li>
+                         <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                             8
+                         </button>
+                     </li>
+                     <li>
+                         <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                             9
+                         </button>
+                     </li>
+                     <li>
+                         <button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple" aria-label="Next">
+                             <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
+                                 <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                             </svg>
+                         </button>
+                     </li>
+                 </ul>
+             </nav>
+         </span>
+     </div>
+ </div>
 
+ <!-- Charts -->
+ <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+     Charts
+ </h2>
+ <div class="grid gap-6 mb-8 md:grid-cols-2">
+     <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+         <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
+             Revenue
+         </h4>
+         <canvas id="pie"></canvas>
+         <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
+             <!-- Chart legend -->
+             <div class="flex items-center">
+                 <span class="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-full"></span>
+                 <span>Shirts</span>
+             </div>
+             <div class="flex items-center">
+                 <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
+                 <span>Shoes</span>
+             </div>
+             <div class="flex items-center">
+                 <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
+                 <span>Bags</span>
+             </div>
+         </div>
+     </div>
+     <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+         <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
+             Traffic
+         </h4>
+         <canvas id="line"></canvas>
+         <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
+             <!-- Chart legend -->
+             <div class="flex items-center">
+                 <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
+                 <span>Organic</span>
+             </div>
+             <div class="flex items-center">
+                 <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
+                 <span>Paid</span>
+             </div>
+         </div>
      </div>
  </div>
  @endsection

@@ -93,18 +93,19 @@
     <header class="fixed z-50 w-full bg-white border-b border-gray-100 shadow-sm">
         <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
             <div class="flex items-center">
-                <a href="" class="flex items-center gap-2 text-base font-bold text-gray-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" class="w-10 h-10 text-teal-400" viewBox="0 0 24 24" fill="currentColor">
-                        <rect fill="none" height="24" width="24" />
-                        <path d="M19.3,16.9c0.4-0.7,0.7-1.5,0.7-2.4c0-2.5-2-4.5-4.5-4.5S11,12,11,14.5s2,4.5,4.5,4.5c0.9,0,1.7-0.3,2.4-0.7l3.2,3.2 l1.4-1.4L19.3,16.9z M15.5,17c-1.4,0-2.5-1.1-2.5-2.5s1.1-2.5,2.5-2.5s2.5,1.1,2.5,2.5S16.9,17,15.5,17z M12,20v2 C6.48,22,2,17.52,2,12C2,6.48,6.48,2,12,2c4.84,0,8.87,3.44,9.8,8h-2.07c-0.64-2.46-2.4-4.47-4.73-5.41V5c0,1.1-0.9,2-2,2h-2v2 c0,0.55-0.45,1-1,1H8v2h2v3H9l-4.79-4.79C4.08,10.79,4,11.38,4,12C4,16.41,7.59,20,12,20z" /></svg>Aizha Travel
+                <a href="{{route('home')}}" class="flex items-center gap-2 text-base font-bold text-gray-600 hover:text-teal-700 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" class="w-10 h-10 text-gray-700 group-hover:text-teal-700" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.3,16.9c0.4-0.7,0.7-1.5,0.7-2.4c0-2.5-2-4.5-4.5-4.5S11,12,11,14.5s2,4.5,4.5,4.5c0.9,0,1.7-0.3,2.4-0.7l3.2,3.2 l1.4-1.4L19.3,16.9z M15.5,17c-1.4,0-2.5-1.1-2.5-2.5s1.1-2.5,2.5-2.5s2.5,1.1,2.5,2.5S16.9,17,15.5,17z M12,20v2 C6.48,22,2,17.52,2,12C2,6.48,6.48,2,12,2c4.84,0,8.87,3.44,9.8,8h-2.07c-0.64-2.46-2.4-4.47-4.73-5.41V5c0,1.1-0.9,2-2,2h-2v2 c0,0.55-0.45,1-1,1H8v2h2v3H9l-4.79-4.79C4.08,10.79,4,11.38,4,12C4,16.41,7.59,20,12,20z" />
+                    </svg>
+                    Aizha Travel
                 </a>
 
                 <nav class="items-center hidden pl-8 ml-8 space-x-8 text-sm font-medium border-l border-gray-100 md:flex">
-                    <a href="">About</a>
-                    <a href="">blog</a>
-                    <a href="">Services</a>
-                    <a href="">contact</a>
-                    <a href="" class="p-2 bg-teal-200 rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">destinations</a>
+                    <a href="" class="hover:text-teal-700">About</a>
+                    <a href="" class="hover:text-teal-700">blog</a>
+                    <a href="" class="hover:text-teal-700">Services</a>
+                    <a href="" class="hover:text-teal-700">contact</a>
+                    <a href="" class="p-2 bg-teal-200 rounded-md shadow-sm md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">destinations</a>
                 </nav>
             </div>
             @guest
@@ -114,6 +115,7 @@
             </div>
             @endguest
 
+            @auth
             <div class="flex items-center">
                 <div class="items-center hidden divide-x divide-gray-100 lg:flex">
 
@@ -128,11 +130,9 @@
                         </div>
                     </a>
                     <div class="relative inline-block group">
-                        <a href="" class="block px-6 text-center">
+                        <a href="#" class="block px-6 text-center">
                             <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" class="w-6 h-6 mx-auto ">
-                                <g>
-                                    <path d="M0,0h24v24H0V0z" fill="none" />
-                                </g>
+
                                 <g>
                                     <g>
                                         <path d="M4,18v-0.65c0-0.34,0.16-0.66,0.41-0.81C6.1,15.53,8.03,15,10,15c0.03,0,0.05,0,0.08,0.01c0.1-0.7,0.3-1.37,0.59-1.98 C10.45,13.01,10.23,13,10,13c-2.42,0-4.68,0.67-6.61,1.82C2.51,15.34,2,16.32,2,17.35V20h9.26c-0.42-0.6-0.75-1.28-0.97-2H4z" />
@@ -145,7 +145,6 @@
                                 <span class="block mt-1 text-xs font-medium ">account</span>
                                 <div class="border-b-2 group-hover:border-teal-200 "></div>
                             </div>
-
                         </a>
                         <div class="absolute flex-col hidden px-3 py-1 pt-1 text-gray-700 bg-white rounded justify-items-start group-hover:flex">
                             <div class="border-b">
@@ -179,14 +178,10 @@
                                     Sign Out
                                 </p>
                             </a>
-
-
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
+            @endauth
         </div>
     </header>
