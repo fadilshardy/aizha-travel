@@ -29,7 +29,7 @@ class StoreDestinationRequest extends FormRequest
             'name' => 'required|max:80',
             'slug' => 'required|unique:destinations|max:80',
             'description' => 'required',
-            'summary' => 'required',
+            'summary' => 'required|max:200',
             'price' => 'required',
             'location' => 'required',
             'tags' => 'required',

@@ -45,5 +45,13 @@ html::-webkit-scrollbar-track {
   .btn {
     @apply px-4 py-2 text-white uppercase rounded;
   }
+  
+  .form-input {
+    @apply text-gray-700 border border-gray-100 rounded bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500 hover:border-teal-500;
+  }
+  
+  .form-label {
+    @apply block mb-1 text-sm font-medium text-gray-700;
+  }
 }
 

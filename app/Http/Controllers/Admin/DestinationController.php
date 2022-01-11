@@ -45,9 +45,12 @@ class DestinationController extends Controller
 
     public function store(StoreDestinationRequest $request)
     {
+
         $this->authorize('store', Destination::class);
 
+
         $validated = $request->safe();
+
 
         $destination = Destination::create($validated->except(['tags', 'images']));
 
