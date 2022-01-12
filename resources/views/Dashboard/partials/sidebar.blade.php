@@ -1,16 +1,12 @@
          <div class="h-full text-lg bg-teal-900 no-scrollbar">
-             <div class="flex items-center justify-end px-6 pt-4">
-                 <button class="flex items-center justify-center text-xl text-gray-100 focus:outline-none focus:ring-amber-400">
-                     <i class="fas fa-bars"></i>
-                 </button>
-             </div>
+
              <div class="px-2">
                  <div class="flex items-center justify-center py-4 pl-6 pr-4 ">
-                     <div class="flex items-center">
+                     <div class="flex flex-col items-center gap-y-2">
                          <div class="relative w-12 h-12 rounded-full b">
                              <img class="rounded-full" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="" />
                          </div>
-                         <div class="pl-3 text-sm text-white ">
+                         <div class="pl-3 text-sm font-medium text-white">
                              {{auth()->user()->name}}
                          </div>
                      </div>

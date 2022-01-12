@@ -1,148 +1,160 @@
-@extends('layouts.app')
-@extends('layouts.header')
-@section('content')
-<div class="container h-full pt-20 mx-auto">
-    <a href="{{route('destination.index')}}" class="p-4 text-white bg-yellow-500 rounded ">Back</a>
+ @extends('dashboard.partials.layout')
 
-    <div class="pt-5 mt-5 md:mt-0 md:col-span-2">
-        <form action="{{route('destination.update', $destination->id)}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
+ @section('main')
 
-            <div class="shadow sm:rounded-md sm:overflow-hidden">
-                <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class=" sm:col-span-2">
-                            <label for="company-website" class="block text-sm font-medium text-gray-700">
-                                name
-                            </label>
-                            <div class="flex mt-1 rounded-md shadow-sm">
-                                <input class="w-full h-12 px-4 mb-2 text-lg text-gray-700 placeholder-gray-400 border rounded-lg focus:shadow-outline" type="text" placeholder="{{$destination->name }}" name="name" value="{{$destination->name }}" />
-                            </div>
-                        </div>
-                    </div>
+ <div class="w-full h-full my-4 bg-white rounded-lg">
+     <div class="p-8 rounded-lg">
+         <div class="flex flex-col">
+             <div class="pb-8">
+                 <a href="{{route('destination.index')}}" class="py-1 font-medium bg-teal-700 btn Capitalize">back</a>
+             </div>
 
-                    <div class="grid grid-cols-3 gap-6 ">
-                        <div class=" sm:col-span-2">
-                            <label for="company-website" class="block font-medium text-gray-700 text-md">
-                                slug <span class="text-xs font-extralight">Slug is used for destination URL (current slug: {{$destination->slug}})</span>
-                            </label>
-                            <div class="flex mt-1 rounded-md shadow-sm">
-                                <input class="w-full h-12 px-4 mb-2 text-lg text-gray-700 placeholder-gray-400 border rounded-lg focus:shadow-outline" type="text" placeholder="{{$destination->slug }}" name="slug" value="" />
-                            </div>
-                        </div>
-                    </div>
+             <h1 class="text-base font-bold">Add Destination</h1>
+         </div>
+         @if ($errors->any())
+         <div class="">
+             <ul>
+                 @foreach ($errors->all() as $error)
+                 <li class="w-64 p-2 mt-2 bg-red-400 rounded shadow-lg">{{ $error }}</li>
+                 @endforeach
+             </ul>
+         </div>
+         @endif
+         <form action=" {{route('destination.update', $destination->slug)}}" method="POST" enctype="multipart/form-data">
+             @csrf
+             @method('PUT')
 
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class=" sm:col-span-2">
-                            <label for="company-website" class="block text-sm font-medium text-gray-700">
-                                location
-                            </label>
-                            <div class="flex mt-1 rounded-md shadow-sm">
-                                <input class="w-full h-12 px-4 mb-2 text-lg text-gray-700 placeholder-gray-400 border rounded-lg focus:shadow-outline" type="text" placeholder="Large input" name="location" value="{{$destination->location}}" />
-                            </div>
-                        </div>
-                    </div>
+             <div class="grid gap-4 mt-8 text-sm lg:grid-cols-2 ">
+                 <div class="col-span-2 lg:col-span-1">
+                     <label for="name" class="form-label">
+                         Name <span class="text-red-500">*</span>
+                     </label>
+                     <input type="text" name="name" id="name" class="block w-full px-2 py-2  form-input @error('name') border-red-500 @enderror" placeholder="{{$destination->name }}" value="{{$destination->name }}" />
+                     @error('name') <p class="pl-2 text-xs text-red-500">{{ $message }}</p> @enderror
+                 </div>
 
+                 <div class="col-span-2 lg:col-span-1">
+                     <label for="tags" class="form-label">Tags <span class="text-red-500">*</span> <span class="text-xs text-gray-500">(Separate Tags by Coma ",")</span></label>
+                     <input type="text" name="tags" id="tags" class="block w-full px-2 py-2 form-input @error('tags') border-red-500 @enderror" placeholder="tags" value="@foreach ($destination->tags as $key=>$tag){{($key>0)?',':''}}{{$tag->name}}@endforeach " />
+                     @error('tags') <p class="pl-2 text-xs text-red-500">{{ $message }}</p> @enderror
+                 </div>
+                 <div class="col-span-2 lg:col-span-1">
+                     <div class="flex flex-col w-full gap-2 lg:flex-row ">
+                         <div class="w-full ">
+                             <label for="price" class="form-label">Price <span class="text-red-500">*</span>
+                             </label>
+                             <input type="number" name="price" id="price" class="block w-full px-2 py-2 form-input @error('price') border-red-500 @enderror" placeholder="{{$destination->price }}" value="{{$destination->price }}" />
+                             @error('price') <p class="pl-2 text-xs text-red-500">{{ $message }}</p> @enderror
+                         </div>
 
-                    <label for="company-website" class="block text-sm font-medium text-gray-700">
-                        tags
-                    </label>
-                    <div class="flex mt-1 rounded-md shadow-sm">
-                        <input class="w-full h-12 px-4 mb-2 text-lg text-gray-700 placeholder-gray-400 border rounded-lg focus:shadow-outline" type="text" placeholder="Large input" name="tags" value="@foreach ($destination->tags as $key=>$tag){{($key>0)?',':''}}{{$tag->name}}@endforeach " />
-                    </div>
-                    <p class="mt-2 text-sm text-gray-500">
-                        Separate Tags by Coma "," ex: Swimming, Hicking
-                    </p>
-                </div>
-            </div>
+                         <div class="w-full">
+                             <label for="total_days" class="form-label">Duration <span class="text-red-500">*</span> <span class="text-xs text-gray-500">(day)</span></label>
+                             <input type="number" name="total_days" id="job" class="block w-full px-2 py-2 form-input @error('total_days') border-red-500 @enderror" placeholder="{{$destination->total_days }}" value="{{$destination->total_days }}" />
+                             @error('total_days') <p class="pl-2 text-xs text-red-500">{{ $message }}</p> @enderror
+                         </div>
+                     </div>
+                 </div>
 
-            <div class="grid grid-cols-3 gap-6">
-                <div class=" sm:col-span-2">
-                    <label for="company-website" class="block text-sm font-medium text-gray-700">
-                        price
-                    </label>
-                    <div class="flex mt-1 rounded-md shadow-sm">
-                        <input class="w-full h-12 px-4 mb-2 text-lg text-gray-700 placeholder-gray-400 border rounded-lg focus:shadow-outline" type="text" placeholder="Large input" name="price" value="{{$destination->price }}" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-3 gap-6">
-                <div class=" sm:col-span-2">
-                    <label for="company-website" class="block text-sm font-medium text-gray-700">
-                        duration
-                    </label>
-                    <div class="flex mt-1 rounded-md shadow-sm">
-                        <input class="w-full h-12 px-4 mb-2 text-lg text-gray-700 placeholder-gray-400 border rounded-lg focus:shadow-outline" type="text" placeholder="Large input" name="duration" value="{{$destination->duration }}" />
-                    </div>
-                </div>
-            </div>
+                 <div class="col-span-2 lg:col-span-1">
+                     <label for="location" class="form-label">Location <span class="text-red-500">*</span> </label>
+                     <input type="text" name="location" id="tags" class="block w-full px-2 py-2 form-input @error('tags') border-red-500 @enderror" placeholder="{{$destination->location }}" value="{{$destination->location }}" />
+                     @error('location') <p class="pl-2 text-xs text-red-500">{{ $message }}</p> @enderror
+                 </div>
 
 
+                 <div class="grid w-full h-full grid-cols-1 col-span-2 lg:col-span-1 ">
+                     <div class="flex items-center justify-center w-full h-full">
+                         <label class="flex flex-col w-full h-32 border-4 border-dashed hover:bg-gray-100 hover:border-teal-300 group">
+                             <div class="flex flex-col items-center justify-center pt-7">
+                                 <svg class="w-10 h-10 text-teal-400 group-hover:text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                 </svg>
+                                 <p class="pt-1 text-sm tracking-wider text-gray-400 lowercase group-hover:text-teal-600">Select a photo</p>
+                             </div>
+                             <input type="file" class="hidden" onchange="showname()" id="fileInput" name="images[]" value="{{ old('images[]')}}" />
+                         </label>
 
-            <div>
-                <label for="about" class="block text-sm font-medium text-gray-700">
-                    Description
-                </label>
-                <div class="mt-1">
-                    <textarea id="about" name="description" rows="3" class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="you@example.com"> {{$destination->description}}</textarea>
-                </div>
-                <p class="mt-2 text-sm text-gray-500">
-                    Brief description for your profile. URLs are hyperlinked.
-                </p>
-            </div>
+                     </div>
+                     @error('images') <p class="pl-2 text-xs text-red-500">{{ $message }}</p> @enderror
+                 </div>
+
+                 <div class="flex flex-col col-span-2 py-2 lg:col-span-1">
+                     <label class="form-label">Cover<span class="text-red-500">*</span>
+                         <img class="object-cover w-full px-2 pt-2 pb-4 rounded-lg h-96" id="imgCover" src="{{$destination->getImageUrl() }}"></label>
+                 </div>
+
+                 <div class="col-span-2">
+                     <label for="about" class="block text-sm font-medium text-gray-700">
+                         Summary <span class="text-red-500">*</span> </span>
+                     </label>
+                     <div class="mt-1">
+                         <textarea id="about" name="summary" rows="4" class="block w-full px-2 py-2 form-input" placeholder="Brief Summary for the destination">{!! $destination->summary  !!}</textarea>
+                     </div>
+                     @error('summary') <p class="pl-2 text-xs text-red-500">{{ $message }}</p> @enderror
+
+                 </div>
 
 
-            <div>
-                <label class="block text-sm font-medium text-gray-700">
-                    Cover photo
-                </label>
-                <div class="flex justify-center px-6 pt-5 pb-6 mt-1 border-2 border-gray-300 border-dashed rounded-md">
-                    <div class="space-y-1 text-center">
-                        <svg class="w-12 h-12 mx-auto text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <div class="flex text-sm text-gray-600">
-                            <label for="file-upload" class="relative font-medium text-indigo-600 bg-white rounded-md cursor-pointer hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                <span>Upload a file</span>
-                                <input id="file-upload" name="images[]" type="file" class="sr-only" multiple="multiple">
+             </div>
 
-                            </label>
-                            <p class="pl-1">or drag and drop</p>
-                        </div>
-                        <p class="text-xs text-gray-500">
-                            PNG, JPG, GIF up to 10MB
-                        </p>
-                    </div>
-                </div>
-            </div>
-    </div>
-    <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
-        <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Save
-        </button>
-    </div>
-</div>
-</form>
+             <div class="h-screen py-4 ">
+                 <label for="description" class="block mb-1 text-sm font-medium text-gray-700 ">Description <span class="text-red-500">*</span></label>
+                 @error('description')
+                 <div class="flex items-center pb-2 mt-2 text-red-600">
+                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                     </svg>
+                     <p class="ml-2 text-sm">
+                         <strong> Error: </strong>
+                         <p class="pl-2 text-xs text-red-500">{{ $message }}</p>
+                     </p>
+                 </div>
+                 @enderror
 
-<div class="flex gap-4 p-4">
-    @foreach($destination->getMedia() as $image)
-    <div class="bg-gray-100 rounded-lg">
-        <p class="text-lg font-bold ">{{$image->name}}</p>
-        <a href="{{$image->id}}"><img src="{{$image->getFullUrl()}}" alt=""></a>
-    </div>
-    @endforeach
-</div>
-</div>
+                 <textarea id="my-editor" name="description" rows="30" cols="100">{!! $destination->description !!}</textarea>
+             </div>
+             <div class="mt-8 space-x-4">
+                 <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50">Save</button> <!-- Secondary -->
+                 <button class="px-4 py-2 text-gray-600 bg-white border border-gray-200 rounded hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50">Cancel</button>
+             </div>
 
-@if ($errors->any())
-<div class="">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li class="w-64 p-2 mt-2 bg-red-400 rounded shadow-lg">{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-@endsection
+         </form>
+
+     </div>
+
+ </div>
+
+
+ @endsection
+
+ @push('scripts')
+ <script src="https://cdn.ckeditor.com/4.17.1/standard-all/ckeditor.js"></script>
+ <script>
+     var options = {
+
+         width: '100%'
+         , height: '80vh'
+         , removeButtons: 'PasteFromWord'
+         , filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images'
+         , filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}'
+         , filebrowserBrowseUrl: '/laravel-filemanager?type=Files'
+         , filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+
+     };
+
+     CKEDITOR.config.extraPlugins = ['justify', 'image2'];
+
+
+     CKEDITOR.replace('my-editor', options);
+
+ </script>
+
+ <script>
+     function showname() {
+         const name = document.getElementById('fileInput');
+         document.getElementById('imgCover').innerHTML = name.files.item(0).name;
+     };
+
+ </script>
+
+ @endpush

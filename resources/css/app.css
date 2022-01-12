@@ -43,7 +43,7 @@ html::-webkit-scrollbar-track {
 
 @layer components {
   .btn {
-    @apply px-4 py-2 text-white uppercase rounded;
+    @apply px-4 py-2 text-white rounded;
   }
   
   .form-input {

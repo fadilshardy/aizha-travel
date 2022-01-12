@@ -19,12 +19,6 @@ class DashboardController extends Controller
         return view('dashboard.index');
     }
 
-    public function destination()
-    {
-
-        return view('dashboard.destination');
-    }
-
 
     /**
      * Show the form for creating a new resource.
