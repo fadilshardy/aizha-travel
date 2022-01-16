@@ -20,4 +20,8 @@ class DateService
     {
         return $this->parse($date)->format('Y-m-d');
     }
+
+    public function getEndDateTravel($date)
+    {
+    }
 }

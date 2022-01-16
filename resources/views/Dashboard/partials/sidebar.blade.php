@@ -1,4 +1,4 @@
-         <div class="h-full text-lg bg-teal-900 no-scrollbar">
+         <div class="hidden h-full text-lg bg-teal-900 no-scrollbar md:block">
 
              <div class="px-2">
                  <div class="flex items-center justify-center py-4 pl-6 pr-4 ">

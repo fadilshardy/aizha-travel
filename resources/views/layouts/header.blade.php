@@ -100,6 +100,7 @@
                     Aizha Travel
                 </a>
 
+
                 <nav class="items-center hidden pl-8 ml-8 space-x-8 text-sm font-medium border-l border-gray-100 md:flex">
                     <a href="" class="hover:text-teal-700">About</a>
                     <a href="" class="hover:text-teal-700">blog</a>

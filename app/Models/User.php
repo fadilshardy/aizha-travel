@@ -25,6 +25,9 @@ class User extends Authenticatable implements HasMedia
         'password',
     ];
 
+
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

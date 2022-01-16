@@ -11,6 +11,7 @@ module.exports = {
         extend: {
             spacing: {
                 "2/3": "66.666667%",
+                "3/5": "60%",
             },
         },
     },

@@ -32,13 +32,17 @@ class OrderController extends Controller
 
     public function checkout(Request $request)
     {
+
         $destination = Destination::find($request->destination_id);
 
         $user = Auth::user();
 
+
         $data =  [
             'date' => $request->date,
             'quantity' => $request->quantity,
+            'invoice_id' => $this->orderService->generateInvoiceId(),
+            'end_date' => $this->orderService->getEndDate($request->date, $destination->total_days)
         ];
 
 

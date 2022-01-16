@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Order;
 use App\Services\DateService;
+use Carbon\Carbon;
 
 class OrderService
 {
@@ -16,8 +17,32 @@ class OrderService
     public function store($validated, $start_date, $end_date)
     {
         $validated['start_date'] = $this->dateService->convertToDate($start_date);
+
         $validated['end_date'] = $this->dateService->convertToDate($end_date);
 
+
         Order::create($validated);
+    }
+
+    public function generateInvoiceId()
+    {
+        $now = Carbon::now()->format('dmY');
+
+        $latestOrder = Order::latest()->first();
+
+        if ($latestOrder) {
+            $orderId = $latestOrder->id;
+        } else {
+            $orderId = 1;
+        }
+
+        return $now . $orderId;
+    }
+
+    public function getEndDate($date, $total_days)
+    {
+        $date = $this->dateService->parse($date)->addDays($total_days)->format('d F Y');
+
+        return $date;
     }
 }
