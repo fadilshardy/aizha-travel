@@ -26,6 +26,7 @@ class CreateOrdersTable extends Migration
             $table->integer('quantity');
             $table->date('start_date');
             $table->date('end_date');
+            $table->string('invoice_id');
             $table->integer('total_amount');
             $table->integer('total_days');
             $table->string('status')->default('pending');

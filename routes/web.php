@@ -20,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('orders', [OrderController::class, 'index'])->name('order.index');
 
+
+Route::get('order/{order}', [OrderController::class, 'show'])->name('order.show');
 
 Route::prefix('destination')->group(function () {
 
@@ -34,6 +37,8 @@ Route::prefix('destination')->group(function () {
     });
     Route::get('/{destination}', [DestinationController::class, 'show'])->name('destination.show');
 });
+
+
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
     Route::get('destination/{destination}/image/{image_id}', [DestinationController::class, 'deleteImage']);

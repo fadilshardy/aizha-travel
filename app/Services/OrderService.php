@@ -20,6 +20,8 @@ class OrderService
 
         $validated['end_date'] = $this->dateService->convertToDate($end_date);
 
+        $validated['invoice_id'] = $this->generateInvoiceId();
+
 
         Order::create($validated);
     }
@@ -31,7 +33,7 @@ class OrderService
         $latestOrder = Order::latest()->first();
 
         if ($latestOrder) {
-            $orderId = $latestOrder->id;
+            $orderId = $latestOrder->id + 1;
         } else {
             $orderId = 1;
         }

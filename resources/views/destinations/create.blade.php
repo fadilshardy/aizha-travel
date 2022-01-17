@@ -11,15 +11,7 @@
 
              <h1 class="text-base font-bold">Add Destination</h1>
          </div>
-         @if ($errors->any())
-         <div class="">
-             <ul>
-                 @foreach ($errors->all() as $error)
-                 <li class="w-64 p-2 mt-2 bg-red-400 rounded shadow-lg">{{ $error }}</li>
-                 @endforeach
-             </ul>
-         </div>
-         @endif
+
          <form action=" {{route('destination.store')}}" method="POST" enctype="multipart/form-data">
              @csrf
              <div class="grid gap-4 mt-8 text-sm lg:grid-cols-2 ">

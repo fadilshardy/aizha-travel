@@ -19,6 +19,20 @@ class OrderController extends Controller
         $this->orderService = $orderService;
     }
 
+    public function index()
+    {
+        $orders = Order::all();
+
+        return view('orders.index', [
+            'orders' => $orders
+        ]);
+    }
+
+    public function show(Order $order)
+    {
+        return view('orders.show', compact('order'));
+    }
+
     public function redirectToCheckout(Request $request)
     {
         $destination_id = $request->destination_id;
@@ -54,7 +68,6 @@ class OrderController extends Controller
 
     public function order(StoreOrderRequest $request)
     {
-
         $validated = $request->except('start_date', 'end_date');
 
         $this->orderService->store($validated, $request->start_date, $request->end_date);
