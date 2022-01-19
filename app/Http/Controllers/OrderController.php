@@ -59,9 +59,7 @@ class OrderController extends Controller
             'end_date' => $this->orderService->getEndDate($request->date, $destination->total_days)
         ];
 
-
-
-        $data['total_amount'] = $destination->price * $data['quantity'];
+        $data['total_amount'] = $this->orderService->getTotalAmount($destination->price, $data['quantity']);
 
         return view('orders.checkout', compact('user', 'destination', 'data', 'request'));
     }

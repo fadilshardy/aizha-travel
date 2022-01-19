@@ -29,7 +29,8 @@ class DestinationController extends Controller
     public function index()
     {
 
-        $destination = Destination::all();
+        $destination = Destination::orderBy('id', 'desc')->paginate(10);
+
 
         return view('destinations.index', [
             'destinations' => $destination
@@ -116,10 +117,6 @@ class DestinationController extends Controller
             toast('You already have a review for this destination', 'error');
 
             return redirect()->route('destination.show', $destination->slug . '#reviews');
-
-
-            // return redirect()->back()
-            //     ->with('error', 'Error during the creation!');
         }
 
 

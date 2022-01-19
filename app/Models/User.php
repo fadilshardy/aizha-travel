@@ -59,10 +59,15 @@ class User extends Authenticatable implements HasMedia
     }
 
 
+
     public function registerMediaCollections(): void
     {
         $this
             ->addMediaCollection('avatar')
             ->singleFile();
+
+        $this->addMediaConversion('avatar-thumbnails')
+            ->width(150)
+            ->height(150);
     }
 }

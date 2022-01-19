@@ -42,6 +42,7 @@ class UserFactory extends Factory
             $url = 'https://source.unsplash.com/1280x720/?face?' . $this->faker->numberBetween();
             $user
                 ->addMediaFromUrl($url)
+                ->usingName($user->name)
                 ->toMediaCollection('avatar');
         });
     }

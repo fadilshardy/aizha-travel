@@ -9,16 +9,16 @@ use Carbon\Carbon;
 class OrderService
 {
 
-    public function __construct(DateService $dateService)
-    {
-        $this->dateService = $dateService;
-    }
+
 
     public function store($validated, $start_date, $end_date)
     {
-        $validated['start_date'] = $this->dateService->convertToDate($start_date);
 
-        $validated['end_date'] = $this->dateService->convertToDate($end_date);
+        $dateService = new DateService();
+
+        $validated['start_date'] = $dateService->convertToDate($start_date);
+
+        $validated['end_date'] = $dateService->convertToDate($end_date);
 
         $validated['invoice_id'] = $this->generateInvoiceId();
 
@@ -30,21 +30,30 @@ class OrderService
     {
         $now = Carbon::now()->format('dmY');
 
-        $latestOrder = Order::latest()->first();
+        $latest_order = Order::latest()->first();
 
-        if ($latestOrder) {
-            $orderId = $latestOrder->id + 1;
+        if ($latest_order) {
+            $order_id = $latest_order->id + 1;
         } else {
-            $orderId = 1;
+            $order_id = 1;
         }
 
-        return $now . $orderId;
+        return $now . 00000 + $order_id;
     }
 
     public function getEndDate($date, $total_days)
     {
-        $date = $this->dateService->parse($date)->addDays($total_days)->format('d F Y');
+        $dateService = new DateService();
+
+        $date = $dateService->parse($date)->addDays($total_days)->format('d F Y');
 
         return $date;
+    }
+
+    public function getTotalAmount($price, $qty)
+    {
+        $total_amount = $price * $qty;
+
+        return $total_amount;
     }
 }

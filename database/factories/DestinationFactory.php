@@ -16,12 +16,7 @@ class DestinationFactory extends Factory
 
     protected $model = Destination::class;
 
-    public function randImage($keyword)
-    {
-        $url = 'https://source.unsplash.com/1280x720/?' . $keyword . '?' . $this->faker->numberBetween();
 
-        return $url;
-    }
 
     public function definition()
     {
@@ -48,7 +43,7 @@ class DestinationFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (Destination $destination) {
-            $url = 'https://source.unsplash.com/collection/3813068/1280x720/?' . $this->faker->numberBetween();
+            $url = 'https://source.unsplash.com/collection/3813068/1920x1080/?' . $this->faker->numberBetween();
 
             $destination
                 ->addMediaFromUrl($url)
