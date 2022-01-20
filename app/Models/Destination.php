@@ -36,8 +36,6 @@ class Destination extends Model implements HasMedia
         return $this->reviews()->where('user_id', $user_id);
     }
 
-
-
     public function UserComment()
     {
         return $this->hasOneThrough(User::class, Comment::class);

@@ -21,7 +21,8 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::orderBy('id', 'desc')->paginate(10);
+
 
         return view('orders.index', [
             'orders' => $orders
@@ -30,6 +31,7 @@ class OrderController extends Controller
 
     public function show(Order $order)
     {
+
         return view('orders.show', compact('order'));
     }
 
@@ -71,5 +73,20 @@ class OrderController extends Controller
         $this->orderService->store($validated, $request->start_date, $request->end_date);
 
         return redirect()->route('home');
+    }
+
+    public function orderStatus(Order $order)
+    {
+        if ($order->status === 'pending') {
+            $status = 'paid';
+        } else {
+            $status = 'pending';
+        }
+
+        $order->update([
+            'status' => $status
+        ]);
+
+        return back();
     }
 }

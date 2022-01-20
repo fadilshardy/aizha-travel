@@ -20,18 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('orders', [OrderController::class, 'index'])->name('order.index');
-
-
-Route::get('order/{order}', [OrderController::class, 'show'])->name('order.show');
-
 Route::prefix('destination')->group(function () {
 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('checkout', [OrderController::class, 'checkout'])->name('destination.checkout');
 
         Route::post('redirect', [OrderController::class, 'redirectToCheckout'])->name('order.redirect');
-        Route::post('order', [OrderController::class, 'order'])->name('destination.order');
+
 
         Route::post('{destination}/review', [DestinationController::class, 'storeReview'])->name('destination.storeReview');
     });
@@ -39,8 +34,33 @@ Route::prefix('destination')->group(function () {
 });
 
 
+Route::prefix('order')->group(function () {
+
+    Route::group(['middleware' => 'auth'], function () {
+
+
+        Route::get('/{order}', [OrderController::class, 'show'])->name('order.show');
+
+        Route::post('order', [OrderController::class, 'order'])->name('destination.order');
+
+        Route::get('checkout', [OrderController::class, 'checkout'])->name('destination.checkout');
+
+        Route::post('redirect', [OrderController::class, 'redirectToCheckout'])->name('order.redirect');
+
+        Route::post('order', [OrderController::class, 'order'])->name('destination.order');
+
+        Route::post('{destination}/review', [DestinationController::class, 'storeReview'])->name('destination.storeReview');
+    });
+});
+
+
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
+    Route::get('orders', [OrderController::class, 'index'])->name('order.index');
+
+    Route::post('order/{order}/status', [OrderController::class, 'orderStatus'])->name('order.updateStatus');
+
+
     Route::get('destination/{destination}/image/{image_id}', [DestinationController::class, 'deleteImage']);
     Route::post('image_upload', [DestinationController::class, 'uploadImage'])->name('destination.uploadImage');
     Route::get('dashboard', [DashboardController::class, 'index']);
@@ -49,18 +69,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
     Route::resource('destination', DestinationController::class)->except('show');
 });
 
-// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-//     vendor\UniSharp\LaravelFilemanager\Lfm::routes();
-// });
-
-
-// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-//     vendor\UniSharp\LaravelFilemanager\Lfm::routes();
-// });
-
-// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-//    \UniSharp\LaravelFilemanager\Lfm::routes();
-// });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     Route::get('laravel-filemanager/', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');

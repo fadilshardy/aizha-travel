@@ -49,7 +49,7 @@ class User extends Authenticatable implements HasMedia
 
     public function getAvatarUrl()
     {
-        if ($this->getMedia()->isEmpty()) {
+        if ($this->getMedia('avatar')->isEmpty()) {
             $imageUrl = "http://127.0.0.1:3000/storage/16/1080x1920.jpeg";
         } else {
             $imageUrl = $this->getMedia('avatar')[0]->getUrl();
@@ -57,6 +57,18 @@ class User extends Authenticatable implements HasMedia
 
         return $imageUrl;
     }
+
+    public function getThumbnailUrl()
+    {
+        if ($this->getMedia('avatar')->isEmpty()) {
+            $imageUrl = "http://127.0.0.1:3000/storage/16/1080x1920.jpeg";
+        } else {
+            $imageUrl = $this->getMedia('avatar')[0]->getUrl('avatar-thumbnails');
+        }
+
+        return $imageUrl;
+    }
+
 
 
 

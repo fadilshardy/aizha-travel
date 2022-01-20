@@ -102,7 +102,7 @@
                          </div>
                          <hr class="px-4 text-gray-200">
                          <div class="flex justify-between">
-                             <div>
+                             <div class="pb-8">
                                  <p class="text-sm text-gray-500"> Total </p>
                              </div>
                              <p class="text-sm text-gray-500"> ${{$order->total_amount}} </p>
