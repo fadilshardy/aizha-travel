@@ -3,53 +3,9 @@
 @section('content')
 
 @include('home.partials.hero')
-{{-- hero image --}}
-{{-- <div class="relative w-full">
-    <div class="absolute top-0 left-0 w-full h-full bg-blue-500 opacity-40">
-    </div>
-    <div class="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full">
-        <div class="text-6xl font-bold text-white ">Make Youre Trip Fun & Noted</div>
-        <div class="mt-2 text-2xl text-white ">Travel has helped us to understand the meaning of life and it has helped us become better people. each time we travel, we see the world with new eyes</div>
-        <button class="p-4 mt-5 font-semibold tracking-wider text-white rounded-full bg-amber-500 hover:bg-amber-400">Explore More</button>
-    </div>
-    <img src="{{ asset('images/header.jpg')}}" alt="" class="object-cover w-full max-h-screen">
-<div class="absolute bottom-0 left-0 w-full">
-    <form action="" class="">
-        <div class="flex gap-12 p-4 m-12 bg-gray-200 rounded-lg shadow-lg">
-            <div class="relative flex items-center w-full h-16">
-                <input type="search" name="search" placeholder="Destination" class="w-full h-full p-4 text-lg bg-gray-100 rounded-lg">
-                <button type="submit" class="absolute top-0 right-0 flex items-center mt-4 mr-4">
-                    <label for="searchBox" class="text-2xl text-gray-500 fas fa-map-marked-alt hover:text-amber-500"></label>
-                </button>
-            </div>
-            <div class="relative flex items-center w-full h-16">
-                <input type="search" name="search" placeholder="Start Of Date" class="w-full h-full p-4 text-lg bg-gray-100 rounded-lg">
-                <button type="submit" class="absolute top-0 right-0 flex items-center mt-4 mr-4">
-                    <label for="searchBox" class="text-2xl text-gray-500 far fa-calendar hover:text-amber-500"></label>
-                </button>
-            </div>
-            <div class="relative flex items-center w-full h-16">
-                <input type="search" name="search" placeholder="End Of Date" class="w-full h-full p-4 text-lg rounded-lg bg-gray-50">
-                <button type="submit" class="absolute top-0 right-0 flex items-center mt-4 mr-4">
-                    <label for="searchBox" class="text-2xl text-gray-500 fas fa-calendar hover:text-amber-500"></label>
-                </button>
-            </div>
-            <button class="w-1/3 text-lg font-light tracking-wider text-white rounded-lg bg-amber-500 hover:bg-amber-400">Submit</button>
-        </div>
-    </form>
-
-</div>
-</div> --}}
-
-
 
 <div class="container w-full h-full mx-auto ">
     <div class="flex flex-col items-center pt-4">
-        <div class="flex justify-center w-full gap-32 p">
-            <h1 class="text-4xl font-semibold">Destinations</h1>
-            <a href="#" class="p-2 text-gray-200 bg-gray-700 rounded">Views All</a>
-        </div>
-        <span class="font-light ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, quis.</span>
         <div>
 
             {{-- Tour location google map
@@ -87,8 +43,9 @@
             @endforeach
 
         </section>
-        <div class="flex items-center justify-center gap-5">
+        <div class="flex items-center justify-center gap-5 pt-4">
             {{ $destinations->links() }}
+
 
         </div>
 
@@ -136,20 +93,42 @@
                 </div>
                 <div class="flex items-center justify-center -mx-4 lg:pl-8">
                     <div class="flex flex-col items-end px-3">
-                        <img class="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-28 sm:w-48 xl:w-56" src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="" />
-                        <img class="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40" src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" alt="" />
+                        <img class="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-28 sm:w-48 xl:w-56" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80" alt="" />
+                        <img class="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40" src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" />
                     </div>
                     <div class="px-3">
-                        <img class="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80" src="https://images.pexels.com/photos/3182739/pexels-photo-3182739.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500" alt="" />
+                        <img class="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80" src="https://images.unsplash.com/photo-1476900543704-4312b78632f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    @include('home.partials.steps')
+    <aside class="relative text-white bg-teal-900">
+        <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1219&q=80" alt="" class="absolute inset-0 object-cover w-full h-full opacity-75" />
 
-    @include('home.partials.teams')
+        <div class="relative max-w-screen-xl px-4 py-24 mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <strong class="inline-block px-3 py-1 text-xs font-semibold text-white uppercase bg-teal-600">
+                    Go adventure
+                </strong>
+
+                <h2 class="mt-2 text-4xl font-bold text-white sm:text-6xl">
+                    Lorem ipsum dolor sit amet consectetur.
+                </h2>
+
+                <a href="" class="inline-flex items-center px-5 py-3 mt-8 font-medium text-white border border-white rounded-lg hover:bg-white hover:text-teal-600">
+                    Take the dive
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    @include('home.partials.steps')
 
     @include('layouts.footer')
 

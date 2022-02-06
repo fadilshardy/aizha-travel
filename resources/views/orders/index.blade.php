@@ -6,7 +6,7 @@
  <div class="w-full pt-8 overflow-hidden rounded-lg shadow-xs">
 
      <div class="w-full overflow-auto xl:overflow-hidden">
-         <table class="w-full p-2 m-1 whitespace-no-wrap">
+         <table class="w-full py-2 pt-2 whitespace-no-wrap">
              <thead>
                  <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                      <th class="py-3 lg:block">
@@ -138,9 +138,10 @@
          </table>
 
      </div>
-     <div class="flex justify-end w-full pt-2 pb-8">
-         {!! $orders->links() !!}
-
+     <div class="flex py-3 mb-8 bg-gray-50">
+         <div class="w-full mx-4">
+             {!! $orders->links() !!}
+         </div>
      </div>
  </div>
 

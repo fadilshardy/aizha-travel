@@ -10,7 +10,7 @@
          </a>
      </div>
      <div class="w-full overflow-hidden">
-         <table class="w-full p-2 m-1 whitespace-no-wrap ">
+         <table class="w-full py-2 pt-2 whitespace-no-wrap ">
              <thead>
                  <tr class="text-xs tracking-wide text-center text-gray-500 uppercase border-b bg-gray-50">
                      <th class="hidden md:py-3 lg:block">
@@ -110,9 +110,10 @@
                  @endforeach
              </tbody>
          </table>
-         <div class="flex justify-end w-full pt-2 pb-8">
-             {!! $destinations->links() !!}
-
+         <div class="flex py-3 mb-8 bg-gray-50">
+             <div class="w-full mx-4">
+                 {!! $destinations->links() !!}
+             </div>
          </div>
 
      </div>

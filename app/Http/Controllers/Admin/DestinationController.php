@@ -66,7 +66,6 @@ class DestinationController extends Controller
 
     public function show(Destination $destination)
     {
-
         return view('destinations.show', compact('destination'));
     }
 
@@ -123,6 +122,16 @@ class DestinationController extends Controller
         Review::create($validated);
 
         return redirect()->route('destination.show', $destination->slug . '#reviews');
+    }
+
+    public function destinations()
+    {
+
+        $destination = Destination::orderBy('id', 'desc')->paginate(10);
+
+        return view('destinations.destinations', [
+            'destinations' => $destination
+        ]);
     }
 
     public function uploadImage(Request $request)

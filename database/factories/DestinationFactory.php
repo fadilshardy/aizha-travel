@@ -29,6 +29,7 @@ class DestinationFactory extends Factory
             $description .= "<p>{$para}</p>";
         }
 
+
         return [
             'name' => $name,
             'slug' => Str::slug($name, '-'),

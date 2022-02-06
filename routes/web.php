@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/destinations', [DestinationController::class, 'destinations'])->name('destinations');
 
 Route::prefix('destination')->group(function () {
 
