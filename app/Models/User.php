@@ -69,6 +69,15 @@ class User extends Authenticatable implements HasMedia
         return $imageUrl;
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id');
+    }
+
+    public function getTotalOrderCount()
+    {
+        return $this->orders()->where('user_id', $this->id)->count();
+    }
 
 
 

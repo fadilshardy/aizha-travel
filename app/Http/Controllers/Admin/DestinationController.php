@@ -127,7 +127,7 @@ class DestinationController extends Controller
     public function destinations()
     {
 
-        $destination = Destination::orderBy('id', 'desc')->paginate(10);
+        $destination = Destination::orderBy('id', 'desc')->paginate(9);
 
         return view('destinations.destinations', [
             'destinations' => $destination

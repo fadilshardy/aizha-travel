@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\Admin\DestinationController;
 use App\Http\Controllers\HomeController;
@@ -54,17 +55,21 @@ Route::prefix('order')->group(function () {
     });
 });
 
+Route::resource('user', UserController::class)->except('index');
 
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
     Route::get('orders', [OrderController::class, 'index'])->name('order.index');
+
+    Route::get('users', [UserController::class, 'index'])->name('user.index');
+
 
     Route::post('order/{order}/status', [OrderController::class, 'orderStatus'])->name('order.updateStatus');
 
 
     Route::get('destination/{destination}/image/{image_id}', [DestinationController::class, 'deleteImage']);
     Route::post('image_upload', [DestinationController::class, 'uploadImage'])->name('destination.uploadImage');
-    Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.admin.index');
     Route::get('dashboard/destination', [DashboardController::class, 'destination']);
 
     Route::resource('destination', DestinationController::class)->except('show');
