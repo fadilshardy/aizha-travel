@@ -40,12 +40,11 @@ Route::prefix('order')->group(function () {
 
     Route::group(['middleware' => 'auth'], function () {
 
+        Route::get('checkout', [OrderController::class, 'checkout'])->name('destination.checkout');
 
         Route::get('/{order}', [OrderController::class, 'show'])->name('order.show');
 
         Route::post('order', [OrderController::class, 'order'])->name('destination.order');
-
-        Route::get('checkout', [OrderController::class, 'checkout'])->name('destination.checkout');
 
         Route::post('redirect', [OrderController::class, 'redirectToCheckout'])->name('order.redirect');
 
@@ -56,6 +55,10 @@ Route::prefix('order')->group(function () {
 });
 
 Route::resource('user', UserController::class)->except('index');
+
+Route::group(['prefix' => 'user',  'middleware' => 'auth'], function () {
+    Route::put('{user}/change-password', [UserController::class, 'changePassword'])->name('user.changePassword');
+});
 
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -49,7 +52,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -67,11 +70,28 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * 
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
     {
         //
+    }
+
+    public function changePassword(Request $request, User $user)
+    {
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+        ]);
+
+        User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
+
+
+        toast('Password successfully changed', 'success');
+
+
+        return  Redirect::back();
     }
 }
