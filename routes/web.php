@@ -53,12 +53,12 @@ Route::prefix('order')->group(function () {
         Route::post('{destination}/review', [DestinationController::class, 'storeReview'])->name('destination.storeReview');
     });
 });
-
+Route::group(['prefix' => 'user',  'middleware' => 'auth'], function () {
+    Route::put('/change-password', [UserController::class, 'changePassword'])->name('user.changePassword');
+});
 Route::resource('user', UserController::class)->except('index');
 
-Route::group(['prefix' => 'user',  'middleware' => 'auth'], function () {
-    Route::put('{user}/change-password', [UserController::class, 'changePassword'])->name('user.changePassword');
-});
+
 
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {

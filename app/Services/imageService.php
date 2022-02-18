@@ -15,4 +15,10 @@ class ImageService
                 $image->toMediaCollection();
             });
     }
+
+    public function updateAvatar($img, $user)
+    {
+        $user->media()->delete();
+        $user->addMedia($img)->toMediaCollection('avatar');
+    }
 }

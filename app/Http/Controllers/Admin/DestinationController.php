@@ -90,7 +90,7 @@ class DestinationController extends Controller
             $this->imageService->upload($request->images, $destination);
         }
 
-        return redirect(route('destination.show', $destination->slug))->with('success', 'Created successfully!');
+        return redirect(route('destination.show', $destination->slug))->with('success', 'updated successfully!');
     }
 
     public function destroy(Destination $destination)

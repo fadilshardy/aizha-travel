@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdatePasswordRequest;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use App\Services\ImageService;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    protected $imageService;
+
+    public function __construct(ImageService $imageService)
+    {
+        $this->imageService = $imageService;
+    }
+
+
+
     public function index()
     {
         $users = User::orderBy('id', 'desc')->paginate(10);
@@ -26,72 +34,48 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function show(User $user)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(User $user)
     {
         return view('users.edit', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, User $user)
     {
-        //
+
+
+        if ($request->hasFile('avatar')) {
+            $this->imageService->updateAvatar($request->avatar, $user);
+        }
+
+        $user->update($request->all());
+
+        toast('Your Profile is successfully changed', 'success');
+
+
+        return Redirect::back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * 
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(User $user)
     {
         //
     }
 
-    public function changePassword(Request $request, User $user)
+
+
+    public function changePassword(updatePasswordRequest $request)
     {
-        $request->validate([
-            'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
-        ]);
-
         User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
-
 
         toast('Password successfully changed', 'success');
 
-
-        return  Redirect::back();
+        return Redirect::back();
     }
 }
