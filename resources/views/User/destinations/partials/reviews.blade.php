@@ -44,10 +44,11 @@
                 </div>
             </div>
             @endforeach
-            <div class="row">
-                <div class="flex items-center justify-center gap-5">
-                    {{ $destination->reviews_paginated->links() }}
 
+
+            <div class="flex py-3 mb-8">
+                <div class="w-full mx-4">
+                    {{ $destination->reviews_paginated->links() }}
                 </div>
             </div>
 

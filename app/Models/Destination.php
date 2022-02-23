@@ -26,7 +26,7 @@ class Destination extends Model implements HasMedia
 
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'destination_id');
+        return $this->hasMany(Review::class, 'destination_id')->latest();
     }
 
     public function userReview()
@@ -77,6 +77,6 @@ class Destination extends Model implements HasMedia
 
     public function getReviewsPaginatedAttribute()
     {
-        return $this->reviews()->simplePaginate(3);
+        return $this->reviews()->paginate(5);
     }
 }

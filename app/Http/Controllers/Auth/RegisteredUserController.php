@@ -9,6 +9,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
@@ -20,6 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
+        Redirect::setIntendedUrl(url()->previous());
         return view('auth.register');
     }
 
@@ -50,6 +52,12 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        if (Auth::user()->is_admin) {
+            $base_url = '/admin/dashboard';
+        } else {
+            $base_url = '/user/dashboard';
+        }
+
+        return redirect()->intended($base_url);
     }
 }

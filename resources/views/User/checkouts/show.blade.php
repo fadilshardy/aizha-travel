@@ -6,7 +6,7 @@
     <hr>
     <h1 class="flex justify-center pt-10 text-4xl font-bold text-gray-600">Order Summary</h1>
     <hr class="my-3" />
-    <form action="{{route('destination.order')}}" method="POST">
+    <form action="{{route('user.order.store')}}" method="POST">
         @csrf
         <input type="hidden" name="destination_id" value="{{$destination->id}}">
         <input type="hidden" name="total_days" value="{{$destination->total_days}}">
@@ -21,8 +21,11 @@
             <div class="flex flex-col md:w-full">
                 <div>
 
-                    <div class="relative pt-3 xl:pt-6"><label for="note" class="block mb-3 text-sm font-semibold text-gray-500"> Notes
-                            (Optional)</label><textarea name="note" class="flex items-center w-full px-4 py-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-600" rows="4" placeholder="Additional notes"></textarea>
+                    <div class="relative pt-3 xl:pt-6">
+                        <label for="note" class="block mb-3 text-sm font-semibold text-gray-500">
+                            Notes (Optional)
+                        </label>
+                        <textarea name="note" class="flex items-center w-full px-4 py-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-teal-600" rows="4" placeholder="Additional notes"></textarea>
                     </div>
                 </div>
             </div>
@@ -31,7 +34,7 @@
                     <div class="flex items-center gap-4 pt-4 ">
                         <div class="h-full ">
                             <div class="relative overflow-hidden bg-gray-100 rounded-lg shadow-md pb-3/5">
-                                <a href="{{route('destination.show', $destination->slug)}}">
+                                <a href="{{route('user.destination.show', $destination->slug)}}">
                                     <img src="{{$destination->getImageUrl()}}" alt="" class="absolute bottom-0 object-cover w-full h-full"></a>
                             </div>
                             <div class="relative px-4 -mt-16">
@@ -40,7 +43,7 @@
                                         <span> <i class="fas fa-map-marker-alt"></i> <a href="#" class="hover:text-amber-400">{{$destination->location}}</a> </span>
                                     </div>
                                     <span class=""></span>
-                                    <a class="mt-1 overflow-hidden text-lg font-semibold leading-tight truncate hover:text-amber-400" href="{{route('destination.show', $destination->id)}}">{{$destination->name}}</a>
+                                    <a class="mt-1 overflow-hidden text-lg font-semibold leading-tight truncate hover:text-amber-400" href="{{route('user.destination.show', $destination->id)}}">{{$destination->name}}</a>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +90,7 @@
 
                         <div class="flex justify-between">
                             <span class="text-sm font-light tracking-wider uppercase ">Total Days</span>
-                            <span class="font-bold">5</span>
+                            <span class="font-bold">{{$destination->total_days}}</span>
                         </div>
                         <hr>
                         <div class="flex justify-between">

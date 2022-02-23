@@ -1,4 +1,4 @@
- @extends('dashboard.partials.layout')
+ @extends('admin.dashboard.partials.layout')
 
  @section('main')
 

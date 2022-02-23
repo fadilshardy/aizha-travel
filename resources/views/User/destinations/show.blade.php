@@ -113,26 +113,26 @@
 
             <div class="mt-8">
                 @if($destination->userReview->isEmpty())
-                @include('destinations.partials.review_form')
+                @include('user.destinations.partials.review_form')
                 @endif
             </div>
 
             <!-- reviews -->
             <div class="p-4 mt-4 bg-white rounded-sm shadow-sm">
-                @include('destinations.partials.reviews')
+                @include('user.destinations.partials.reviews')
             </div>
 
         </div>
 
         <!-- right sidebar -->
         <div class="w-full mt-8 lg:w-3/12 lg:-mt-16">
-            @include('destinations.partials.order_form')
+            @include('user.destinations.partials.order_form')
 
 
             <!-- Popular posts -->
             <div class="w-full p-4 mt-8 rounded-sm shadow-sm ">
                 <h3 class="mb-3 text-3xl font-bold text-center text-gray-700">Related Destinations</h3>
-                @include('destinations.partials.related_destinations')
+                @include('user.destinations.partials.related_destinations')
             </div>
 
             <!-- tag -->

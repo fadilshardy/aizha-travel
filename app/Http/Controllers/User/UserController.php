@@ -21,33 +21,17 @@ class UserController extends Controller
         $this->imageService = $imageService;
     }
 
-
-
-    public function index()
-    {
-        $users = User::orderBy('id', 'desc')->paginate(10);
-
-        return view('users.index', [
-            'users' => $users
-        ]);
-
-        //
-    }
-
-    public function show(User $user)
-    {
-        //
-    }
-
-
     public function edit(User $user)
     {
+        $this->authorize('edit', User::class);
+
         return view('users.edit', compact('user'));
     }
 
 
     public function update(Request $request, User $user)
     {
+        $this->authorize('update', User::class);
 
 
         if ($request->hasFile('avatar')) {

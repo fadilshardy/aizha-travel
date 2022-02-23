@@ -23,7 +23,9 @@ class OrderService
         $validated['invoice_id'] = $this->generateInvoiceId();
 
 
-        Order::create($validated);
+        $order = Order::create($validated);
+
+        return $order;
     }
 
     public function generateInvoiceId()

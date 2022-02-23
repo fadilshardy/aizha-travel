@@ -3,18 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreReviewRequest;
 use App\Http\Requests\StoreDestinationRequest;
 use App\Http\Requests\UpdateDestinationRequest;
 
 use App\Models\Destination;
-use App\Models\Comment;
-use App\Models\Review;
-use App\Models\User;
+
 use App\Services\ImageService;
 use App\Services\TagService;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class DestinationController extends Controller
 {
@@ -31,8 +27,7 @@ class DestinationController extends Controller
 
         $destination = Destination::orderBy('id', 'desc')->paginate(10);
 
-
-        return view('destinations.index', [
+        return view('admin.destinations.index', [
             'destinations' => $destination
         ]);
     }
@@ -41,7 +36,7 @@ class DestinationController extends Controller
     {
         $this->authorize('create', Destination::class);
 
-        return view('destinations.create');
+        return view('admin.destinations.create');
     }
 
     public function store(StoreDestinationRequest $request)
@@ -61,20 +56,19 @@ class DestinationController extends Controller
             $this->imageService->upload($request->images, $destination);
         }
 
+        toast('destination has been successfully saved', 'success');
+
+
         return redirect(route('destination.index'));
     }
 
-    public function show(Destination $destination)
-    {
-        return view('destinations.show', compact('destination'));
-    }
+
 
     public function edit(Destination $destination)
     {
         $this->authorize('edit', Destination::class);
 
-
-        return view('destinations.edit', compact('destination'));
+        return view('admin.destinations.edit', compact('destination'));
     }
 
     public function update(UpdateDestinationRequest $request, Destination $destination)
@@ -90,12 +84,17 @@ class DestinationController extends Controller
             $this->imageService->upload($request->images, $destination);
         }
 
+        toast('Your destination has been successfully updated', 'success');
+
+
         return redirect(route('destination.show', $destination->slug))->with('success', 'updated successfully!');
     }
 
     public function destroy(Destination $destination)
     {
         $destination->delete();
+
+        toast('Destination has been successfully deleted', 'success');
 
         return redirect(route('destination.index'));
     }
@@ -104,35 +103,9 @@ class DestinationController extends Controller
     {
         $destination->deleteMedia($image_id);
 
-        return view('destinations.show', compact('destination'));
+        return view('admin.destinations.show', compact('destination'));
     }
 
-    public function storeReview(StoreReviewRequest $request, Destination $destination)
-    {
-        $validated = $request->validated();
-
-        if (Review::where('user_id', $request->user_id)->where('destination_id', $destination->id)->exists()) {
-
-            toast('You already have a review for this destination', 'error');
-
-            return redirect()->route('destination.show', $destination->slug . '#reviews');
-        }
-
-
-        Review::create($validated);
-
-        return redirect()->route('destination.show', $destination->slug . '#reviews');
-    }
-
-    public function destinations()
-    {
-
-        $destination = Destination::orderBy('id', 'desc')->paginate(9);
-
-        return view('destinations.destinations', [
-            'destinations' => $destination
-        ]);
-    }
 
     public function uploadImage(Request $request)
     {

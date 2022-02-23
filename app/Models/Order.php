@@ -15,6 +15,11 @@ class Order extends Model
 
     use HasFactory;
 
+    public function getRouteKeyName()
+    {
+        return 'invoice_id';
+    }
+
 
     public function user()
     {

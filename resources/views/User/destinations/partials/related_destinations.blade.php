@@ -24,7 +24,7 @@
                         <span class="w-full text-sm text-gray-600 line-clamp-1">{{$similiarDestination->location}}</span>
                     </div>
                 </div>
-                <h3 class="text-lg font-bold text-gray-800 break-all truncate hover:text-teal-800"><a href="{{route('destination.show', $similiarDestination->slug)}}">{{$similiarDestination->name}}</a></h3>
+                <h3 class="text-lg font-bold text-gray-800 break-all truncate hover:text-teal-800"><a href="{{route('user.destination.show', $similiarDestination->slug)}}">{{$similiarDestination->name}}</a></h3>
                 <p class="text-sm text-gray-500 line-clamp-1">{{$similiarDestination->summary}}</p>
                 <div class="flex items-end justify-between">
                     <div class="text-xs font-bold text-gray-800 xl:text-base">

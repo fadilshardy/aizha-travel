@@ -9,9 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
+use App\Models\Traits\Uuids;
 
 class User extends Authenticatable implements HasMedia
 {
+    use Uuids;
     use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
     /**
@@ -50,7 +52,7 @@ class User extends Authenticatable implements HasMedia
     public function getAvatarUrl()
     {
         if ($this->getMedia('avatar')->isEmpty()) {
-            $imageUrl = "http://127.0.0.1:3000/storage/16/1080x1920.jpeg";
+            $imageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
         } else {
             $imageUrl = $this->getMedia('avatar')[0]->getUrl();
         }
@@ -61,7 +63,7 @@ class User extends Authenticatable implements HasMedia
     public function getThumbnailUrl()
     {
         if ($this->getMedia('avatar')->isEmpty()) {
-            $imageUrl = "http://127.0.0.1:3000/storage/16/1080x1920.jpeg";
+            $imageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
         } else {
             $imageUrl = $this->getMedia('avatar')[0]->getUrl('avatar-thumbnails');
         }
@@ -78,8 +80,6 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->orders()->where('user_id', $this->id)->count();
     }
-
-
 
     public function registerMediaCollections(): void
     {

@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('user_id')
+            $table->uuid('user_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

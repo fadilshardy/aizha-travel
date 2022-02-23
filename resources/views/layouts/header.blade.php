@@ -14,7 +14,7 @@
                 <a href="" class="hover:text-teal-700">blog</a>
                 <a href="" class="hover:text-teal-700">Services</a>
                 <a href="" class="hover:text-teal-700">contact</a>
-                <a href="" class="p-2 bg-teal-200 rounded-md shadow-sm md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">destinations</a>
+                <a href="{{route('user.destination.index')}}" class="p-2 bg-teal-200 rounded-md shadow-sm md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">destinations</a>
             </nav>
         </div>
         @guest
@@ -57,7 +57,7 @@
                     </a>
                     <div class="absolute flex-col hidden px-3 py-1 pt-1 text-gray-700 bg-white rounded justify-items-start group-hover:flex">
                         <div class="border-b">
-                            <a href="#" class="flex gap-2 px-4 py-2 hover:bg-gray-100">
+                            <a href="{{route('user.edit', Auth::id())}}" class="flex gap-2 px-4 py-2 hover:bg-gray-100">
                                 <div class="text-gray-800">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -76,7 +76,7 @@
                             </a>
                         </div>
 
-                        <a href="#" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
+                        <a href="{{ route('logout') }}" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                             <div class="text-gray-800">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
@@ -86,6 +86,9 @@
                             <p class="text-xs font-medium leading-none text-gray-800">
                                 Sign Out
                             </p>
+                            <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
                         </a>
                     </div>
                 </div>

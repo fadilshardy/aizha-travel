@@ -1,65 +1,68 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
+
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\Admin\DestinationController;
+
+use App\Http\Controllers\Admin\OrderController;
+
+
+use App\Http\Controllers\User\DestinationController as UserDestinationController;
+
+use App\Http\Controllers\User\OrderController as UserOrderController;
+
+use App\Http\Controllers\user\CheckoutController;
+
+
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\user\ReviewController;
 use Illuminate\Support\Facades\Route;
 
-/*Das
+/*
 |--------------------------------------------------------------------------
-| Web Routes
+| User
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/destinations', [DestinationController::class, 'destinations'])->name('destinations');
 
-Route::prefix('destination')->group(function () {
+Route::get('/destinations', [UserDestinationController::class, 'index'])->name('user.destination.index');
 
-    Route::group(['middleware' => 'auth'], function () {
-        Route::get('checkout', [OrderController::class, 'checkout'])->name('destination.checkout');
+Route::get('/destination/{destination}', [UserDestinationController::class, 'show'])->name('user.destination.show');
 
-        Route::post('redirect', [OrderController::class, 'redirectToCheckout'])->name('order.redirect');
+Route::group(['middleware' => 'auth'], function () {
 
+    Route::post('{destination}/review', [ReviewController::class, 'store'])->name('user.review.store');
+});
 
-        Route::post('{destination}/review', [DestinationController::class, 'storeReview'])->name('destination.storeReview');
-    });
-    Route::get('/{destination}', [DestinationController::class, 'show'])->name('destination.show');
+Route::group(['prefix' => 'checkout',  'middleware' => 'auth'], function () {
+
+    Route::post('redirect', [CheckoutController::class, 'redirectToCheckout'])->name('user.checkout.redirect');
+
+    Route::get('/', [CheckoutController::class, 'show'])->name('user.checkout.show');
+});
+
+Route::group(['prefix' => 'order', 'middleware' => 'auth'], function () {
+
+    Route::get('/{order}', [UserOrderController::class, 'show'])->name('user.order.show');
+
+    Route::post('order', [UserOrderController::class, 'store'])->name('user.order.store');
 });
 
 
-Route::prefix('order')->group(function () {
-
-    Route::group(['middleware' => 'auth'], function () {
-
-        Route::get('checkout', [OrderController::class, 'checkout'])->name('destination.checkout');
-
-        Route::get('/{order}', [OrderController::class, 'show'])->name('order.show');
-
-        Route::post('order', [OrderController::class, 'order'])->name('destination.order');
-
-        Route::post('redirect', [OrderController::class, 'redirectToCheckout'])->name('order.redirect');
-
-        Route::post('order', [OrderController::class, 'order'])->name('destination.order');
-
-        Route::post('{destination}/review', [DestinationController::class, 'storeReview'])->name('destination.storeReview');
-    });
-});
 Route::group(['prefix' => 'user',  'middleware' => 'auth'], function () {
     Route::put('/change-password', [UserController::class, 'changePassword'])->name('user.changePassword');
 });
 Route::resource('user', UserController::class)->except('index');
 
 
-
+/*
+|--------------------------------------------------------------------------
+| Admin 
+|--------------------------------------------------------------------------
+*/
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
     Route::get('orders', [OrderController::class, 'index'])->name('order.index');

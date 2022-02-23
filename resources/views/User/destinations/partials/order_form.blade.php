@@ -11,7 +11,7 @@
     </div>
 
 </div>
-<form action="{{route('order.redirect')}}" method="POST" enctype="multipart/form-data" autocomplete="off" class="overflow-hidden shadow-lg rounded-b-xl">
+<form action="{{route('user.checkout.redirect')}}" method="POST" enctype="multipart/form-data" autocomplete="off" class="overflow-hidden shadow-lg rounded-b-xl">
     @csrf
     <input name="destination_id" type="hidden" value="{{$destination->id}}">
     <div class="flex flex-col justify-center w-full gap-4 p-4 bg-white">
@@ -23,7 +23,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <input name="date" type="text" id="datePicker" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full pl-12  p-2.5  dark:bg-gray-700 dark:border-gray-600 " placeholder="Pick Your Date">
+                <input name="date" type="text" id="datePicker" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full pl-12  p-2.5  dark:bg-gray-700 dark:border-gray-600 " placeholder="Pick Your Date" required>
             </div>
         </div>
 
@@ -34,27 +34,17 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                 </div>
-                <input name="quantity" min="1" class="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full pl-12  p-2.5  dark:bg-gray-700 dark:border-gray-600 " type="number" placeholder="How Many Person?">
+                <input name="quantity" min="1" max="100" class="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full pl-12  p-2.5" type="number" placeholder="How Many Person?">
             </div>
         </div>
-
-
 
         <button type="submit" class="h-12 px-4 mx-6 my-2 text-lg font-bold capitalize bg-teal-700 btn hover:bg-teal-500 ">
             Book Now
         </button>
+
     </div>
 </form>
 
-@if ($errors->any())
-<div class="">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li class="w-64 p-2 mt-2 bg-red-400 rounded shadow-lg">{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
 @push('scripts')
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -62,6 +52,7 @@
 <script>
     flatpickr("#datePicker", {
         enableTime: false
+        , allowInput: true
         , altInput: true
         , altFormat: "F j, Y"
         , dateFormat: "d F Y"

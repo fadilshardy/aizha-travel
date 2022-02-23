@@ -3,7 +3,7 @@
 
     <div class="mx-4 mt-3 ">
         <div class="flex items-start flex-1 gap-1 sm:justify-between">
-            <h2 class="flex-grow text-xl font-bold tracking-tighter text-left text-gray-600 break-words hover:text-teal-500 "><a href="{{route('destination.show', $destination->slug)}}">{{$destination->name}}</a></h2>
+            <h2 class="flex-grow text-xl font-bold tracking-tighter text-left text-gray-600 break-words hover:text-teal-500 "><a href="{{route('user.destination.show', $destination->slug)}}">{{$destination->name}}</a></h2>
         </div>
         <div class="flex flex-col mt-4 text-sm font-bold tracking-wide text-gray-500 uppercase gap-y-1">
             <div class="flex justify-between">
@@ -44,10 +44,8 @@
     <p class="flex-1 m-2 text-sm leading-loose text-gray-800 sm:mt-4 line-clamp-2">{{$destination->summary}}</p>
 
     <div class="mx-4 mb-4">
-        <a href="{{route('destination.show', $destination->slug)}}">
+        <a href="{{route('user.destination.show', $destination->slug)}}">
             <button class="invisible w-full p-2 mr-5 text-xl font-bold text-center text-white transition bg-teal-500 rounded duration-7000 hover:bg-teal-400 group-hover:visible">Book now</button>
         </a>
     </div>
 </article>
-
-{{-- <a class="w-full" href="{{route('destination.show', $destination->slug)}}"><button class="w-full p-2 mx-4 text-xl font-bold text-white ease-in-out transform bg-teal-500 duration-600 hover:bg-teal-400 group-hover:visible transform-300">Book Now</button></a> --}}
