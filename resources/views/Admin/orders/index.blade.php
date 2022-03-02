@@ -1,4 +1,4 @@
- @extends('dashboard.partials.layout')
+ @extends('admin.dashboard.partials.layout')
 
  @section('main')
 
@@ -6,7 +6,7 @@
  <div class="w-full pt-8 overflow-hidden rounded-lg shadow-xs">
 
      <div class="w-full overflow-auto xl:overflow-hidden">
-         @include('orders.partials.table')
+         @include('admin.orders.partials.table')
 
      </div>
      <div class="flex py-3 mb-8 bg-gray-50">

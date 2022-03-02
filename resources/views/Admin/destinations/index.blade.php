@@ -1,11 +1,12 @@
- @extends('dashboard.partials.layout')
+ @extends('admin.dashboard.partials.layout')
 
  @section('main')
 
 
  <div class="w-full pt-8 rounded-lg shadow-xs">
      <div class="flex items-end justify-end w-full py-2">
-         <a href="{{route('destination.create')}}" class="flex items-center gap-1 py-1 text-xs font-medium bg-teal-700 md:text-sm btn Capitalize">
+
+         <a href="{{route('destination.create')}}" class="btn-dashboard">
              add
          </a>
      </div>
@@ -71,7 +72,7 @@
 
                      </td>
                      <td class="justify-center px-4 py-3">
-                         <a href="{{route('destination.show', $destination->slug)}}" class="">
+                         <a href="{{route('user.destination.show', $destination->slug)}}" class="">
                              {{$destination->name}} </a>
                      </td>
                      <td class="font-medium text-center text-green-500 ">
@@ -82,7 +83,7 @@
                      </td>
                      <td>
                          <div class="flex flex-row items-baseline justify-center gap-2 pt-2 text-gray-400">
-                             <a href="{{route('destination.show', $destination->slug)}}" class="hover:text-teal-500">
+                             <a href="{{route('user.destination.show', $destination->slug)}}" class="hover:text-teal-500">
                                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 20 20" fill="currentColor">
                                      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                                      <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />

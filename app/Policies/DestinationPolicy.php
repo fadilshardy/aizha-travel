@@ -9,6 +9,11 @@ class DestinationPolicy
 {
     use HandlesAuthorization;
 
+    public function index(User $user)
+    {
+        return $user->is_admin;
+    }
+
     public function create(User $user)
     {
         return $user->is_admin;

@@ -1,14 +1,14 @@
- @extends('dashboard.partials.layout')
+ @extends('user.dashboard.partials.layout')
 
  @section('main')
 
 
- <section class="p-6 mt-8 text-gray-900 rounded-lg bg-gray-50">
+ <section class="p-6 mt-8 text-gray-900 bg-gray-100 rounded-lg">
      <form action="{{route('user.update', $user->id)}}" class="container flex flex-col mx-auto space-y-12" method="POST" enctype="multipart/form-data">
          @csrf
          @method('PUT')
 
-         <div class="grid grid-cols-4 gap-6 p-6 bg-gray-100 rounded-md shadow-sm">
+         <div class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-50">
              <div class="space-y-2 col-span-full lg:col-span-1">
                  <p class="font-medium">Profile</p>
                  <p class="text-xs">Profile Settings</p>
@@ -20,17 +20,17 @@
                  </div>
                  <div class="col-span-full sm:col-span-3">
                      <label for="email" class="text-sm">Email</label>
-                     <input id="email" type="text" class="w-full p-2 form-input  @error('name') border-red-500 @enderror" value="{{$user->email}}" disabled>
+                     <input id="email" type="text" class="w-full p-2 form-input  bg-gray-200 @error('email') border-red-500 @enderror" value="{{$user->email}}" disabled>
                  </div>
                  <div class="col-span-full sm:col-span-3">
                      <label for="bio" class="text-sm" id="imgCover">Photo</label>
                      <div class="flex items-center space-x-4">
-                         <img src="{{$user->getThumbnailUrl()}}" alt="" class="object-cover w-16 h-16 bg-gray-300 bg-gray-500 rounded-full">
+                         <img src="{{$user->getThumbnailUrl()}}" alt="" class="object-cover w-16 h-16 bg-gray-500 rounded-full">
                          <input type="file" id="file" name="avatar" />
                      </div>
                  </div>
                  <div class="flex items-end justify-end col-span-full sm:col-span-3">
-                     <button type="submit" class="bg-teal-600 btn hover:bg-teal-500 ">Submit</button>
+                     <button type="submit" class="btn-dashboard">Submit</button>
                  </div>
              </div>
          </div>
@@ -40,7 +40,7 @@
          @csrf
          @method('PUT')
 
-         <div class="grid grid-cols-4 gap-6 p-6 bg-gray-100 rounded-md shadow-sm">
+         <div class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-50">
              <div class="space-y-2 col-span-full lg:col-span-1">
                  <p class="font-medium">Password</p>
                  <p class="text-xs">Update Password</p>
@@ -60,7 +60,7 @@
                  </div>
 
                  <div class="flex items-end justify-end col-span-full ">
-                     <button type="submit" class="bg-teal-600 btn hover:bg-teal-500 ">Submit</button>
+                     <button type="submit" class="btn-dashboard ">Submit</button>
                  </div>
              </div>
          </div>

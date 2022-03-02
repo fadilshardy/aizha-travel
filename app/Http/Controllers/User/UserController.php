@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
 use App\Http\Requests\UpdatePasswordRequest;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -58,7 +60,7 @@ class UserController extends Controller
     {
         User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
 
-        toast('Password successfully changed', 'success');
+        toast('Password is successfully changed', 'success');
 
         return Redirect::back();
     }

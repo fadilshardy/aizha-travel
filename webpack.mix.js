@@ -18,3 +18,11 @@ mix.js("resources/js/app.js", "public/js").postCss(
 );
 
 mix.browserSync("127.0.0.1:8000");
+
+mix.webpackConfig({
+    plugins: [],
+    resolve: {},
+    stats: {
+        children: true,
+    },
+});

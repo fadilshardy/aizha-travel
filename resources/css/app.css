@@ -47,11 +47,16 @@ html::-webkit-scrollbar-track {
   }
   
   .form-input {
-    @apply text-gray-700 border border-gray-100 rounded bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500 hover:border-teal-500;
+    @apply text-gray-700 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-500 hover:border-teal-500;
   }
   
   .form-label {
     @apply block mb-1 text-sm font-medium text-gray-700;
+  }
+
+  .btn-dashboard {
+    @apply inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-teal-700 border border-transparent rounded-md hover:bg-teal-800 active:bg-teal-900 focus:outline-none focus:border-teal-900 focus:ring ring-teal-300;
+ 
   }
 }
 

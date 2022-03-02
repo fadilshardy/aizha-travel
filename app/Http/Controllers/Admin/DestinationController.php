@@ -25,6 +25,9 @@ class DestinationController extends Controller
     public function index()
     {
 
+        $this->authorize('index', Destination::class);
+
+
         $destination = Destination::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.destinations.index', [

@@ -1,15 +1,13 @@
- @extends('dashboard.partials.layout')
+ @extends('admin.dashboard.partials.layout')
 
  @section('main')
 
  <div class="w-full h-full my-4 bg-white rounded-lg">
      <div class="p-8 rounded-lg">
          <div class="flex flex-col">
-             <div class="pb-8">
-                 <a href="{{route('destination.index')}}" class="py-1 font-medium bg-teal-700 btn Capitalize">back</a>
+             <div class="pb-4">
+                 <a href="{{route('destination.index')}}" class="btn-dashboard">back</a>
              </div>
-
-             <h1 class="text-base font-bold">Add Destination</h1>
          </div>
 
          <form action=" {{route('destination.store')}}" method="POST" enctype="multipart/form-data">
@@ -102,9 +100,8 @@
 
                  <textarea id="my-editor" name="description" rows="30" cols="100">{!! old('content', '') !!}</textarea>
              </div>
-             <div class="mt-8 space-x-4">
-                 <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50">Save</button> <!-- Secondary -->
-                 <button class="px-4 py-2 text-gray-600 bg-white border border-gray-200 rounded hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50">Cancel</button>
+             <div class="flex justify-end">
+                 <button type="submit" class="px-8 py-4 btn-dashboard text-medium">Save</button>
              </div>
 
          </form>

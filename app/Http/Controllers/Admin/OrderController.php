@@ -11,10 +11,13 @@ class OrderController extends Controller
 
     public function index()
     {
+
+        $this->authorize('viewAny', Order::class);
+
         $orders = Order::orderBy('id', 'desc')->paginate(10);
 
 
-        return view('orders.index', [
+        return view('admin.orders.index', [
             'orders' => $orders
         ]);
     }
