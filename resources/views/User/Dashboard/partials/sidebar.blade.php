@@ -8,7 +8,7 @@
                          </div>
                      </div>
                      <div class="border-l-4 border-transparent h-11 hover:border-teal-500 ">
-                         <a href="{{route('dashboard.admin.index')}}" class="relative flex flex-row items-center h-full pl-2 space-x-2 hover:bg-teal-800">
+                         <a href="{{route('user.dashboard.index')}}" class="relative flex flex-row items-center h-full pl-2 space-x-2 hover:bg-teal-800">
                              <span class="items-center justify-center">
                                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -18,7 +18,7 @@
                          </a>
                      </div>
                      <div class="border-l-4 border-transparent h-11 hover:border-teal-500 ">
-                         <a href="{{route('destination.index')}}" class="relative flex flex-row items-center h-full pl-2 space-x-2 hover:bg-teal-800">
+                         <a href="{{route('user.destination.index')}}" class="relative flex flex-row items-center h-full pl-2 space-x-2 hover:bg-teal-800">
                              <span class="items-center justify-center">
                                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
@@ -27,16 +27,7 @@
                              <span class="ml-2 text-sm tracking-wide truncate">Destinations</span>
                          </a>
                      </div>
-                     <div class="border-l-4 border-transparent h-11 hover:border-teal-500 ">
-                         <a href="{{route('user.index')}}" class="relative flex flex-row items-center h-full pl-2 space-x-2 hover:bg-teal-800">
-                             <span class="items-center justify-center">
-                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                 </svg>
-                             </span>
-                             <span class="text-sm tracking-wide truncate ">Users</span>
-                         </a>
-                     </div>
+
                      <div class="border-l-4 border-transparent h-11 hover:border-teal-500 ">
                          <a href="{{route('order.index')}}" class="relative flex flex-row items-center h-full pl-2 space-x-2 hover:bg-teal-800">
                              <span class="items-center justify-center">
@@ -53,29 +44,20 @@
                              <div class="text-sm tracking-wide text-gray-400 uppercase font-divght">Settings</div>
                          </div>
                      </div>
-                     <div>
-                         <a href="#" class="relative flex flex-row items-center pr-6 border-l-4 border-transparent h-11 focus:outdivne-none hover:bg-teal-800 hover:border-teal-500">
-                             <span class="items-center justify-center ">
-                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                     <path stroke-divnecap="round" stroke-divnejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                 </svg>
-                             </span>
-                             <span class="ml-2 text-sm tracking-wide truncate">Profile</span>
-                         </a>
-                     </div>
-                     <div>
-                         <a href="#" class="relative flex flex-row items-center pr-6 border-l-4 border-transparent h-11 focus:outdivne-none hover:bg-teal-800 hover:border-teal-500">
-                             <span class="items-center justify-center ">
+
+                     <div class="border-l-4 border-transparent h-11 hover:border-teal-500 ">
+                         <a href="{{route('user.edit', Auth::id())}}" class="relative flex flex-row items-center h-full pl-2 space-x-2 hover:bg-teal-800">
+                             <span class="items-center justify-center">
                                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                      <path stroke-divnecap="round" stroke-divnejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                      <path stroke-divnecap="round" stroke-divnejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                  </svg>
                              </span>
-                             <span class="ml-2 text-sm tracking-wide truncate">Settings</span>
+                             <span class="text-sm tracking-wide truncate ">Settings</span>
                          </a>
                      </div>
-                     </ul>
-                     <p class="hidden px-5 py-3 text-xs text-center mb-14 md:block">Copyright @2021</p>
+
+
                  </div>
              </div>
          </div>

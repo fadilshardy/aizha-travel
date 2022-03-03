@@ -10,10 +10,10 @@
 
 
             <nav class="items-center hidden pl-8 ml-8 space-x-8 text-sm font-medium border-l border-gray-100 md:flex">
-                <a href="" class="hover:text-teal-700">About</a>
-                <a href="" class="hover:text-teal-700">blog</a>
-                <a href="" class="hover:text-teal-700">Services</a>
-                <a href="" class="hover:text-teal-700">contact</a>
+                <a href="{{route('about')}}" class="hover:text-teal-700">About</a>
+                <a href="{{route('faq')}}" class="hover:text-teal-700">FAQ</a>
+                <a href="{{route('services')}}" class="hover:text-teal-700">Services</a>
+                <a href="{{route('contact')}}" class="hover:text-teal-700">Contact</a>
                 <a href="{{route('user.destination.index')}}" class="p-2 bg-teal-200 rounded-md shadow-sm md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">destinations</a>
             </nav>
         </div>

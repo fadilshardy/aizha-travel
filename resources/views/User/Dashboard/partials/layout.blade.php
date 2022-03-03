@@ -5,7 +5,7 @@
 
  <div class="flex min-h-screen pt-16">
      <nav class="">
-         @include('admin.dashboard.partials.sidebar')
+         @include('user.dashboard.partials.sidebar')
      </nav>
 
      <main class="flex-1 min-w-0 px-8 overflow-auto bg-indigo-50">
