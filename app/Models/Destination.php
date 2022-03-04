@@ -61,7 +61,7 @@ class Destination extends Model implements HasMedia
     public function getImageUrl()
     {
         if ($this->getMedia()->isEmpty()) {
-            $imageUrl = "http://127.0.0.1:3000/storage/16/1080x1920.jpeg";
+            $imageUrl = "https://images.unsplash.com/photo-1646415372927-2d294966af15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80";
         } else {
             $imageUrl = $this->getMedia()[0]->getUrl();
         }

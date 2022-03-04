@@ -35,16 +35,16 @@ class UserFactory extends Factory
      */
 
 
-    public function configure()
-    {
-        return $this->afterCreating(function (User $user) {
-            $url = 'https://source.unsplash.com/1280x720/?face?' . $this->faker->numberBetween();
-            $user
-                ->addMediaFromUrl($url)
-                ->usingName($user->name)
-                ->toMediaCollection('avatar');
-        });
-    }
+    // public function configure()
+    // {
+    //     // return $this->afterCreating(function (User $user) {
+    //     //     $url = 'https://source.unsplash.com/1280x720/?face?' . $this->faker->numberBetween();
+    //     //     $user
+    //     //         ->addMediaFromUrl($url)
+    //     //         ->usingName($user->name)
+    //     //         ->toMediaCollection('avatar');
+    //     // });
+    // }
 
     public function unverified()
     {

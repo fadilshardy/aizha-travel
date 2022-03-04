@@ -41,14 +41,14 @@ class DestinationFactory extends Factory
         ];
     }
 
-    public function configure()
-    {
-        return $this->afterCreating(function (Destination $destination) {
-            $url = 'https://source.unsplash.com/collection/3813068/1920x1080/?' . $this->faker->numberBetween();
+    // public function configure()
+    // {
+    //     // return $this->afterCreating(function (Destination $destination) {
+    //     //     $url = 'https://source.unsplash.com/collection/3813068/1920x1080/?' . $this->faker->numberBetween();
 
-            $destination
-                ->addMediaFromUrl($url)
-                ->toMediaCollection();
-        });
-    }
+    //     //     $destination
+    //     //         ->addMediaFromUrl($url)
+    //     //         ->toMediaCollection();
+    //     // });
+    // }
 }
