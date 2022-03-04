@@ -23,7 +23,7 @@
             <div class="flex">
                 <div class="w-full leading-relaxed rounded-lg shadow sm:px-6 sm:py-4">
                     <div class="flex flex-row items-center mb-2 gap-x-4">
-                        <img class="object-cover w-12 h-12 mt-2 rounded-full" src="{{$review->user->getMedia('avatar')[0]->getUrl()}}" alt="">
+                        <img class="object-cover w-12 h-12 mt-2 rounded-full" src="{{$review->user->getThumbnailUrl()}}" alt="">
                         <div class="flex flex-col">
                             <div class="flex items-baseline gap-2 text-sm">
                                 <strong>{{$review->user->name}}</strong>
