@@ -12,8 +12,8 @@
                       Lorem ipsum dolor sit amet consectetur.
                   </h2>
 
-                  <a href="" class="inline-flex items-center px-5 py-3 mt-8 font-medium text-white border border-white rounded-lg hover:bg-white hover:text-teal-600">
-                      Take the dive
+                  <a href="{{route('services')}}" class="inline-flex items-center px-5 py-3 mt-8 font-medium text-white border border-white rounded-lg hover:bg-white hover:text-teal-600">
+                      check more
 
                       <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
