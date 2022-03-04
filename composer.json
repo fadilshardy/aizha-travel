@@ -15,8 +15,7 @@
         "realrashid/sweet-alert": "^4.1",
         "spatie/laravel-medialibrary": "^9.9",
         "unisharp/laravel-filemanager": "^2.3",
-        "ext-gd": "*",
-        "gd": "*"
+        "ext-gd": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
