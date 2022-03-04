@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @include('layouts.header')
 @section('content')
-<section class="pt-12 text-gray-800 bg-gray-100 ">
+<section class="pt-12 ">
     <div class="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
         <div>
             <h2 class="text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-5xl">Aliquip definiebas ad est</h2>
