@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers\User;
 
 use App\Http\Requests\UpdatePasswordRequest;
 
@@ -10,17 +10,17 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-// use App\Services\ImageService;
+use App\Services\ImageService;
 
 class UserController extends Controller
 {
 
-    // protected $imageService;
+    protected $imageService;
 
-    // public function __construct(ImageService $imageService)
-    // {
-    //     $this->imageService = $imageService;
-    // }
+    public function __construct(ImageService $imageService)
+    {
+        $this->imageService = $imageService;
+    }
 
     public function edit(User $user)
     {
@@ -35,9 +35,9 @@ class UserController extends Controller
         $this->authorize('update', User::class);
 
 
-        // if ($request->hasFile('avatar')) {
-        //     $this->imageService->updateAvatar($request->avatar, $user);
-        // }
+        if ($request->hasFile('avatar')) {
+            $this->imageService->updateAvatar($request->avatar, $user);
+        }
 
         $user->update($request->all());
 
