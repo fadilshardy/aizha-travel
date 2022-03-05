@@ -51,12 +51,11 @@ class User extends Authenticatable implements HasMedia
 
     public function getAvatarUrl()
     {
-        // if ($this->getMedia('avatar')->isEmpty()) {
-        //     $imageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
-        // } else {
-        //     $imageUrl = $this->getMedia('avatar')[0]->getUrl();
-        // }
-        $imageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+        if ($this->getMedia('avatar')->isEmpty()) {
+            $imageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+        } else {
+            $imageUrl = $this->getMedia('avatar')[0]->getUrl();
+        }
 
 
         return $imageUrl;
@@ -64,12 +63,11 @@ class User extends Authenticatable implements HasMedia
 
     public function getThumbnailUrl()
     {
-        // if ($this->getMedia('avatar')->isEmpty()) {
-        //     $imageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
-        // } else {
-        //     $imageUrl = $this->getMedia('avatar')[0]->getUrl('avatar-thumbnails');
-        // }
-        $imageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+        if ($this->getMedia('avatar')->isEmpty()) {
+            $imageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+        } else {
+            $imageUrl = $this->getMedia('avatar')[0]->getUrl('avatar-thumbnails');
+        }
 
         return $imageUrl;
     }

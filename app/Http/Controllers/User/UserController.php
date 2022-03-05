@@ -10,7 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-use App\Services\ImageService;
+use app\Services\ImageService;
 
 class UserController extends Controller
 {

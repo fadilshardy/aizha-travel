@@ -19,11 +19,11 @@ use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\UserController;
 
 
-use App\Http\Controllers\user\CheckoutController;
+use App\Http\Controllers\User\CheckoutController;
 
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\user\ReviewController;
+use App\Http\Controllers\User\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
