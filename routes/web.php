@@ -26,6 +26,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\user\ReviewController;
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | User
@@ -41,9 +43,10 @@ Route::view('contact', 'contact')->name('contact');
 Route::view('faq', 'faq')->name('faq');
 
 
-
-
 Route::get('/destinations', [UserDestinationController::class, 'index'])->name('user.destination.index');
+
+Route::get('/destinations/q', [UserDestinationController::class, 'search'])->name('user.destination.search');
+
 
 Route::get('/destination/{destination}', [UserDestinationController::class, 'show'])->name('user.destination.show');
 

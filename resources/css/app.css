@@ -56,7 +56,10 @@ html::-webkit-scrollbar-track {
 
   .btn-dashboard {
     @apply inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-teal-700 border border-transparent rounded-md hover:bg-teal-800 active:bg-teal-900 focus:outline-none focus:border-teal-900 focus:ring ring-teal-300;
- 
+  }
+
+  .link-footer {
+    @apply font-light text-gray-300 transition-colors duration-300 hover:text-teal-200;
   }
 }
 

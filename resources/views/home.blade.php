@@ -22,7 +22,7 @@
         </section>
 
         <div class="flex items-center justify-center gap-5 pt-4">
-            <a class="inline-flex items-center px-12 py-4 text-white bg-teal-500 border border-teal-500 rounded hover:bg-transparent hover:text-teal-600 active:text-teal-500 focus:outline-none focus:ring" href="/download">
+            <a class="inline-flex items-center px-12 py-4 text-white bg-teal-500 border border-teal-500 rounded hover:bg-transparent hover:text-teal-600 active:text-teal-500 focus:outline-none focus:ring" href="{{route('user.destination.index')}}">
                 <span class="font-bold"> Check more </span>
 
                 <svg class="w-5 h-5 ml-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

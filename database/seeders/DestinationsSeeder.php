@@ -39,12 +39,10 @@ class DestinationsSeeder extends Seeder
         foreach ($destinations as $index => $destination) {
             for ($i = 0; $i < rand(5, $users->count()); $i++) {
 
-
                 $user = $users->random();
                 if (Order::where([['user_id', $user->id], ['destination_id', $destination->id]])->exists()) {
                     continue;
                 }
-
 
                 $orderService = new OrderService();
 

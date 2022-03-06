@@ -1,5 +1,5 @@
 <header class="fixed z-50 w-full bg-white border-b border-gray-100 shadow-sm">
-    <div class="flex items-center justify-between h-16 px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between w-full h-16 px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
         <div class="flex items-center">
             <a href="{{route('home')}}" class="flex items-center gap-2 text-base font-bold text-gray-600 hover:text-teal-700 group">
                 <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" class="w-10 h-10 text-gray-700 group-hover:text-teal-700" viewBox="0 0 24 24" fill="currentColor">
@@ -16,19 +16,20 @@
                 <a href="{{route('contact')}}" class="hover:text-teal-700">Contact</a>
                 <a href="{{route('user.destination.index')}}" class="p-2 bg-teal-200 rounded-md shadow-sm md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">destinations</a>
             </nav>
+
+
         </div>
         @guest
-        <div class="flex">
-            <a class="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center transition-colors duration-200 transform rounded-md text md:mx-2 md:w-auto hover:bg-gray-300 " href="{{route('login')}}">Sign in</a>
-            <a class="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-teal-700 rounded-md hover:bg-teal-600 md:mx-0 md:w-auto" href="{{route('register')}}">Sign up</a>
+        <div class="flex items-center">
+            <a class="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center transition-colors duration-200 transform rounded-md text md:mx-2 md:w-auto hover:bg-gray-300 whitespace-nowrap " href="{{route('login')}}">Sign in</a>
+            <a class="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-teal-700 rounded-md hover:bg-teal-600 md:mx-0 md:w-auto whitespace-nowrap" href="{{route('register')}}">Sign up</a>
         </div>
         @endguest
 
         @auth
-        <div class="flex items-center">
-            <div class="items-center hidden divide-x divide-gray-100 lg:flex">
-
-                <a href="" class="block px-6 text-center group">
+        <div class="flex items-center ">
+            <div class="flex items-center divide-x divide-gray-100 ">
+                <a href="" class="hidden px-6 text-center lg:block group ">
                     <svg class="w-6 h-6 mx-auto " viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>

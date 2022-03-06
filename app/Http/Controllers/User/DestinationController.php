@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Destination;
+use Illuminate\Http\Request;
 
 
 class DestinationController extends Controller
@@ -12,11 +12,31 @@ class DestinationController extends Controller
 
     public function index()
     {
+        $destinations = Destination::orderBy('id', 'desc')->paginate(9);
 
-        $destination = Destination::orderBy('id', 'desc')->paginate(9);
+        $locations = Destination::all()->random(6);
 
         return view('user.destinations.index', [
-            'destinations' => $destination
+            'destinations' => $destinations,
+            'locations' => $locations
+
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+
+        $destinations = Destination::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('location', 'LIKE', "%{$search}%")
+            ->paginate(9);
+
+        $locations = Destination::all()->random(6);
+
+        return view('user.destinations.index', [
+            'destinations' => $destinations,
+            'locations' => $locations
         ]);
     }
 

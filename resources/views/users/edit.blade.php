@@ -20,7 +20,7 @@
                  </div>
                  <div class="col-span-full sm:col-span-3">
                      <label for="email" class="text-sm">Email</label>
-                     <input id="email" type="text" class="w-full p-2 form-input  bg-gray-200 @error('email') border-red-500 @enderror" value="{{$user->email}}" disabled>
+                     <input id="email" type="text" class="w-full p-2 form-input  disabled:bg-gray-200 disabled:opacity-75 @error('email') border-red-500 @enderror" value="{{$user->email}}" disabled>
                  </div>
                  <div class="col-span-full sm:col-span-3">
                      <label for="bio" class="text-sm" id="imgCover">Photo</label>
