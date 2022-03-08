@@ -47,6 +47,10 @@ Route::get('/destinations', [UserDestinationController::class, 'index'])->name('
 
 Route::get('/destinations/q', [UserDestinationController::class, 'search'])->name('user.destination.search');
 
+Route::get('/destinations/location/{location}', [UserDestinationController::class, 'location'])->name('user.destination.location');
+
+Route::get('/destinations/tags/{tag}', [UserDestinationController::class, 'tag'])->name('user.destination.tag');
+
 
 Route::get('/destination/{destination}', [UserDestinationController::class, 'show'])->name('user.destination.show');
 

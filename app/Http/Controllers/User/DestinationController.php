@@ -5,7 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Destination;
 use Illuminate\Http\Request;
-
+use App\Models\Tag;
+use Illuminate\Support\Facades\Session;
 
 class DestinationController extends Controller
 {
@@ -18,8 +19,7 @@ class DestinationController extends Controller
 
         return view('user.destinations.index', [
             'destinations' => $destinations,
-            'locations' => $locations
-
+            'locations' => $locations,
         ]);
     }
 
@@ -33,6 +33,38 @@ class DestinationController extends Controller
             ->paginate(9);
 
         $locations = Destination::all()->random(6);
+
+        Session::flash('message', 'name (' . $destinations->count() . ') ');
+
+
+        return view('user.destinations.index', [
+            'destinations' => $destinations,
+            'locations' => $locations,
+        ]);
+    }
+
+    public function location($location)
+    {
+        $destinations = Destination::where('location', $location)->paginate(9);
+
+        $locations = Destination::all()->random(6);
+
+        Session::flash('message', 'location: ' . $location  . ' (' . $destinations->count() . ') ');
+
+
+        return view('user.destinations.index', [
+            'destinations' => $destinations,
+            'locations' => $locations,
+        ]);
+    }
+
+    public function tag(Tag $tag)
+    {
+        $destinations = $tag->destinations()->paginate(9);
+
+        $locations = Destination::all()->random(6);
+
+        Session::flash('message', 'tag: ' . $tag->name  . ' (' . $destinations->count() . ')');
 
         return view('user.destinations.index', [
             'destinations' => $destinations,

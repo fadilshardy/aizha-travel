@@ -19,10 +19,10 @@
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
             </p>
             <div class="flex items-center">
-                <a href="/" class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 bg-teal-400 rounded shadow-md hover:bg-teal-700 focus:shadow-outline focus:outline-none">
+                <a href="{{route('user.destination.index')}}" class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 bg-teal-400 rounded shadow-md hover:bg-teal-700 focus:shadow-outline focus:outline-none">
                     Get started
                 </a>
-                <a href="/" aria-label="" class="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-teal-700">Learn more</a>
+                <a href="{{route('services')}}" aria-label="" class="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-teal-700">Learn more</a>
             </div>
         </div>
     </div>

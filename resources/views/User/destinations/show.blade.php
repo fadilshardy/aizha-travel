@@ -95,9 +95,10 @@
                         </div>
                     </div>
                     <div class="flex flex-wrap items-center gap-2 mt-5">
-                        <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-teal-500 hover:text-white">Beauti</a>
-                        <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-teal-500 hover:text-white">Sports</a>
-                        <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-teal-500 hover:text-white">Business</a>
+                        @foreach ($destination->tags as $key=>$tag)
+                        <a href="{{route('user.destination.tag', $tag->name)}}" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-teal-500 hover:text-white">{{$tag->name}}</a>
+                        @endforeach
+
                     </div>
 
 

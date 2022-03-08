@@ -32,7 +32,12 @@
             </form>
 
         </div>
+        @if(Session::has('message'))
+        <h2 class="text-sm">Search result by <span class="font-bold">{{Session::get('message')}}</span> </h2>
+        @endif
+
     </div>
+
 
     @if($destinations->isNotEmpty())
     <section class="p-10 px-5 mx-auto md:py-20 md:p-10 md:px-0">
@@ -54,6 +59,10 @@
     </div>
     @endif
 
+    <section>
+        @include('home.partials.banner')
+    </section>
+
     <section class="p-10 px-5 mx-auto md:py-20 md:p-10 md:px-0">
         <div class="relative mb-8 text-center">
             <span class="absolute inset-x-0 h-px -translate-y-1/2 bg-black/10 top-1/2"></span>
@@ -62,6 +71,8 @@
                 Top Locations
             </h2>
         </div>
+
+
         <section class="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
             @foreach($locations as $location)
             <div class="relative w-full cursor-pointer hover:-translate-y-1 group">
@@ -76,6 +87,14 @@
             @endforeach
 
         </section>
+    </section>
+
+
+
+
+
+    <section>
+        @include('layouts.footer')
     </section>
 </div>
 @endsection

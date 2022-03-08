@@ -10,10 +10,14 @@ class Tag extends Model
 {
     public $timestamps = false;
 
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 
     protected $fillable = ['name'];
 
-    public function Destinations()
+    public function destinations()
     {
         return $this->belongsToMany(Destination::class, 'destination_tag', 'tag_id', 'destination_id');
     }
