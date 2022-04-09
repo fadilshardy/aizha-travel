@@ -21,6 +21,7 @@ class Tag extends Model
     {
         return $this->belongsToMany(Destination::class, 'destination_tag', 'tag_id', 'destination_id');
     }
+    
 
     use HasFactory;
 }

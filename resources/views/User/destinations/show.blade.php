@@ -51,7 +51,7 @@
     <div class="container relative flex flex-wrap justify-center px-4 mx-auto lg:flex-nowrap -mt-28 z-999">
 
         <!-- Main content -->
-        <div class="w-full xl:w-6/12 lg:w-9/12 xl:ml-6 lg:mr-6">
+        <div class="w-full xl:w-6/8 lg:w-9/8 xl:ml-6 lg:mr-6">
 
             <!-- post view -->
             <div class="overflow-hidden bg-white rounded-lg shadow-sm">
@@ -68,7 +68,9 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
-                                {{$destination->location}}
+                                <a href="{{route('user.destination.location', strtolower($destination->location))}}">
+                                    {{$destination->location}}
+                                </a>
                             </div>
                             <div class="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -102,11 +104,59 @@
                     </div>
 
 
+                    <section>
 
-                    <section class="pt-2 prose text-gray-600 prose-slate">
+                        <div class="flex flex-wrap w-full">
+                            <div class="w-full p-1 md:p-2">
+                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp">
+                            </div>
+                            <div class="w-1/2 p-1 md:p-2">
+                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp">
+                            </div>
+                            <div class="w-1/2 p-1 md:p-2">
+                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp">
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section class="items-center pt-2 prose text-gray-600 prose-slate">
                         {!! $destination->description!!}
+                    </section>
 
-
+                    <section>
+                        <ol class="border-l border-gray-300">
+                            <li>
+                                <div class="flex items-center pt-3 flex-start">
+                                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
+                                    <p class="text-sm text-gray-500">DAY 1</p>
+                                </div>
+                                <div class="mt-0.5 ml-4 mb-6">
+                                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 1</h4>
+                                    <p class="mb-3 text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center pt-2 flex-start">
+                                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
+                                    <p class="text-sm text-gray-500">DAY 2</p>
+                                </div>
+                                <div class="mt-0.5 ml-4 mb-6">
+                                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 2</h4>
+                                    <p class="mb-3 text-gray-500">Libero expedita explicabo eius fugiat quia aspernatur autem laudantium error architecto recusandae natus sapiente sit nam eaque, consectetur porro molestiae ipsam an deleniti.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center pt-2 flex-start">
+                                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
+                                    <p class="text-sm text-gray-500">DAY 3</p>
+                                </div>
+                                <div class="mt-0.5 ml-4 pb-5">
+                                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 3</h4>
+                                    <p class="mb-3 text-gray-500">Voluptatibus temporibus esse illum eum aspernatur, fugiat suscipit natus! Eum corporis illum nihil officiis tempore. Excepturi illo natus libero sit doloremque, laborum molestias rerum pariatur quam ipsam necessitatibus incidunt, explicabo.</p>
+                                </div>
+                            </li>
+                        </ol>
                     </section>
                 </div>
             </div>
@@ -138,20 +188,10 @@
 
             <!-- tag -->
             <!-- categories -->
-            <div class="w-full p-4 mt-8 bg-white rounded-sm shadow-sm">
+            <div class="w-full p-4 mt-8 bg-white rounded-lg shadow-lg">
                 <h3 class="mb-3 text-xl font-semibold text-gray-700 font-roboto">Tags</h3>
-                <div class="flex flex-wrap items-center gap-2">
-                    <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white">Beauti</a>
-                    <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white">Sports</a>
-                    <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white">Business</a>
-                    <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white">Politics</a>
-                    <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white">Computer</a>
-                    <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white">Coding</a>
-                    <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white">Web
-                        Design</a>
-                    <a href="#" class="px-3 py-1 text-sm transition border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white">Web
-                        App</a>
-                </div>
+                @include('user.destinations.partials.tags')
+
             </div>
         </div>
 

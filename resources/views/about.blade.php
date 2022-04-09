@@ -63,6 +63,9 @@
             </div>
         </div>
     </div>
+    <section>
+        @include('layouts.footer')
+    </section>
 </section>
 
 @endsection

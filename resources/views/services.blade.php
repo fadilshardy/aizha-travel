@@ -4,17 +4,17 @@
 <section class="pt-12 text-gray-800 bg-gray-100 ">
     <div class="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
         <div>
-            <h2 class="text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-5xl">Aliquip definiebas ad est</h2>
-            <p class="max-w-3xl mx-auto mt-4 text-xl text-center text-gray-600">Quando cetero his ne, eum admodum sapientem ut.</p>
+            <h2 class="text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-5xl">What We Offers</h2>
+            <p class="max-w-3xl mx-auto mt-4 text-xl text-center text-gray-600">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, debitis?</p>
         </div>
         <div class="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-                <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Ad vix debet docendi</h3>
-                <p class="mt-3 text-lg text-gray-600">Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod tacimates.</p>
+                <h3 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Lorem ipsum dolor sit.</h3>
+                <p class="mt-3 text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa explicabo consequuntur minima aspernatur in. Laborum esse itaque unde deserunt ipsum.</p>
                 <div class="mt-12 space-y-12">
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                            <div class="flex items-center justify-center w-12 h-12 bg-teal-600 rounded-md text-gray-50">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                            <div class="flex items-center justify-center w-12 h-12 bg-teal-600 rounded-md text-gray-50">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                            <div class="flex items-center justify-center w-12 h-12 bg-teal-600 rounded-md text-gray-50">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div aria-hidden="true" class="mt-10 lg:mt-0">
-                <img src="https://source.unsplash.com/random/360x480" alt="" class="mx-auto bg-gray-500 rounded-lg shadow-lg">
+                <img src="https://images.unsplash.com/photo-1505521377774-103a8cc2f735?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=481&q=80" alt="" class="mx-auto bg-gray-500 rounded-lg shadow-lg">
             </div>
         </div>
         <div>
@@ -65,7 +65,7 @@
                     <div class="mt-12 space-y-12">
                         <div class="flex">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                                <div class="flex items-center justify-center w-12 h-12 bg-teal-600 rounded-md text-gray-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="flex">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                                <div class="flex items-center justify-center w-12 h-12 bg-teal-600 rounded-md text-gray-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="flex">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center w-12 h-12 rounded-md bg-violet-600 text-gray-50">
+                                <div class="flex items-center justify-center w-12 h-12 bg-teal-600 rounded-md text-gray-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-7 h-7">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
@@ -105,10 +105,14 @@
                     </div>
                 </div>
                 <div class="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
-                    <img src="https://source.unsplash.com/random/361x481" alt="" class="mx-auto bg-gray-500 rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1600240644455-3edc55c375fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=481&q=80" alt="" class="mx-auto bg-gray-500 rounded-lg shadow-lg">
                 </div>
             </div>
         </div>
     </div>
+</section>
+
+<section>
+    @include('layouts.footer')
 </section>
 @endsection

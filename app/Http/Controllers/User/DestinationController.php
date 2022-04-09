@@ -74,9 +74,14 @@ class DestinationController extends Controller
 
     public function show(Destination $destination)
     {
+        $tags = Tag::withCount('destinations')->orderBy('destinations_count', 'desc')->paginate(10);
+
         return view(
             'user.destinations.show',
-            compact('destination')
+            [
+                'destination' => $destination,
+                'tags' => $tags
+            ]
         );
     }
 }

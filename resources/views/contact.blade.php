@@ -12,22 +12,26 @@
         <div class="flex flex-col w-full p-8 mt-10 rounded-md lg:w-3/6 xl:w-2/5 md:w-full bg-gray-50 lg:ml-auto lg:mt-0">
             <div class="relative mb-4">
                 <label for="full-name" class="text-sm leading-7 text-gray-600">Name</label>
-                <input type="text" id="name" name="name" class="w-full px-3 py-1 text-sm leading-8 text-gray-900 transition-colors duration-150 ease-in-out bg-white border border-gray-300 rounded-md outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200">
+                <input type="text" id="name" name="name" class="w-full px-3 py-1 text-sm leading-8 text-gray-900 transition-colors duration-150 ease-in-out bg-white border border-gray-300 rounded-md outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-200">
             </div>
             <div class="relative mb-4">
                 <label for="email" class="text-sm leading-7 text-gray-600">Email</label>
-                <input type="email" id="email" name="email" class="w-full px-3 py-1 text-sm leading-8 text-gray-900 transition-colors duration-150 ease-in-out bg-white border border-gray-300 rounded-md outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200">
+                <input type="email" id="email" name="email" class="w-full px-3 py-1 text-sm leading-8 text-gray-900 transition-colors duration-150 ease-in-out bg-white border border-gray-300 rounded-md outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-200">
             </div>
             <div class="relative mb-4">
                 <label for="email" class="text-sm leading-7 text-gray-600">Phone</label>
-                <input type="email" id="phone" name="phone" class="w-full px-3 py-1 text-sm leading-8 text-gray-900 transition-colors duration-150 ease-in-out bg-white border border-gray-300 rounded-md outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200">
+                <input type="email" id="phone" name="phone" class="w-full px-3 py-1 text-sm leading-8 text-gray-900 transition-colors duration-150 ease-in-out bg-white border border-gray-300 rounded-md outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-200">
             </div>
             <div class="relative mb-4">
                 <label for="email" class="text-sm leading-7 text-gray-600">Message</label>
-                <textarea id="message" name="message" rows="4" class="w-full px-3 py-1 text-sm leading-8 text-gray-900 transition-colors duration-150 ease-in-out bg-white border border-gray-300 rounded-md outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200"> </textarea>
+                <textarea id="message" name="message" rows="4" class="w-full px-3 py-1 text-sm leading-8 text-gray-900 transition-colors duration-150 ease-in-out bg-white border border-gray-300 rounded-md outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-200"> </textarea>
             </div>
-            <button class="px-8 py-2 text-lg text-white bg-indigo-500 border-0 rounded-md focus:outline-none hover:bg-indigo-600">Submit</button>
+            <button class="px-8 py-2 text-lg text-white bg-teal-500 border-0 rounded-md focus:outline-none hover:bg-teal-600">Submit</button>
         </div>
     </div>
+</section>
+
+<section>
+    @include('layouts.footer')
 </section>
 @endsection

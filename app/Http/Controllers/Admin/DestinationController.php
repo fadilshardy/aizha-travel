@@ -90,7 +90,7 @@ class DestinationController extends Controller
         toast('Your destination has been successfully updated', 'success');
 
 
-        return redirect(route('destination.show', $destination->slug))->with('success', 'updated successfully!');
+        return redirect(route('user.destination.show', $destination->slug))->with('success', 'updated successfully!');
     }
 
     public function destroy(Destination $destination)

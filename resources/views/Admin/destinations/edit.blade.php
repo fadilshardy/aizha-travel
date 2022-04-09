@@ -1,4 +1,4 @@
- @extends('dashboard.partials.layout')
+ @extends('admin.dashboard.partials.layout')
 
  @section('main')
 
@@ -49,7 +49,7 @@
 
                          <div class="w-full">
                              <label for="total_days" class="form-label">Duration <span class="text-red-500">*</span> <span class="text-xs text-gray-500">(day)</span></label>
-                             <input type="number" name="total_days" id="job" class="block w-full px-2 py-2 form-input @error('total_days') border-red-500 @enderror" placeholder="{{$destination->total_days }}" value="{{$destination->total_days }}" />
+                             <input type="number" name="total_days" id="duration" class="block w-full px-2 py-2 form-input @error('total_days') border-red-500 @enderror" placeholder="{{$destination->total_days }}" value="{{$destination->total_days }}" />
                              @error('total_days') <p class="pl-2 text-xs text-red-500">{{ $message }}</p> @enderror
                          </div>
                      </div>

@@ -30,7 +30,7 @@ class UpdateDestinationRequest extends FormRequest
             'slug' => 'sometimes|unique:destinations|max:255',
             'price' => 'required',
             'location' => 'required',
-            'duration' => 'required',
+            'total_days' => 'required',
             'tags' => 'required',
             'images' => 'nullable'
         ];

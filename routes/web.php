@@ -106,7 +106,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
 
     Route::get('dashboard', DashboardController::class)->name('dashboard.admin.index');
 
-    Route::get('dashboard/destination', [DashboardController::class, 'destination']);
+    Route::get('dashboard/destination', [DashboardController::class, 'destination'])->name('dashboard.admin.destination');
 
     Route::resource('destination', DestinationController::class)->except('show');
 });

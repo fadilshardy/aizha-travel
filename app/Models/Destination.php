@@ -69,6 +69,17 @@ class Destination extends Model implements HasMedia
         return $imageUrl;
     }
 
+    public function getThumbnailUrl()
+    {
+        if ($this->getMedia()->isEmpty()) {
+            $imageUrl = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+        } else {
+            $imageUrl = $this->getMedia()[0]->getUrl('thumbnail');
+        }
+
+        return $imageUrl;
+    }
+
 
     public function similiar_destinations()
     {
@@ -78,5 +89,19 @@ class Destination extends Model implements HasMedia
     public function getReviewsPaginatedAttribute()
     {
         return $this->reviews()->paginate(5);
+    }
+
+
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaConversion('thumbnail')
+            ->width(480)
+            ->height(480);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'destination_id');
     }
 }
