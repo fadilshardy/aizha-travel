@@ -6,7 +6,7 @@
                     <p class="w-full font-medium tracking-wide text-gray-100">Home</p>
                     <ul class="mt-2 space-y-2">
                         <li>
-                            <a href="{{route('about')}}" class="link-footer">
+                            <a href="#" class="link-footer">
                                 <span>About Us</span>
                             </a>
                         </li>

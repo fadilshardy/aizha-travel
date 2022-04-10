@@ -38,7 +38,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::view('services', 'services')->name('services');
-Route::view('about', 'about')->name('about');
 Route::view('contact', 'contact')->name('contact');
 Route::view('faq', 'faq')->name('faq');
 

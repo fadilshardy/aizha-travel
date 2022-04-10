@@ -8246,6 +8246,12 @@ select {
 .w-14 {
   width: 3.5rem;
 }
+.w-44 {
+  width: 11rem;
+}
+.w-36 {
+  width: 9rem;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -8721,6 +8727,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(45 212 191 / var(--tw-bg-opacity));
 }
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
 .bg-gray-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
@@ -8736,6 +8746,10 @@ select {
 .bg-gray-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+}
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
@@ -8762,10 +8776,6 @@ select {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
-}
-.object-fill {
-  -o-object-fit: fill;
-     object-fit: fill;
 }
 .object-bottom {
   -o-object-position: bottom;
@@ -8993,6 +9003,12 @@ select {
 }
 .pl-12 {
   padding-left: 3rem;
+}
+.pl-4 {
+  padding-left: 1rem;
+}
+.pl-14 {
+  padding-left: 3.5rem;
 }
 .text-left {
   text-align: left;
@@ -9616,6 +9632,12 @@ html::-webkit-scrollbar-track {
 }
 
 
+.focus\:border-blue-600:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(37 99 235 / var(--tw-border-opacity));
+}
+
+
 .focus\:bg-gray-100:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -9795,6 +9817,11 @@ html::-webkit-scrollbar-track {
 
 .group:hover .group-hover\:visible {
   visibility: visible;
+}
+
+
+.group:hover .group-hover\:block {
+  display: block;
 }
 
 
@@ -10227,6 +10254,10 @@ html::-webkit-scrollbar-track {
     width: 12rem;
   }
 
+  .md\:w-40 {
+    width: 10rem;
+  }
+
   .md\:max-w-full {
     max-width: 100%;
   }
@@ -10253,6 +10284,12 @@ html::-webkit-scrollbar-track {
 
   .md\:flex-row-reverse {
     flex-direction: row-reverse;
+  }
+
+  .md\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .md\:break-all {
@@ -10344,6 +10381,11 @@ html::-webkit-scrollbar-track {
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .md\:shadow-md {
@@ -10487,6 +10529,10 @@ html::-webkit-scrollbar-track {
     width: 25%;
   }
 
+  .lg\:w-40 {
+    width: 10rem;
+  }
+
   .lg\:max-w-screen-xl {
     max-width: 1280px;
   }
@@ -10549,6 +10595,12 @@ html::-webkit-scrollbar-track {
 
   .lg\:gap-8 {
     gap: 2rem;
+  }
+
+  .lg\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(2rem * var(--tw-space-x-reverse));
+    margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .lg\:rounded-none {
@@ -10616,6 +10668,16 @@ html::-webkit-scrollbar-track {
   .lg\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
+  }
+
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .lg\:shadow-none {

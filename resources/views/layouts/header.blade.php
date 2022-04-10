@@ -1,22 +1,34 @@
 <header class="fixed z-50 w-full bg-white border-b border-gray-100 shadow-sm">
     <div class="flex items-center justify-between w-full h-16 px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
         <div class="flex items-center">
-            <a href="{{route('home')}}" class="flex items-center gap-2 text-base font-bold text-gray-600 hover:text-teal-700 group">
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" class="w-10 h-10 text-gray-700 group-hover:text-teal-700" viewBox="0 0 24 24" fill="currentColor">
+            <a href="{{route('home')}}" class="flex items-center w-32 gap-2 text-sm font-bold text-gray-600 md:w-40 lg:text-base hover:text-teal-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" class="w-8 h-8 text-gray-700 group-hover:text-teal-700" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M19.3,16.9c0.4-0.7,0.7-1.5,0.7-2.4c0-2.5-2-4.5-4.5-4.5S11,12,11,14.5s2,4.5,4.5,4.5c0.9,0,1.7-0.3,2.4-0.7l3.2,3.2 l1.4-1.4L19.3,16.9z M15.5,17c-1.4,0-2.5-1.1-2.5-2.5s1.1-2.5,2.5-2.5s2.5,1.1,2.5,2.5S16.9,17,15.5,17z M12,20v2 C6.48,22,2,17.52,2,12C2,6.48,6.48,2,12,2c4.84,0,8.87,3.44,9.8,8h-2.07c-0.64-2.46-2.4-4.47-4.73-5.41V5c0,1.1-0.9,2-2,2h-2v2 c0,0.55-0.45,1-1,1H8v2h2v3H9l-4.79-4.79C4.08,10.79,4,11.38,4,12C4,16.41,7.59,20,12,20z" />
                 </svg>
                 Aizha Travel
             </a>
 
-
-            <nav class="items-center hidden pl-8 ml-8 space-x-8 text-sm font-medium border-l border-gray-100 md:flex">
-                <a href="{{route('about')}}" class="hover:text-teal-700">About</a>
+            <nav class="items-center hidden px-4 text-xs font-medium border-l border-gray-100 lg:pl-8 md:space-x-4 lg:space-x-8 lg:text-sm md:flex">
                 <a href="{{route('faq')}}" class="hover:text-teal-700">FAQ</a>
                 <a href="{{route('services')}}" class="hover:text-teal-700">Services</a>
                 <a href="{{route('contact')}}" class="hover:text-teal-700">Contact</a>
                 <a href="{{route('user.destination.index')}}" class="p-2 bg-teal-200 rounded-md shadow-sm md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">destinations</a>
             </nav>
 
+        </div>
+
+
+        <div class="flex items-center w-full lg:px-8">
+            <form action="{{ route('user.destination.search') }}" method="GET" class="relative w-full mt-5">
+                <svg class="pointer-events-none absolute inset-y-0 left-0 h-full w-8 stroke-gray-400 pl-2.5" viewBox="0 0 256 256" aria-hidden="true">
+                    <circle cx="116" cy="116" r="84" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle>
+                    <line x1="175.4" y1="175.4" x2="224" y2="224" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                </svg>
+                <label for="search-basic" class="sr-only">Search Destinations</label>
+
+                <input id="search-basic" type="search" placeholder="Search..." name="search" class="block w-full pl-10 text-xs transition border-gray-200 rounded-md md:text-base focus:border-teal-600 focus:ring-teal-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
+
+            </form>
 
         </div>
         @guest

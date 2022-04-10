@@ -16,15 +16,16 @@
             </div>
             <section class="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
                 @foreach($top_locations as $location)
-                <div class="relative w-full cursor-pointer hover:-translate-y-1 group">
+                <div class="relative w-full transition duration-300 ease-in-out cursor-pointer hover:-translate-y-1 group">
                     <a href="{{route('user.destination.location', strtolower($location['name']))}}">
 
                         <div class="absolute top-0 left-0 w-full h-full opacity-80 bg-gradient-to-t from-black"></div>
-                        <img class="object-fill w-full rounded-lg shadow-xl hover:shadow-2xl" src="{{$location['img_url']}}" />
+                        <img class="object-cover object-bottom w-full bg-red-500 rounded-lg rounded-t shadow-xl hover:shadow-2xl" src="{{$location['img_url']}}" />
+
                         <div class="absolute flex justify-center w-full px-4 -mt-20 text-lg text-white">
                             <div class="flex flex-col items-center truncate">
                                 <span class="text-xl font-black tracking-wide capitalize ">{{$location['name']}}</span>
-                                <span class="text-sm">{{$location['destination_count']}}</span>
+                                <span class="hidden text-sm group-hover:block ">{{$location['destination_count']}} destinations </span>
                             </div>
                         </div>
                     </a>
