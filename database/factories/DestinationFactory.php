@@ -6,6 +6,10 @@ use App\Models\Destination;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Services\TagService;
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\TransferStats;
+use  GuzzleHttp\Client;
+use Monolog\Logger;
 
 
 class DestinationFactory extends Factory
@@ -17,6 +21,7 @@ class DestinationFactory extends Factory
      */
 
     protected $model = Destination::class;
+
 
     public function tags()
     {
@@ -33,6 +38,16 @@ class DestinationFactory extends Factory
         return $tags;
     }
 
+    public function getImgUrl($request)
+    {
+
+        $response = Http::get($request);
+
+        $url = $response->transferStats->getHandlerStat('url');
+
+        return $url;
+    }
+
 
 
     public function definition()
@@ -40,6 +55,7 @@ class DestinationFactory extends Factory
 
 
         $paragraphs = $this->faker->paragraphs(rand(7, 15));
+
         $locations = ['Indonesia', 'Thailand', 'Canada', 'France', 'Germany', 'USA', 'Japan', 'Korea'];
 
         $location = $locations[array_rand($locations)];
@@ -48,9 +64,65 @@ class DestinationFactory extends Factory
 
         $description = '';
 
+        $url_architecture = 'https://source.unsplash.com/1600x900/?' . $location . ',landscape,architecture';
+
+
+        $url_sea =  'https://source.unsplash.com/1600x900/?' . $location . ',landscape,sea';
+
+        $images = '
+        <section class="pb-2">
+        <div class="flex flex-row w-full space-x-2">
+            <div class="w-1/2 overflow-hidden rounded-lg">
+                <img alt="' . $name . '" class="w-full transition-all duration-500 ease-in-out transform bg-cover hover:scale-125" src="' . $this->getImgUrl($url_architecture) . '">
+            </div>
+            <div class="w-1/2 overflow-hidden rounded-lg">
+                <img "' . $name . '" class="w-full transition-all duration-500 ease-in-out transform bg-cover hover:scale-125" src="' .   $this->getImgUrl($url_sea) . '">
+            </div>
+        </div>
+    </section>
+    ';
+
+        $description .= $images;
+
         foreach ($paragraphs as $para) {
             $description .= "<p>{$para}</p>";
         }
+        $plans = '                    <section>
+        <ul class="border-l border-gray-300">
+            <li>
+                <div class="flex items-center pt-3 flex-start">
+                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
+                    <p class="text-sm text-gray-500">DAY 1</p>
+                </div>
+                <div class="mt-0.5 ml-4 mb-6">
+                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 1</h4>
+                    <p class="mb-3 text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula.</p>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center pt-2 flex-start">
+                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
+                    <p class="text-sm text-gray-500">DAY 2</p>
+                </div>
+                <div class="mt-0.5 ml-4 mb-6">
+                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 2</h4>
+                    <p class="mb-3 text-gray-500">Libero expedita explicabo eius fugiat quia aspernatur autem laudantium error architecto recusandae natus sapiente sit nam eaque, consectetur porro molestiae ipsam an deleniti.</p>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center pt-2 flex-start">
+                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
+                    <p class="text-sm text-gray-500">DAY 3</p>
+                </div>
+                <div class="mt-0.5 ml-4 pb-5">
+                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 3</h4>
+                    <p class="mb-3 text-gray-500">Voluptatibus temporibus esse illum eum aspernatur, fugiat suscipit natus! Eum corporis illum nihil officiis tempore. Excepturi illo natus libero sit doloremque, laborum molestias rerum pariatur quam ipsam necessitatibus incidunt, explicabo.</p>
+                </div>
+            </li>
+        </ul>
+    </section>';
+
+        $description .= $plans;
 
 
         return [

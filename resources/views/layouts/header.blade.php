@@ -26,7 +26,7 @@
                 </svg>
                 <label for="search-basic" class="sr-only">Search Destinations</label>
 
-                <input id="search-basic" type="search" placeholder="Search..." name="search" class="block w-full pl-10 text-xs transition border-gray-200 rounded-md md:text-base focus:border-teal-600 focus:ring-teal-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
+                <input id="search-basic" type="search" placeholder="Search..." name="search" class="block w-full pl-10 text-xs transition border-gray-200 rounded-md lg:text-base focus:border-teal-600 focus:ring-teal-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
 
             </form>
 

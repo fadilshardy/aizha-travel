@@ -21,7 +21,7 @@ class DestinationsSeeder extends Seeder
      */
     public function run()
     {
-        $destinations =  Destination::factory()->times(12)->create();
+        $destinations =  Destination::factory()->times(30)->create();
 
         $users = User::where('is_admin', false)->get();
 
@@ -48,7 +48,7 @@ class DestinationsSeeder extends Seeder
 
                 $quantity = rand(1, 10);
 
-                $start_date = Carbon::today()->addDays(rand(1, 14));
+                $start_date = Carbon::today()->addDays(rand(1, 6));
                 $invoice_id =  Carbon::now()->format('dmY') + (rand(10, 1000));
 
 

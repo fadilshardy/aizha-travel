@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Destination;
 
-use Illuminate\Support\Facades\DB;
-
 class HomeController extends Controller
 {
     public function index()
     {
+
+
+
+
         $locations = Destination::groupBy('location')
             ->selectRaw('count(*) as count, location')
             ->orderBy('count', 'desc')

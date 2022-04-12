@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         $this->authorize('edit', User::class);
 
-        return view('users.edit', compact('user'));
+        return view('user.users.edit', compact('user'));
     }
 
 

@@ -2,7 +2,6 @@
 @include('layouts.header')
 @section('content')
 
-
 <main class="pb-12 bg-indigo-50 pt-18">
     <div class="relative w-full shadow-sm ">
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black opacity-60"></div>
@@ -56,12 +55,12 @@
             <!-- post view -->
             <div class="overflow-hidden bg-white rounded-lg shadow-sm">
 
-                <div class="p-4 pb-5">
+                <div class="p-4 pb-5 ">
                     <h2 class="block text-4xl font-black tracking-wide text-gray-700 capitalize md:break-all">
                         {{$destination->name}}
                     </h2>
 
-                    <div class="flex flex-col mt-4 text-sm font-bold tracking-wide text-gray-600 uppercase gap-y-2">
+                    <div class="flex flex-col w-full mt-4 text-sm font-bold tracking-wide text-gray-600 uppercase gap-y-2">
                         <div class="flex justify-between">
                             <div class="flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -104,60 +103,13 @@
                     </div>
 
 
-                    <section>
-
-                        <div class="flex flex-wrap w-full">
-                            <div class="w-full p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp">
-                            </div>
-                            <div class="w-1/2 p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp">
-                            </div>
-                            <div class="w-1/2 p-1 md:p-2">
-                                <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp">
-                            </div>
-                        </div>
-                    </section>
 
 
-                    <section class="items-center pt-2 prose text-gray-600 prose-slate">
+                    <section class="w-full p-4 pt-2 mx-auto prose text-gray-600 md:prose-lg max-w-none">
                         {!! $destination->description!!}
                     </section>
 
-                    <section>
-                        <ol class="border-l border-gray-300">
-                            <li>
-                                <div class="flex items-center pt-3 flex-start">
-                                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
-                                    <p class="text-sm text-gray-500">DAY 1</p>
-                                </div>
-                                <div class="mt-0.5 ml-4 mb-6">
-                                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 1</h4>
-                                    <p class="mb-3 text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center pt-2 flex-start">
-                                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
-                                    <p class="text-sm text-gray-500">DAY 2</p>
-                                </div>
-                                <div class="mt-0.5 ml-4 mb-6">
-                                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 2</h4>
-                                    <p class="mb-3 text-gray-500">Libero expedita explicabo eius fugiat quia aspernatur autem laudantium error architecto recusandae natus sapiente sit nam eaque, consectetur porro molestiae ipsam an deleniti.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center pt-2 flex-start">
-                                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
-                                    <p class="text-sm text-gray-500">DAY 3</p>
-                                </div>
-                                <div class="mt-0.5 ml-4 pb-5">
-                                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 3</h4>
-                                    <p class="mb-3 text-gray-500">Voluptatibus temporibus esse illum eum aspernatur, fugiat suscipit natus! Eum corporis illum nihil officiis tempore. Excepturi illo natus libero sit doloremque, laborum molestias rerum pariatur quam ipsam necessitatibus incidunt, explicabo.</p>
-                                </div>
-                            </li>
-                        </ol>
-                    </section>
+
                 </div>
             </div>
 
