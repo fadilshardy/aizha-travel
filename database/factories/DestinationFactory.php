@@ -54,13 +54,14 @@ class DestinationFactory extends Factory
     {
 
 
-        $paragraphs = $this->faker->paragraphs(rand(7, 15));
 
         $locations = ['Indonesia', 'Thailand', 'Canada', 'France', 'Germany', 'USA', 'Japan', 'Korea'];
 
         $location = $locations[array_rand($locations)];
 
         $name =  $location  . ' ' . $this->faker->sentence(rand(4, 6));
+
+        $total_days = $this->faker->numberBetween(3, 7);
 
         $description = '';
 
@@ -69,61 +70,75 @@ class DestinationFactory extends Factory
 
         $url_sea =  'https://source.unsplash.com/1600x900/?' . $location . ',landscape,sea';
 
+
         $images = '
         <section class="pb-2">
-        <div class="flex flex-row w-full space-x-2">
-            <div class="w-1/2 overflow-hidden rounded-lg">
-                <img alt="' . $name . '" class="w-full transition-all duration-500 ease-in-out transform bg-cover hover:scale-125" src="' . $this->getImgUrl($url_architecture) . '">
+            <h3 class="ml-1 font-extrabold text-teal-900">Gallery</h3>
+
+            <div class="flex flex-row w-full space-x-2">
+                <div class="w-1/2 overflow-hidden rounded-lg">
+                    <img alt="' . $name . '" class="w-full transition-all duration-500 ease-in-out transform bg-cover hover:scale-125" src="' . $this->getImgUrl($url_architecture) . '">
+                </div>
+                <div class="w-1/2 overflow-hidden rounded-lg">
+                    <img "' . $name . '" class="w-full transition-all duration-500 ease-in-out transform bg-cover hover:scale-125" src="' .   $this->getImgUrl($url_sea) . '">
+                </div>
             </div>
-            <div class="w-1/2 overflow-hidden rounded-lg">
-                <img "' . $name . '" class="w-full transition-all duration-500 ease-in-out transform bg-cover hover:scale-125" src="' .   $this->getImgUrl($url_sea) . '">
-            </div>
-        </div>
-    </section>
+         </section>
     ';
 
         $description .= $images;
 
+
+
+        $paragraphs = $this->faker->paragraphs(rand(7, 15));
+
+        $overview = '';
+
         foreach ($paragraphs as $para) {
-            $description .= "<p>{$para}</p>";
+            $overview .= "<p>{$para}</p>";
         }
-        $plans = '                    <section>
-        <ul class="border-l border-gray-300">
-            <li>
-                <div class="flex items-center pt-3 flex-start">
-                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
-                    <p class="text-sm text-gray-500">DAY 1</p>
-                </div>
-                <div class="mt-0.5 ml-4 mb-6">
-                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 1</h4>
-                    <p class="mb-3 text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula.</p>
-                </div>
-            </li>
-            <li>
-                <div class="flex items-center pt-2 flex-start">
-                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
-                    <p class="text-sm text-gray-500">DAY 2</p>
-                </div>
-                <div class="mt-0.5 ml-4 mb-6">
-                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 2</h4>
-                    <p class="mb-3 text-gray-500">Libero expedita explicabo eius fugiat quia aspernatur autem laudantium error architecto recusandae natus sapiente sit nam eaque, consectetur porro molestiae ipsam an deleniti.</p>
-                </div>
-            </li>
-            <li>
-                <div class="flex items-center pt-2 flex-start">
-                    <div class="w-2 h-2 mr-3 -ml-1 bg-gray-300 rounded-full"></div>
-                    <p class="text-sm text-gray-500">DAY 3</p>
-                </div>
-                <div class="mt-0.5 ml-4 pb-5">
-                    <h4 class="text-gray-800 font-semibold text-xl mb-1.5">Title of section 3</h4>
-                    <p class="mb-3 text-gray-500">Voluptatibus temporibus esse illum eum aspernatur, fugiat suscipit natus! Eum corporis illum nihil officiis tempore. Excepturi illo natus libero sit doloremque, laborum molestias rerum pariatur quam ipsam necessitatibus incidunt, explicabo.</p>
-                </div>
-            </li>
-        </ul>
-    </section>';
+        $description .= '
+        <hr>
+
+        <section>
+            <h3 class="ml-1 font-extrabold text-teal-900">Overview</h3>
+            ' . $overview . '
+        </section>
+        ';
+
+
+
+
+
+        $plan_list = '';
+
+        for ($i = 1; $i <= $total_days; $i++) {
+            $plan_list .= '      <li class="ml-2">
+            <div class="relative flex items-center flex-start">
+                <div class="absolute flex items-center justify-center w-4 h-4 mt-6 bg-teal-600 rounded-full -ml-7"></div>
+                <h4 class="text-xl font-semibold text-gray-800 ">' . $this->faker->sentence(rand(3, 5), true) . '</h4>
+
+            </div>
+            <div>
+                <span class="text-sm text-teal-600 font-semilight">Day ' . $i . '</span>
+                <p class="mb-2 text-gray-700">' .  $this->faker->paragraphs(rand(1, 2), true) . '</p>
+            </div>
+        </li>';
+        }
+
+
+        $plans = ' 
+        <hr>
+        <section>
+            <h3 class="ml-1 font-extrabold text-teal-900">Plans Day by Day</h3>                     
+            <ol class="list-none border-l-2 border-teal-600">
+            ' . $plan_list . '
+            </ol>
+        </section>
+
+        ';
 
         $description .= $plans;
-
 
         return [
             'name' => $name,
@@ -131,7 +146,7 @@ class DestinationFactory extends Factory
             'description' => $description,
             'summary' => $this->faker->paragraphs(1, true),
             'price' => $this->faker->numberBetween(15, 100),
-            'total_days' => $this->faker->numberBetween(5, 25),
+            'total_days' => $total_days,
             'location' => $location,
         ];
     }

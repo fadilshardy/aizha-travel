@@ -45,6 +45,6 @@ class UsersSeeder extends Seeder
             ->toMediaCollection('avatar');
 
 
-        User::factory()->times(100)->create();
+        User::factory()->times(10)->create();
     }
 }

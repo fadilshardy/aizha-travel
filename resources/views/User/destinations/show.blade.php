@@ -109,6 +109,17 @@
                         {!! $destination->description!!}
                     </section>
 
+                    <!-- Base -->
+                    <section class="text-center ">
+                        <h3 class="pb-6 text-2xl font-bold text-teal-900">Interested?</h3>
+                        <a class="relative inline-block text-sm font-medium text-teal-600 group focus:outline-none focus:ring active:text-teal-500" href="#order-form">
+                            <span class="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-teal-600 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"></span>
+
+                            <span class="relative block px-8 py-3 text-xl font-bold bg-white border border-current">Order Now</span>
+                        </a>
+                    </section>
+
+
 
                 </div>
             </div>
@@ -134,7 +145,7 @@
 
             <!-- Popular posts -->
             <div class="w-full p-4 mt-8 rounded-sm shadow-sm ">
-                <h3 class="mb-3 text-3xl font-bold text-center text-gray-700">Related Destinations</h3>
+                <h3 class="mb-3 text-xl font-bold text-center text-gray-700">Destinations you might like</h3>
                 @include('user.destinations.partials.related_destinations')
             </div>
 

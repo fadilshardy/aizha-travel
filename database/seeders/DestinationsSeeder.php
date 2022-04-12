@@ -21,7 +21,7 @@ class DestinationsSeeder extends Seeder
      */
     public function run()
     {
-        $destinations =  Destination::factory()->times(30)->create();
+        $destinations =  Destination::factory()->times(12)->create();
 
         $users = User::where('is_admin', false)->get();
 

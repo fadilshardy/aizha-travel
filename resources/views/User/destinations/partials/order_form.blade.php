@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
 
 
-<div class="relative flex items-center justify-center h-16 text-xl font-bold text-white bg-gray-600 rounded-t-xl">
+<div class="relative flex items-center justify-center h-16 text-xl font-bold text-white bg-gray-600 rounded-t-xl" id="order-form">
     Order Now
     <div class="absolute top-0 -mt-2 right-10">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-yellow-400 fill-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
