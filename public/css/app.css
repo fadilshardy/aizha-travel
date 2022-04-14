@@ -8021,6 +8021,9 @@ select {
 .-mt-28 {
   margin-top: -7rem;
 }
+.-ml-7 {
+  margin-left: -1.75rem;
+}
 .ml-0\.5 {
   margin-left: 0.125rem;
 }
@@ -8047,36 +8050,6 @@ select {
 }
 .mt-0 {
   margin-top: 0px;
-}
-.mr-3 {
-  margin-right: 0.75rem;
-}
-.-ml-2 {
-  margin-left: -0.5rem;
-}
-.ml-6 {
-  margin-left: 1.5rem;
-}
-.-mt-4 {
-  margin-top: -1rem;
-}
-.-mt-6 {
-  margin-top: -1.5rem;
-}
-.-ml-4 {
-  margin-left: -1rem;
-}
-.-ml-6 {
-  margin-left: -1.5rem;
-}
-.-ml-8 {
-  margin-left: -2rem;
-}
-.-ml-7 {
-  margin-left: -1.75rem;
-}
-.ml-5 {
-  margin-left: 1.25rem;
 }
 .block {
   display: block;
@@ -8455,6 +8428,11 @@ select {
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -8474,11 +8452,6 @@ select {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
-}
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -8745,9 +8718,9 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
-.bg-red-100 {
+.bg-slate-50 {
   --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
@@ -8982,6 +8955,9 @@ select {
 .pb-5 {
   padding-bottom: 1.25rem;
 }
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
 .pl-8 {
   padding-left: 2rem;
 }
@@ -8990,9 +8966,6 @@ select {
 }
 .pl-12 {
   padding-left: 3rem;
-}
-.pb-6 {
-  padding-bottom: 1.5rem;
 }
 .text-left {
   text-align: left;
@@ -9054,11 +9027,11 @@ select {
 .font-light {
   font-weight: 300;
 }
-.font-normal {
-  font-weight: 400;
-}
 .font-extrabold {
   font-weight: 800;
+}
+.font-normal {
+  font-weight: 400;
 }
 .uppercase {
   text-transform: uppercase;
@@ -9212,16 +9185,11 @@ select {
   --tw-text-opacity: 1;
   color: rgb(250 204 21 / var(--tw-text-opacity));
 }
-.text-teal-700 {
-  --tw-text-opacity: 1;
-  color: rgb(15 118 110 / var(--tw-text-opacity));
-}
-.text-teal-800 {
-  --tw-text-opacity: 1;
-  color: rgb(17 94 89 / var(--tw-text-opacity));
-}
 .underline {
   text-decoration: underline;
+}
+.no-underline {
+  text-decoration: none;
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
@@ -9677,12 +9645,6 @@ html::-webkit-scrollbar-track {
 .focus\:text-gray-500:focus {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
-
-.focus\:text-teal-800:focus {
-  --tw-text-opacity: 1;
-  color: rgb(17 94 89 / var(--tw-text-opacity));
 }
 
 
@@ -10438,6 +10400,10 @@ html::-webkit-scrollbar-track {
     margin-top: 0px;
   }
 
+  .md\:ml-2 {
+    margin-left: 0.5rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -10506,6 +10472,14 @@ html::-webkit-scrollbar-track {
     flex-direction: row-reverse;
   }
 
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
   .md\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -10535,6 +10509,10 @@ html::-webkit-scrollbar-track {
 
   .md\:p-10 {
     padding: 2.5rem;
+  }
+
+  .md\:p-12 {
+    padding: 3rem;
   }
 
   .md\:px-24 {
@@ -10587,6 +10565,10 @@ html::-webkit-scrollbar-track {
 
   .md\:pt-0 {
     padding-top: 0px;
+  }
+
+  .md\:text-left {
+    text-align: left;
   }
 
   .md\:text-lg {
@@ -10738,6 +10720,10 @@ html::-webkit-scrollbar-track {
 
   .lg\:w-3\/12 {
     width: 25%;
+  }
+
+  .lg\:w-4\/12 {
+    width: 33.333333%;
   }
 
   .lg\:max-w-screen-xl {

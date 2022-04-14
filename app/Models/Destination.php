@@ -91,6 +91,11 @@ class Destination extends Model implements HasMedia
         return $this->reviews()->paginate(5);
     }
 
+    public function getMostPopularDestinations($total = 10)
+    {
+        return $this->withCount('orders')->orderBy('orders_count', 'desc')->paginate($total);
+    }
+
 
 
     public function registerMediaCollections(): void

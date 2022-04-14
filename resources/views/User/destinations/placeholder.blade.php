@@ -108,22 +108,49 @@
                     <section class="w-full p-4 pt-2 mx-auto prose text-gray-600 md:prose-lg max-w-none">
                         {!! $destination->description!!}
 
+                        <section>
+                            <h3 class="ml-1 font-extrabold text-teal-900">Plans Day by Day</h3>
+                            <ol class="list-none border-l-2 border-teal-600">
+                                <li class="ml-2">
+                                    <div class="relative flex items-center flex-start">
+                                        <div class="absolute flex items-center justify-center w-4 h-4 mt-6 bg-teal-600 rounded-full -ml-7"></div>
+                                        <h4 class="text-xl font-semibold text-gray-800 ">' . $this->faker->sentence(rand(3, 5), true) . '</h4>
+
+                                    </div>
+                                    <div>
+                                        <span class="text-sm text-teal-600 font-semilight">Day ' . $i . '</span>
+                                        <p class="mb-2 text-gray-700">' . $this->faker->paragraphs(rand(1, 2), true) . '</p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </section>
+                        <hr>
+                        <section class="pb-2">
+                            <h3 class="ml-1 font-extrabold text-teal-900">Gallery</h3>
+
+                            <div class="flex flex-row w-full space-x-2">
+                                <div class="w-1/2 overflow-hidden rounded-lg">
+                                    <img alt="' . $name . '" class="w-full transition-all duration-500 ease-in-out transform bg-cover hover:scale-125" src="https://images.unsplash.com/photo-1626184331523-f16d9e6b1e2c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8S29yZWEsbGFuZHNjYXBlLGFyY2hpdGVjdHVyZXx8fHx8fDE2NDk4MDIwODY&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600">
+                                </div>
+                                <div class="w-1/2 overflow-hidden rounded-lg">
+                                    <img "' . $name . '" class="w-full transition-all duration-500 ease-in-out transform bg-cover hover:scale-125" src="https://images.unsplash.com/photo-1626184331523-f16d9e6b1e2c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8S29yZWEsbGFuZHNjYXBlLGFyY2hpdGVjdHVyZXx8fHx8fDE2NDk4MDIwODY&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600">
+                                </div>
+                            </div>
+                        </section>
+
                         <hr>
 
+                        <!-- Base -->
+                        <div class="text-center ">
+                            <h3 class="pb-6 text-2xl font-bold text-teal-900">Interested?</h3>
+                            <a class="relative inline-block text-sm font-medium text-teal-600 no-underline group focus:outline-none focus:ring active:text-teal-500" href="#order-form">
+                                <span class="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-teal-600 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"></span>
+
+                                <span class="relative block px-8 py-3 text-xl font-bold bg-white border border-current">Order Now</span>
+                            </a>
+                        </div>
+
                     </section>
-
-
-                    <!-- Order form -->
-                    <section class="text-center ">
-                        <h3 class="pb-6 text-2xl font-bold text-teal-900">Interested?</h3>
-                        <a class="relative inline-block text-sm font-medium text-teal-600 group focus:outline-none focus:ring active:text-teal-500" href="#order-form">
-                            <span class="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-teal-600 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"></span>
-
-                            <span class="relative block px-8 py-3 text-xl font-bold bg-white border border-current">Order Now</span>
-                        </a>
-                    </section>
-
-
 
                 </div>
             </div>
@@ -150,20 +177,9 @@
 
 
             <!-- Popular posts -->
-            <div class="w-full px-4 py-6 mt-4 bg-white rounded-lg shadow-sm">
-                <h3 class="mb-3 text-2xl font-bold text-center text-gray-700">Top Destinations</h3>
-                @foreach ($destination->getMostPopularDestinations(3) as $destination_card)
-                @include('user.destinations.partials.destination_card')
-                @endforeach
-            </div>
-
-            <div class="w-full px-4 py-6 mt-4 bg-white rounded-lg shadow-sm">
-                <h3 class="mb-3 text-2xl font-bold text-center text-gray-700">Destinations you might like</h3>
-                <div class="flex flex-col gap-6">
-                    @foreach ($destination->similiar_destinations() as $destination_card)
-                    @include('user.destinations.partials.destination_card')
-                    @endforeach
-                </div>
+            <div class="w-full p-4 mt-8 rounded-sm shadow-sm ">
+                <h3 class="mb-3 text-xl font-bold text-center text-gray-700">Destinations you might like</h3>
+                @include('user.destinations.partials.related_destinations')
             </div>
 
             <!-- tag -->
@@ -173,8 +189,6 @@
                 @include('user.destinations.partials.tags')
 
             </div>
-
-
         </div>
 
     </div>
