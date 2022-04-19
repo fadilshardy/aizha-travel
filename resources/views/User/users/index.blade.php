@@ -6,7 +6,7 @@
  <div class="w-full pt-8 overflow-hidden rounded-lg shadow-xs">
 
      <div class="w-full overflow-auto xl:overflow-hidden">
-         @include('users.partials.table')
+         @include('user.users.partials.table')
 
      </div>
      <div class="flex py-3 mb-8 bg-gray-50">

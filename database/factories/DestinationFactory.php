@@ -138,7 +138,22 @@ class DestinationFactory extends Factory
 
         ';
 
+        $video = '
+        <hr>
+
+
+        <h3 class="ml-1 font-extrabold text-teal-900">Video</h3>
+
+        <div class="flex justify-center w-full h-screen py-8">
+            <iframe class="w-5/6 h-full border-2 border-teal-500 " src="https://www.youtube.com/embed/teLKdgOOlhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        ';
+
+
+
         $description .= $plans;
+
+        $description .= $video;
 
         return [
             'name' => $name,

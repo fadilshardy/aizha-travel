@@ -23,10 +23,11 @@ class OrderController extends Controller
     }
 
 
-
-
     public function orderStatus(Order $order)
     {
+
+        // dd($order->status);
+
         if ($order->status === 'pending') {
             $status = 'paid';
         } else {
@@ -37,6 +38,16 @@ class OrderController extends Controller
             'status' => $status
         ]);
 
+
         return back();
+    }
+
+    public function destroy(Order $order)
+    {
+        $order->delete();
+
+        toast('Order has been successfully deleted', 'success');
+
+        return redirect(route('order.index'));
     }
 }

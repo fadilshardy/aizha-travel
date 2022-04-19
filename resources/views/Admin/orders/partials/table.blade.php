@@ -93,7 +93,7 @@
                      </td>
                      <td>
                          <div class="flex items-center justify-center">
-                             <form action="{{route('order.updateStatus', $order->id)}}" method="POST" class="hover:text-teal-500 d-inline-block">
+                             <form action="{{route('order.updateStatus', $order->invoice_id)}}" method="POST" class="hover:text-teal-500 d-inline-block">
                                  @csrf
                                  @method('post')
                                  <input type="checkbox" name="categories1" value="1" onclick=" confirm('Are you sure?'); this.form.submit();" {{ $order->status === "paid" ? "checked" : "" }}>
@@ -111,7 +111,7 @@
                                  </svg>
                              </a>
 
-                             <form action="#" method="POST" class="hover:text-teal-500 d-inline-block">
+                             <form action="{{route('order.destroy', $order->invoice_id)}}" method="POST" class="hover:text-teal-500 d-inline-block">
                                  @csrf
                                  @method('DELETE')
                                  <button class="w-5 h-5 sm:w-6 sm:h-6" onclick="return confirm('Are you sure?');">

@@ -1,4 +1,6 @@
 @extends('layouts.app')
+
+@section('title', $destination->name)
 @include('layouts.header')
 @section('content')
 
@@ -106,6 +108,7 @@
 
 
                     <section class="w-full p-4 pt-2 mx-auto prose text-gray-600 md:prose-lg max-w-none">
+
                         {!! $destination->description!!}
 
                         <hr>
@@ -152,9 +155,13 @@
             <!-- Popular posts -->
             <div class="w-full px-4 py-6 mt-4 bg-white rounded-lg shadow-sm">
                 <h3 class="mb-3 text-2xl font-bold text-center text-gray-700">Top Destinations</h3>
-                @foreach ($destination->getMostPopularDestinations(3) as $destination_card)
-                @include('user.destinations.partials.destination_card')
-                @endforeach
+                <div class="flex flex-col gap-6">
+
+                    @foreach ($destination->getMostPopularDestinations(3) as $destination_card)
+                    @include('user.destinations.partials.destination_card')
+                    @endforeach
+                </div>
+
             </div>
 
             <div class="w-full px-4 py-6 mt-4 bg-white rounded-lg shadow-sm">

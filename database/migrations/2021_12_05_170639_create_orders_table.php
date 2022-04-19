@@ -29,7 +29,7 @@ class CreateOrdersTable extends Migration
             $table->string('invoice_id');
             $table->integer('total_amount');
             $table->integer('total_days');
-            $table->string('status')->default('pending');
+            $table->string('status')->default('unpaid');
             $table->text('note')->nullable();
             $table->timestamps();
         });

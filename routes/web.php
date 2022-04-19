@@ -75,6 +75,8 @@ Route::group(['prefix' => 'order', 'middleware' => 'auth'], function () {
     Route::get('/{order}', [UserOrderController::class, 'show'])->name('user.order.show');
 
     Route::post('order', [UserOrderController::class, 'store'])->name('user.order.store');
+
+    Route::post('/{order}/payment', [UserOrderController::class, 'payment'])->name('user.order.payment');
 });
 
 
@@ -92,12 +94,16 @@ Route::group(['prefix' => 'user',  'middleware' => 'auth'], function () {
 */
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
+    Route::post('order/{order}/status', [OrderController::class, 'orderStatus'])->name('order.updateStatus');
+
     Route::get('orders', [OrderController::class, 'index'])->name('order.index');
+
+    Route::delete('order/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
+
 
     Route::get('users', [AdminUserController::class, 'index'])->name('user.index');
 
 
-    Route::post('order/{order}/status', [OrderController::class, 'orderStatus'])->name('order.updateStatus');
 
 
     Route::get('destination/{destination}/image/{image_id}', [DestinationController::class, 'deleteImage']);

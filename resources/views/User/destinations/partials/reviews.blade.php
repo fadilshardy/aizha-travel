@@ -9,7 +9,8 @@
 
                 <div class="ml-4">
                     <div class="flex -ml-1">
-                        @for ($i = 1; $i <= 5; $i++) <i class="fas fa-star {{ ($i <= $destination->getAvgRating() ) ? "text-yellow-400" : 'text-gray-400';}}"></i> @endfor
+                        @for ($i = 1; $i <= 5; $i++) <i class="fas fa-star {{ ($i <= round($destination->getAvgRating()) ) ? "text-yellow-400" : 'text-gray-400';}}"></i>
+                            @endfor
 
                     </div>
 
