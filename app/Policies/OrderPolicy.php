@@ -17,15 +17,15 @@ class OrderPolicy
     }
 
 
-    public function view(User $user, Order $order)
+    public function updateStatus(User $user)
     {
-        //
+        return $user->is_admin;
     }
 
 
-    public function create(User $user)
+    public function view(User $user, Order $order)
     {
-        //
+        return $user->id === $order->user_id;
     }
 
 
@@ -37,6 +37,6 @@ class OrderPolicy
 
     public function delete(User $user, Order $order)
     {
-        return $user->id === $order->user_id;
+        return $user->is_admin;
     }
 }

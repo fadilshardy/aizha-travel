@@ -65,10 +65,19 @@
                      <td>
                          <span class="flex justify-center">
 
-                             <strong class="inline-block px-3 py-1 text-xs font-semibold rounded-sm
-                             {{ $order->status === "pending" ? "text-yellow-600 bg-yellow-100" : "text-green-600 bg-green-100" }}">
-                                 {{$order->status}}
-                             </strong>
+
+                             @if($order->status === "pending")
+                             <strong class="inline-block px-3 py-1 text-xs font-semibold text-yellow-600 bg-yellow-100 rounded-sm ">
+
+                                 @elseif($order->status === "paid")
+                                 <strong class="inline-block px-3 py-1 text-xs font-semibold text-green-600 bg-green-100 rounded-sm ">
+
+                                     @else
+                                     <strong class="inline-block px-3 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-sm ">
+
+                                         @endif
+                                         {{$order->status}}
+                                     </strong>
 
 
                          </span>

@@ -53,6 +53,29 @@ Route::get('/destinations/tags/{tag}', [UserDestinationController::class, 'tag']
 
 Route::get('/destination/{destination}', [UserDestinationController::class, 'show'])->name('user.destination.show');
 
+
+Route::group(['prefix' => 'checkout',  'middleware' => 'auth'], function () {
+
+    Route::post('redirect', [CheckoutController::class, 'redirectToCheckout'])->name('user.checkout.redirect');
+
+    Route::get('/', [CheckoutController::class, 'show'])->name('user.checkout.show');
+});
+
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
+
+    Route::get('/orders', [UserOrderController::class, 'index'])->name('user.order.index');
+
+
+    Route::group(['prefix' => 'order'], function () {
+
+        Route::get('/{order}', [UserOrderController::class, 'show'])->name('user.order.show');
+
+        Route::post('order', [UserOrderController::class, 'store'])->name('user.order.store');
+
+        Route::post('/{order}/payment', [UserOrderController::class, 'payment'])->name('user.order.payment');
+    });
+});
+
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('user/dashboard', UserDashboardController::class)->name('user.dashboard.index');
@@ -63,21 +86,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', UserController::class)->except('index');
 });
 
-Route::group(['prefix' => 'checkout',  'middleware' => 'auth'], function () {
-
-    Route::post('redirect', [CheckoutController::class, 'redirectToCheckout'])->name('user.checkout.redirect');
-
-    Route::get('/', [CheckoutController::class, 'show'])->name('user.checkout.show');
-});
-
-Route::group(['prefix' => 'order', 'middleware' => 'auth'], function () {
-
-    Route::get('/{order}', [UserOrderController::class, 'show'])->name('user.order.show');
-
-    Route::post('order', [UserOrderController::class, 'store'])->name('user.order.store');
-
-    Route::post('/{order}/payment', [UserOrderController::class, 'payment'])->name('user.order.payment');
-});
 
 
 Route::group(['prefix' => 'user',  'middleware' => 'auth'], function () {

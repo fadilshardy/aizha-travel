@@ -19,7 +19,7 @@ class DashboardController extends Controller
             abort(403);
         }
 
-        $orders = Order::orderBy('id', 'desc')->paginate(10);
+        $orders = Order::orderBy('updated_at', 'desc')->paginate(10);
         $userCount = User::all()->count();
         $totalOrderAmount = Order::sum('total_amount');
         $newOrderCount = Order::where('created_at', '>=', Carbon::now()->subdays(30))->count();

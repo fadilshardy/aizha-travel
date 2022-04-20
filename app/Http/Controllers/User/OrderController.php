@@ -8,6 +8,7 @@ use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\StoreRecieptRequest;
 use App\Services\OrderService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -15,6 +16,17 @@ class OrderController extends Controller
     public function __construct(OrderService $orderService)
     {
         $this->orderService = $orderService;
+    }
+
+    public function index()
+    {
+
+        $userId = Auth::id();
+
+        $orders = Order::where('user_id', $userId)->orderBy('id', 'desc')->paginate(10);
+
+
+        return view('user.orders.index', compact('orders'));
     }
 
     public function show(Order $order)
@@ -42,7 +54,7 @@ class OrderController extends Controller
         ]);
 
 
-        toast('Your reciept has been successfully saved, wait for admin to confirm your order', 'success');
+        toast('Your reciept has been successfully saved, wait for admin to confirm your payment', 'success');
 
         return redirect()->route('user.order.show', $order->invoice_id);
     }

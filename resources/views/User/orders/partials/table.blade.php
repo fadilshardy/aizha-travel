@@ -3,10 +3,10 @@
                  <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                      <th class="py-3 lg:block">
                          <div class="flex flex-row items-center justify-center gap-1 py-3">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                              </svg>
-                             User
+                             Date
                          </div>
                      </th>
                      <th class="px-4 py-3">
@@ -33,15 +33,6 @@
                              Status
                          </div>
                      </th>
-
-                     <th class="px-4 py-3">
-                         <div class="flex flex-row items-center justify-center gap-1">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-                             </svg>
-                             is_paid
-                         </div>
-                     </th>
                      <th class="px-4 py-3">
                          <div class="flex flex-row items-center justify-center gap-1">
                              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -59,24 +50,26 @@
                      <td class="flex w-full py-3 lg:block sm:py-4">
                          <div class="flex flex-row gap-1 ">
                              <div class="flex items-center w-full px-4 space-x-4">
-                                 <img class="hidden object-cover w-8 h-8 rounded-full md:block" src="{{$order->user->getThumbnailUrl()}}" alt="{{$order->user->name}}" />
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                 </svg>
                                  <div class="flex-1 min-w-0">
-                                     <p class="font-medium text-gray-900 truncate dark:text-white">{{$order->user->name}}</p>
-                                     <p class="text-gray-500 truncate dark:text-gray-400">{{$order->user->email}}</p>
+                                     <p class="font-medium text-gray-900 truncate dark:text-white"><span class="text-xs font-light text-gray-500 truncate dark:text-gray-400"">Arrival Time : </span>{{$order->start_date->format('d F Y')}}</p>
+                                      <p class="font-medium text-gray-900 truncate  dark:text-white"><span class="text-xs font-light text-gray-500 truncate dark:text-gray-400"">Departure  Time : </span>{{$order->end_date->format('d F Y')}}</p>
                                  </div>
                              </div>
                      </td>
                      <td>
-                         <div class="flex flex-row items-center justify-center gap-1">
-                             <div class="font-medium text-center text-green-500 ">${{$order->total_amount}}</div>
-                         </div>
+                         <div class="flex flex-row items-center justify-center gap-1 ">
+                                                 <div class="font-medium text-center text-green-500 ">${{$order->total_amount}}</div>
+                                 </div>
                      </td>
 
-                     <td class="px-6 py-4 whitespace-nowrap">
-                         <div class="flex flex-col justify-center">
-                             <div class="text-gray-900 "> <a href="{{route('user.order.show', $order->invoice_id)}}">{{$order->destination->name}}</div>
-                             <div class="text-gray-500">{{$order->destination->location}}</div>
-                         </div>
+                     <td class="px-6 py-4  whitespace-nowrap">
+                                                 <div class="flex flex-col justify-center">
+                                                     <div class="text-gray-900 "> <a href="{{route('user.order.show', $order->invoice_id)}}">{{$order->destination->name}}</div>
+                                                     <div class="text-gray-500">{{$order->destination->location}}</div>
+                                                 </div>
 
                      </td>
 
@@ -98,17 +91,7 @@
 
                          </span>
                      </td>
-                     <td>
-                         <div class="flex items-center justify-center">
-                             <form action="{{route('order.updateStatus', $order->invoice_id)}}" method="POST" class="hover:text-teal-500 d-inline-block">
-                                 @csrf
-                                 @method('post')
-                                 <input type="checkbox" name="categories1" value="1" onclick=" confirm('Are you sure?'); this.form.submit();" {{ $order->status === "paid" ? "checked" : "" }}>
-                             </form>
 
-                         </div>
-
-                     </td>
                      <td>
                          <div class="flex flex-row items-baseline justify-center gap-2 pt-2 text-gray-400">
                              <a href="{{route('user.order.show', $order->invoice_id)}}" class="hover:text-teal-500">
@@ -117,16 +100,6 @@
                                      <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
                                  </svg>
                              </a>
-
-                             <form action="{{route('order.destroy', $order->invoice_id)}}" method="POST" class="hover:text-teal-500 d-inline-block">
-                                 @csrf
-                                 @method('DELETE')
-                                 <button class="w-5 h-5 sm:w-6 sm:h-6" onclick="return confirm('Are you sure?');">
-                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full " fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-5a1 1 0 00-1 1v3M4 7h16" />
-                                     </svg>
-                                 </button>
-                             </form>
                          </div>
 
                      </td>

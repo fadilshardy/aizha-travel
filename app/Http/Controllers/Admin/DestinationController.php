@@ -95,6 +95,8 @@ class DestinationController extends Controller
 
     public function destroy(Destination $destination)
     {
+        $this->authorize('delete', Destination::class);
+
         $destination->delete();
 
         toast('Destination has been successfully deleted', 'success');
@@ -104,6 +106,9 @@ class DestinationController extends Controller
 
     public function deleteImage(Destination $destination, $image_id)
     {
+        $this->authorize('delete', Destination::class);
+
+
         $destination->deleteMedia($image_id);
 
         return view('admin.destinations.show', compact('destination'));
@@ -112,6 +117,8 @@ class DestinationController extends Controller
 
     public function uploadImage(Request $request)
     {
+        $this->authorize('store', Destination::class);
+
 
         if ($request->hasFile('upload')) {
             //get filename with extension

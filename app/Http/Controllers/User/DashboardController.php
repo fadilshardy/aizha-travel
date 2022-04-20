@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -21,17 +22,23 @@ class DashboardController extends Controller
     public function __invoke()
     {
 
-        $orders = Order::orderBy('id', 'desc')->paginate(10);
-        $userCount = User::all()->count();
-        $totalOrderAmount = Order::sum('total_amount');
-        $newOrderCount = Order::where('created_at', '>=', Carbon::now()->subdays(30))->count();
-        $totalPendingOrderAmount = Order::where('status', 'pending')->count();
+        $userId = Auth::id();
+
+        $orders = Order::where('user_id', $userId)->orderBy('id', 'desc')->paginate(10);
+
+        $orderCount = Order::where('user_id', $userId)->count();
+
+
+        $totalOrderAmount = Order::where('user_id', $userId)->sum('total_amount');
+
+        $paidOrderCount = Order::where('user_id', $userId)->where('status', 'paid')->count();
+        $totalPendingOrderAmount = Order::where('user_id', $userId)->where('status', 'pending')->count();
 
         return view('user.dashboard.index', [
             'orders' => $orders,
-            'userCount' => $userCount,
+            'orderCount' => $orderCount,
             'totalOrderAmount' => $totalOrderAmount,
-            'newOrderCount' => $newOrderCount,
+            'paidOrderCount' => $paidOrderCount,
             'totalPendingOrderAmount' => $totalPendingOrderAmount,
         ]);
     }

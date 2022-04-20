@@ -14,7 +14,7 @@ class OrderController extends Controller
 
         $this->authorize('viewAny', Order::class);
 
-        $orders = Order::orderBy('id', 'desc')->paginate(10);
+        $orders = Order::orderBy('updated_at', 'desc')->paginate(10);
 
 
         return view('admin.orders.index', [
@@ -26,7 +26,7 @@ class OrderController extends Controller
     public function orderStatus(Order $order)
     {
 
-        // dd($order->status);
+        $this->authorize('updateStatus', Order::class);
 
         if ($order->status === 'pending') {
             $status = 'paid';
