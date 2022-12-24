@@ -52,7 +52,7 @@ these are basic functionalities I had in my mind for the project:
 </details>
 <details>
   <summary>Admin CMS</summary>
-  <img src="https://cdn-images-1.medium.com/max/800/1*47inIOb33KsTtAOW3MbvFQ.gif" alt="admin update status of an order">
+  <img src="https://miro.medium.com/max/720/1*PJDucRCMQMjZckrt2faqlA.gif" alt="admin update status of an order">
 </details>
 
 ## What to be improved from this project (roadmap)
@@ -67,7 +67,7 @@ these are basic functionalities I had in my mind for the project:
 
 ## Prerequisites
 What things you need to install the software and how to install them:
-- PHP 7.2^
+- PHP
 - Composer
 - MySQL
 - NPM
